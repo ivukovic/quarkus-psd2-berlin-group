@@ -2,6 +2,7 @@ package hr.igvu.psd2.berlin.api.rersources.impl;
 
 import java.util.UUID;
 
+import javax.inject.Inject;
 import javax.validation.Valid;
 
 import hr.igvu.psd2.berlin.api.model.Authorisations;
@@ -14,9 +15,13 @@ import hr.igvu.psd2.berlin.api.model.SigningBasketResponse201;
 import hr.igvu.psd2.berlin.api.model.SigningBasketStatusResponse200;
 import hr.igvu.psd2.berlin.api.model.StartScaprocessResponse;
 import hr.igvu.psd2.berlin.api.rersources.SigningBasketsSbsApi;
+import hr.igvu.psd2.srvc.ICofSrvc;
 
 public class SigningBasketsSbsApiImpl implements SigningBasketsSbsApi{
 
+	@Inject
+	ICofSrvc srvc;
+	
 	@Override
 	public SigningBasketResponse201 createSigningBasket(UUID xRequestID, String psUIPAddress, @Valid SigningBasket body, String digest, String signature, byte[] tpPSignatureCertificate, String PSU_ID, String psUIDType, String psUCorporateID, String psUCorporateIDType, String consentID, Boolean tpPRedirectPreferred, String tpPRedirectURI, String tpPNokRedirectURI,
 			Boolean tpPExplicitAuthorisationPreferred, String tpPNotificationURI, String tpPNotificationContentPreferred, String psUIPPort, String psUAccept, String psUAcceptCharset, String psUAcceptEncoding, String psUAcceptLanguage, String psUUserAgent, String psUHttpMethod, UUID psUDeviceID, String psUGeoLocation) {

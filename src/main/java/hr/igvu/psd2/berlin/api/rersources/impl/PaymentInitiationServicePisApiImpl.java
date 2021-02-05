@@ -2,6 +2,7 @@ package hr.igvu.psd2.berlin.api.rersources.impl;
 
 import java.util.UUID;
 
+import javax.inject.Inject;
 import javax.validation.Valid;
 
 import hr.igvu.psd2.berlin.api.model.Authorisations;
@@ -13,9 +14,14 @@ import hr.igvu.psd2.berlin.api.model.PaymentInitiationStatusResponse200Json;
 import hr.igvu.psd2.berlin.api.model.ScaStatusResponse;
 import hr.igvu.psd2.berlin.api.model.StartScaprocessResponse;
 import hr.igvu.psd2.berlin.api.rersources.PaymentInitiationServicePisApi;
+import hr.igvu.psd2.srvc.ICofSrvc;
+import hr.igvu.psd2.srvc.IPaymentSrvc;
 
 public class PaymentInitiationServicePisApiImpl implements PaymentInitiationServicePisApi {
 
+	@Inject
+	IPaymentSrvc srvc;
+	
 	@Override
 	public PaymentInitiationCancelResponse202 cancelPayment(String paymentService, String paymentProduct, String paymentId, UUID xRequestID, String digest, String signature, byte[] tpPSignatureCertificate, Boolean tpPRedirectPreferred, String tpPNokRedirectURI, String tpPRedirectURI, Boolean tpPExplicitAuthorisationPreferred, String psUIPAddress, String psUIPPort, String psUAccept,
 			String psUAcceptCharset, String psUAcceptEncoding, String psUAcceptLanguage, String psUUserAgent, String psUHttpMethod, UUID psUDeviceID, String psUGeoLocation) {
