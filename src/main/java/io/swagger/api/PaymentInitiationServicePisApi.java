@@ -424,51 +424,51 @@ public interface PaymentInitiationServicePisApi {
 	 * link.
 	 *
 	 */
-	@POST
-	@Path("/v1/{payment-service}/{payment-product}")
-	@Consumes({ "application/json", "application/xml", "multipart/form-data" })
-	@Produces({ "application/json", "application/problem+json" })
-	@Operation(summary = "Payment initiation request")
-	@Tags(value = { @Tag(name = "Payment Initiation Service (PIS)") })
-	@APIResponses(value = {
-			@APIResponse(responseCode = "201", description = "CREATED", content = @Content(schema = @Schema(implementation = PaymentInitationRequestResponse201.class))),
-			@APIResponse(responseCode = "400", description = "Bad Request", content = @Content(schema = @Schema(implementation = Error400NGPIS.class))),
-			@APIResponse(responseCode = "401", description = "Unauthorized", content = @Content(schema = @Schema(implementation = Error401NGPIS.class))),
-			@APIResponse(responseCode = "403", description = "Forbidden", content = @Content(schema = @Schema(implementation = Error403NGPIS.class))),
-			@APIResponse(responseCode = "404", description = "Not found", content = @Content(schema = @Schema(implementation = Error404NGPIS.class))),
-			@APIResponse(responseCode = "405", description = "Method Not Allowed", content = @Content(schema = @Schema(implementation = Error405NGPIS.class))),
-			@APIResponse(responseCode = "406", description = "Not Acceptable"),
-			@APIResponse(responseCode = "408", description = "Request Timeout"),
-			@APIResponse(responseCode = "409", description = "Conflict", content = @Content(schema = @Schema(implementation = Error409NGPIS.class))),
-			@APIResponse(responseCode = "415", description = "Unsupported Media Type"),
-			@APIResponse(responseCode = "429", description = "Too Many Requests"),
-			@APIResponse(responseCode = "500", description = "Internal Server Error"),
-			@APIResponse(responseCode = "503", description = "Service Unavailable") })
-	public PaymentInitationRequestResponse201 initiatePayment(@Valid Object body,
-			@Multipart(value = "xml_sct") Object xmlSct,
-			@Multipart(value = "json_standingorderType") PeriodicPaymentInitiationXmlPart2StandingorderTypeJson jsonStandingorderType,
-			@HeaderParam("X-Request-ID") UUID xRequestID, @HeaderParam("PSU-IP-Address") String psUIPAddress,
-			@PathParam("payment-service") String paymentService, @PathParam("payment-product") String paymentProduct,
-			@HeaderParam("Digest") String digest, @HeaderParam("Signature") String signature,
-			@HeaderParam("TPP-Signature-Certificate") byte[] tpPSignatureCertificate,
-			@HeaderParam("PSU-ID") String PSU_ID, @HeaderParam("PSU-ID-Type") String psUIDType,
-			@HeaderParam("PSU-Corporate-ID") String psUCorporateID,
-			@HeaderParam("PSU-Corporate-ID-Type") String psUCorporateIDType,
-			@HeaderParam("Consent-ID") String consentID,
-			@HeaderParam("TPP-Redirect-Preferred") Boolean tpPRedirectPreferred,
-			@HeaderParam("TPP-Redirect-URI") String tpPRedirectURI,
-			@HeaderParam("TPP-Nok-Redirect-URI") String tpPNokRedirectURI,
-			@HeaderParam("TPP-Explicit-Authorisation-Preferred") Boolean tpPExplicitAuthorisationPreferred,
-			@HeaderParam("TPP-Rejection-NoFunds-Preferred") Boolean tpPRejectionNoFundsPreferred,
-			@HeaderParam("TPP-Brand-Logging-Information") String tpPBrandLoggingInformation,
-			@HeaderParam("TPP-Notification-URI") String tpPNotificationURI,
-			@HeaderParam("TPP-Notification-Content-Preferred") String tpPNotificationContentPreferred,
-			@HeaderParam("PSU-IP-Port") String psUIPPort, @HeaderParam("PSU-Accept") String psUAccept,
-			@HeaderParam("PSU-Accept-Charset") String psUAcceptCharset,
-			@HeaderParam("PSU-Accept-Encoding") String psUAcceptEncoding,
-			@HeaderParam("PSU-Accept-Language") String psUAcceptLanguage,
-			@HeaderParam("PSU-User-Agent") String psUUserAgent, @HeaderParam("PSU-Http-Method") String psUHttpMethod,
-			@HeaderParam("PSU-Device-ID") UUID psUDeviceID, @HeaderParam("PSU-Geo-Location") String psUGeoLocation);
+//	@POST
+//	@Path("/v1/{payment-service}/{payment-product}")
+//	@Consumes({ "application/json", "application/xml", "multipart/form-data" })
+//	@Produces({ "application/json", "application/problem+json" })
+//	@Operation(summary = "Payment initiation request")
+//	@Tags(value = { @Tag(name = "Payment Initiation Service (PIS)") })
+//	@APIResponses(value = {
+//			@APIResponse(responseCode = "201", description = "CREATED", content = @Content(schema = @Schema(implementation = PaymentInitationRequestResponse201.class))),
+//			@APIResponse(responseCode = "400", description = "Bad Request", content = @Content(schema = @Schema(implementation = Error400NGPIS.class))),
+//			@APIResponse(responseCode = "401", description = "Unauthorized", content = @Content(schema = @Schema(implementation = Error401NGPIS.class))),
+//			@APIResponse(responseCode = "403", description = "Forbidden", content = @Content(schema = @Schema(implementation = Error403NGPIS.class))),
+//			@APIResponse(responseCode = "404", description = "Not found", content = @Content(schema = @Schema(implementation = Error404NGPIS.class))),
+//			@APIResponse(responseCode = "405", description = "Method Not Allowed", content = @Content(schema = @Schema(implementation = Error405NGPIS.class))),
+//			@APIResponse(responseCode = "406", description = "Not Acceptable"),
+//			@APIResponse(responseCode = "408", description = "Request Timeout"),
+//			@APIResponse(responseCode = "409", description = "Conflict", content = @Content(schema = @Schema(implementation = Error409NGPIS.class))),
+//			@APIResponse(responseCode = "415", description = "Unsupported Media Type"),
+//			@APIResponse(responseCode = "429", description = "Too Many Requests"),
+//			@APIResponse(responseCode = "500", description = "Internal Server Error"),
+//			@APIResponse(responseCode = "503", description = "Service Unavailable") })
+//	public PaymentInitationRequestResponse201 initiatePayment(@Valid Object body,
+//			@Multipart(value = "xml_sct") Object xmlSct,
+//			@Multipart(value = "json_standingorderType") PeriodicPaymentInitiationXmlPart2StandingorderTypeJson jsonStandingorderType,
+//			@HeaderParam("X-Request-ID") UUID xRequestID, @HeaderParam("PSU-IP-Address") String psUIPAddress,
+//			@PathParam("payment-service") String paymentService, @PathParam("payment-product") String paymentProduct,
+//			@HeaderParam("Digest") String digest, @HeaderParam("Signature") String signature,
+//			@HeaderParam("TPP-Signature-Certificate") byte[] tpPSignatureCertificate,
+//			@HeaderParam("PSU-ID") String PSU_ID, @HeaderParam("PSU-ID-Type") String psUIDType,
+//			@HeaderParam("PSU-Corporate-ID") String psUCorporateID,
+//			@HeaderParam("PSU-Corporate-ID-Type") String psUCorporateIDType,
+//			@HeaderParam("Consent-ID") String consentID,
+//			@HeaderParam("TPP-Redirect-Preferred") Boolean tpPRedirectPreferred,
+//			@HeaderParam("TPP-Redirect-URI") String tpPRedirectURI,
+//			@HeaderParam("TPP-Nok-Redirect-URI") String tpPNokRedirectURI,
+//			@HeaderParam("TPP-Explicit-Authorisation-Preferred") Boolean tpPExplicitAuthorisationPreferred,
+//			@HeaderParam("TPP-Rejection-NoFunds-Preferred") Boolean tpPRejectionNoFundsPreferred,
+//			@HeaderParam("TPP-Brand-Logging-Information") String tpPBrandLoggingInformation,
+//			@HeaderParam("TPP-Notification-URI") String tpPNotificationURI,
+//			@HeaderParam("TPP-Notification-Content-Preferred") String tpPNotificationContentPreferred,
+//			@HeaderParam("PSU-IP-Port") String psUIPPort, @HeaderParam("PSU-Accept") String psUAccept,
+//			@HeaderParam("PSU-Accept-Charset") String psUAcceptCharset,
+//			@HeaderParam("PSU-Accept-Encoding") String psUAcceptEncoding,
+//			@HeaderParam("PSU-Accept-Language") String psUAcceptLanguage,
+//			@HeaderParam("PSU-User-Agent") String psUUserAgent, @HeaderParam("PSU-Http-Method") String psUHttpMethod,
+//			@HeaderParam("PSU-Device-ID") UUID psUDeviceID, @HeaderParam("PSU-Geo-Location") String psUGeoLocation);
 
 	/**
 	 * Payment initiation request
@@ -511,51 +511,51 @@ public interface PaymentInitiationServicePisApi {
 	 * link.
 	 *
 	 */
-	@POST
-	@Path("/v1/{payment-service}/{payment-product}")
-	@Consumes({ "application/json", "application/xml", "multipart/form-data" })
-	@Produces({ "application/json", "application/problem+json" })
-	@Operation(summary = "Payment initiation request")
-	@Tags(value = { @Tag(name = "Payment Initiation Service (PIS)") })
-	@APIResponses(value = {
-			@APIResponse(responseCode = "201", description = "CREATED", content = @Content(schema = @Schema(implementation = PaymentInitationRequestResponse201.class))),
-			@APIResponse(responseCode = "400", description = "Bad Request", content = @Content(schema = @Schema(implementation = Error400NGPIS.class))),
-			@APIResponse(responseCode = "401", description = "Unauthorized", content = @Content(schema = @Schema(implementation = Error401NGPIS.class))),
-			@APIResponse(responseCode = "403", description = "Forbidden", content = @Content(schema = @Schema(implementation = Error403NGPIS.class))),
-			@APIResponse(responseCode = "404", description = "Not found", content = @Content(schema = @Schema(implementation = Error404NGPIS.class))),
-			@APIResponse(responseCode = "405", description = "Method Not Allowed", content = @Content(schema = @Schema(implementation = Error405NGPIS.class))),
-			@APIResponse(responseCode = "406", description = "Not Acceptable"),
-			@APIResponse(responseCode = "408", description = "Request Timeout"),
-			@APIResponse(responseCode = "409", description = "Conflict", content = @Content(schema = @Schema(implementation = Error409NGPIS.class))),
-			@APIResponse(responseCode = "415", description = "Unsupported Media Type"),
-			@APIResponse(responseCode = "429", description = "Too Many Requests"),
-			@APIResponse(responseCode = "500", description = "Internal Server Error"),
-			@APIResponse(responseCode = "503", description = "Service Unavailable") })
-	public PaymentInitationRequestResponse201 initiatePayment(@Valid Object body,
-			@Multipart(value = "xml_sct") Object xmlSct,
-			@Multipart(value = "json_standingorderType") PeriodicPaymentInitiationXmlPart2StandingorderTypeJson jsonStandingorderType,
-			@HeaderParam("X-Request-ID") UUID xRequestID, @HeaderParam("PSU-IP-Address") String psUIPAddress,
-			@PathParam("payment-service") String paymentService, @PathParam("payment-product") String paymentProduct,
-			@HeaderParam("Digest") String digest, @HeaderParam("Signature") String signature,
-			@HeaderParam("TPP-Signature-Certificate") byte[] tpPSignatureCertificate,
-			@HeaderParam("PSU-ID") String PSU_ID, @HeaderParam("PSU-ID-Type") String psUIDType,
-			@HeaderParam("PSU-Corporate-ID") String psUCorporateID,
-			@HeaderParam("PSU-Corporate-ID-Type") String psUCorporateIDType,
-			@HeaderParam("Consent-ID") String consentID,
-			@HeaderParam("TPP-Redirect-Preferred") Boolean tpPRedirectPreferred,
-			@HeaderParam("TPP-Redirect-URI") String tpPRedirectURI,
-			@HeaderParam("TPP-Nok-Redirect-URI") String tpPNokRedirectURI,
-			@HeaderParam("TPP-Explicit-Authorisation-Preferred") Boolean tpPExplicitAuthorisationPreferred,
-			@HeaderParam("TPP-Rejection-NoFunds-Preferred") Boolean tpPRejectionNoFundsPreferred,
-			@HeaderParam("TPP-Brand-Logging-Information") String tpPBrandLoggingInformation,
-			@HeaderParam("TPP-Notification-URI") String tpPNotificationURI,
-			@HeaderParam("TPP-Notification-Content-Preferred") String tpPNotificationContentPreferred,
-			@HeaderParam("PSU-IP-Port") String psUIPPort, @HeaderParam("PSU-Accept") String psUAccept,
-			@HeaderParam("PSU-Accept-Charset") String psUAcceptCharset,
-			@HeaderParam("PSU-Accept-Encoding") String psUAcceptEncoding,
-			@HeaderParam("PSU-Accept-Language") String psUAcceptLanguage,
-			@HeaderParam("PSU-User-Agent") String psUUserAgent, @HeaderParam("PSU-Http-Method") String psUHttpMethod,
-			@HeaderParam("PSU-Device-ID") UUID psUDeviceID, @HeaderParam("PSU-Geo-Location") String psUGeoLocation);
+//	@POST
+//	@Path("/v1/{payment-service}/{payment-product}")
+//	@Consumes({ "application/json", "application/xml", "multipart/form-data" })
+//	@Produces({ "application/json", "application/problem+json" })
+//	@Operation(summary = "Payment initiation request")
+//	@Tags(value = { @Tag(name = "Payment Initiation Service (PIS)") })
+//	@APIResponses(value = {
+//			@APIResponse(responseCode = "201", description = "CREATED", content = @Content(schema = @Schema(implementation = PaymentInitationRequestResponse201.class))),
+//			@APIResponse(responseCode = "400", description = "Bad Request", content = @Content(schema = @Schema(implementation = Error400NGPIS.class))),
+//			@APIResponse(responseCode = "401", description = "Unauthorized", content = @Content(schema = @Schema(implementation = Error401NGPIS.class))),
+//			@APIResponse(responseCode = "403", description = "Forbidden", content = @Content(schema = @Schema(implementation = Error403NGPIS.class))),
+//			@APIResponse(responseCode = "404", description = "Not found", content = @Content(schema = @Schema(implementation = Error404NGPIS.class))),
+//			@APIResponse(responseCode = "405", description = "Method Not Allowed", content = @Content(schema = @Schema(implementation = Error405NGPIS.class))),
+//			@APIResponse(responseCode = "406", description = "Not Acceptable"),
+//			@APIResponse(responseCode = "408", description = "Request Timeout"),
+//			@APIResponse(responseCode = "409", description = "Conflict", content = @Content(schema = @Schema(implementation = Error409NGPIS.class))),
+//			@APIResponse(responseCode = "415", description = "Unsupported Media Type"),
+//			@APIResponse(responseCode = "429", description = "Too Many Requests"),
+//			@APIResponse(responseCode = "500", description = "Internal Server Error"),
+//			@APIResponse(responseCode = "503", description = "Service Unavailable") })
+//	public PaymentInitationRequestResponse201 initiatePayment(@Valid Object body,
+//			@Multipart(value = "xml_sct") Object xmlSct,
+//			@Multipart(value = "json_standingorderType") PeriodicPaymentInitiationXmlPart2StandingorderTypeJson jsonStandingorderType,
+//			@HeaderParam("X-Request-ID") UUID xRequestID, @HeaderParam("PSU-IP-Address") String psUIPAddress,
+//			@PathParam("payment-service") String paymentService, @PathParam("payment-product") String paymentProduct,
+//			@HeaderParam("Digest") String digest, @HeaderParam("Signature") String signature,
+//			@HeaderParam("TPP-Signature-Certificate") byte[] tpPSignatureCertificate,
+//			@HeaderParam("PSU-ID") String PSU_ID, @HeaderParam("PSU-ID-Type") String psUIDType,
+//			@HeaderParam("PSU-Corporate-ID") String psUCorporateID,
+//			@HeaderParam("PSU-Corporate-ID-Type") String psUCorporateIDType,
+//			@HeaderParam("Consent-ID") String consentID,
+//			@HeaderParam("TPP-Redirect-Preferred") Boolean tpPRedirectPreferred,
+//			@HeaderParam("TPP-Redirect-URI") String tpPRedirectURI,
+//			@HeaderParam("TPP-Nok-Redirect-URI") String tpPNokRedirectURI,
+//			@HeaderParam("TPP-Explicit-Authorisation-Preferred") Boolean tpPExplicitAuthorisationPreferred,
+//			@HeaderParam("TPP-Rejection-NoFunds-Preferred") Boolean tpPRejectionNoFundsPreferred,
+//			@HeaderParam("TPP-Brand-Logging-Information") String tpPBrandLoggingInformation,
+//			@HeaderParam("TPP-Notification-URI") String tpPNotificationURI,
+//			@HeaderParam("TPP-Notification-Content-Preferred") String tpPNotificationContentPreferred,
+//			@HeaderParam("PSU-IP-Port") String psUIPPort, @HeaderParam("PSU-Accept") String psUAccept,
+//			@HeaderParam("PSU-Accept-Charset") String psUAcceptCharset,
+//			@HeaderParam("PSU-Accept-Encoding") String psUAcceptEncoding,
+//			@HeaderParam("PSU-Accept-Language") String psUAcceptLanguage,
+//			@HeaderParam("PSU-User-Agent") String psUUserAgent, @HeaderParam("PSU-Http-Method") String psUHttpMethod,
+//			@HeaderParam("PSU-Device-ID") UUID psUDeviceID, @HeaderParam("PSU-Geo-Location") String psUGeoLocation);
 
 	/**
 	 * Payment initiation request
@@ -598,51 +598,51 @@ public interface PaymentInitiationServicePisApi {
 	 * link.
 	 *
 	 */
-	@POST
-	@Path("/v1/{payment-service}/{payment-product}")
-	@Consumes({ "application/json", "application/xml", "multipart/form-data" })
-	@Produces({ "application/json", "application/problem+json" })
-	@Operation(summary = "Payment initiation request")
-	@Tags(value = { @Tag(name = "Payment Initiation Service (PIS)") })
-	@APIResponses(value = {
-			@APIResponse(responseCode = "201", description = "CREATED", content = @Content(schema = @Schema(implementation = PaymentInitationRequestResponse201.class))),
-			@APIResponse(responseCode = "400", description = "Bad Request", content = @Content(schema = @Schema(implementation = Error400NGPIS.class))),
-			@APIResponse(responseCode = "401", description = "Unauthorized", content = @Content(schema = @Schema(implementation = Error401NGPIS.class))),
-			@APIResponse(responseCode = "403", description = "Forbidden", content = @Content(schema = @Schema(implementation = Error403NGPIS.class))),
-			@APIResponse(responseCode = "404", description = "Not found", content = @Content(schema = @Schema(implementation = Error404NGPIS.class))),
-			@APIResponse(responseCode = "405", description = "Method Not Allowed", content = @Content(schema = @Schema(implementation = Error405NGPIS.class))),
-			@APIResponse(responseCode = "406", description = "Not Acceptable"),
-			@APIResponse(responseCode = "408", description = "Request Timeout"),
-			@APIResponse(responseCode = "409", description = "Conflict", content = @Content(schema = @Schema(implementation = Error409NGPIS.class))),
-			@APIResponse(responseCode = "415", description = "Unsupported Media Type"),
-			@APIResponse(responseCode = "429", description = "Too Many Requests"),
-			@APIResponse(responseCode = "500", description = "Internal Server Error"),
-			@APIResponse(responseCode = "503", description = "Service Unavailable") })
-	public PaymentInitationRequestResponse201 initiatePayment(@Valid Object body,
-			@Multipart(value = "xml_sct") Object xmlSct,
-			@Multipart(value = "json_standingorderType") PeriodicPaymentInitiationXmlPart2StandingorderTypeJson jsonStandingorderType,
-			@HeaderParam("X-Request-ID") UUID xRequestID, @HeaderParam("PSU-IP-Address") String psUIPAddress,
-			@PathParam("payment-service") String paymentService, @PathParam("payment-product") String paymentProduct,
-			@HeaderParam("Digest") String digest, @HeaderParam("Signature") String signature,
-			@HeaderParam("TPP-Signature-Certificate") byte[] tpPSignatureCertificate,
-			@HeaderParam("PSU-ID") String PSU_ID, @HeaderParam("PSU-ID-Type") String psUIDType,
-			@HeaderParam("PSU-Corporate-ID") String psUCorporateID,
-			@HeaderParam("PSU-Corporate-ID-Type") String psUCorporateIDType,
-			@HeaderParam("Consent-ID") String consentID,
-			@HeaderParam("TPP-Redirect-Preferred") Boolean tpPRedirectPreferred,
-			@HeaderParam("TPP-Redirect-URI") String tpPRedirectURI,
-			@HeaderParam("TPP-Nok-Redirect-URI") String tpPNokRedirectURI,
-			@HeaderParam("TPP-Explicit-Authorisation-Preferred") Boolean tpPExplicitAuthorisationPreferred,
-			@HeaderParam("TPP-Rejection-NoFunds-Preferred") Boolean tpPRejectionNoFundsPreferred,
-			@HeaderParam("TPP-Brand-Logging-Information") String tpPBrandLoggingInformation,
-			@HeaderParam("TPP-Notification-URI") String tpPNotificationURI,
-			@HeaderParam("TPP-Notification-Content-Preferred") String tpPNotificationContentPreferred,
-			@HeaderParam("PSU-IP-Port") String psUIPPort, @HeaderParam("PSU-Accept") String psUAccept,
-			@HeaderParam("PSU-Accept-Charset") String psUAcceptCharset,
-			@HeaderParam("PSU-Accept-Encoding") String psUAcceptEncoding,
-			@HeaderParam("PSU-Accept-Language") String psUAcceptLanguage,
-			@HeaderParam("PSU-User-Agent") String psUUserAgent, @HeaderParam("PSU-Http-Method") String psUHttpMethod,
-			@HeaderParam("PSU-Device-ID") UUID psUDeviceID, @HeaderParam("PSU-Geo-Location") String psUGeoLocation);
+//	@POST
+//	@Path("/v1/{payment-service}/{payment-product}")
+//	@Consumes({ "application/json", "application/xml", "multipart/form-data" })
+//	@Produces({ "application/json", "application/problem+json" })
+//	@Operation(summary = "Payment initiation request")
+//	@Tags(value = { @Tag(name = "Payment Initiation Service (PIS)") })
+//	@APIResponses(value = {
+//			@APIResponse(responseCode = "201", description = "CREATED", content = @Content(schema = @Schema(implementation = PaymentInitationRequestResponse201.class))),
+//			@APIResponse(responseCode = "400", description = "Bad Request", content = @Content(schema = @Schema(implementation = Error400NGPIS.class))),
+//			@APIResponse(responseCode = "401", description = "Unauthorized", content = @Content(schema = @Schema(implementation = Error401NGPIS.class))),
+//			@APIResponse(responseCode = "403", description = "Forbidden", content = @Content(schema = @Schema(implementation = Error403NGPIS.class))),
+//			@APIResponse(responseCode = "404", description = "Not found", content = @Content(schema = @Schema(implementation = Error404NGPIS.class))),
+//			@APIResponse(responseCode = "405", description = "Method Not Allowed", content = @Content(schema = @Schema(implementation = Error405NGPIS.class))),
+//			@APIResponse(responseCode = "406", description = "Not Acceptable"),
+//			@APIResponse(responseCode = "408", description = "Request Timeout"),
+//			@APIResponse(responseCode = "409", description = "Conflict", content = @Content(schema = @Schema(implementation = Error409NGPIS.class))),
+//			@APIResponse(responseCode = "415", description = "Unsupported Media Type"),
+//			@APIResponse(responseCode = "429", description = "Too Many Requests"),
+//			@APIResponse(responseCode = "500", description = "Internal Server Error"),
+//			@APIResponse(responseCode = "503", description = "Service Unavailable") })
+//	public PaymentInitationRequestResponse201 initiatePayment(@Valid Object body,
+//			@Multipart(value = "xml_sct") Object xmlSct,
+//			@Multipart(value = "json_standingorderType") PeriodicPaymentInitiationXmlPart2StandingorderTypeJson jsonStandingorderType,
+//			@HeaderParam("X-Request-ID") UUID xRequestID, @HeaderParam("PSU-IP-Address") String psUIPAddress,
+//			@PathParam("payment-service") String paymentService, @PathParam("payment-product") String paymentProduct,
+//			@HeaderParam("Digest") String digest, @HeaderParam("Signature") String signature,
+//			@HeaderParam("TPP-Signature-Certificate") byte[] tpPSignatureCertificate,
+//			@HeaderParam("PSU-ID") String PSU_ID, @HeaderParam("PSU-ID-Type") String psUIDType,
+//			@HeaderParam("PSU-Corporate-ID") String psUCorporateID,
+//			@HeaderParam("PSU-Corporate-ID-Type") String psUCorporateIDType,
+//			@HeaderParam("Consent-ID") String consentID,
+//			@HeaderParam("TPP-Redirect-Preferred") Boolean tpPRedirectPreferred,
+//			@HeaderParam("TPP-Redirect-URI") String tpPRedirectURI,
+//			@HeaderParam("TPP-Nok-Redirect-URI") String tpPNokRedirectURI,
+//			@HeaderParam("TPP-Explicit-Authorisation-Preferred") Boolean tpPExplicitAuthorisationPreferred,
+//			@HeaderParam("TPP-Rejection-NoFunds-Preferred") Boolean tpPRejectionNoFundsPreferred,
+//			@HeaderParam("TPP-Brand-Logging-Information") String tpPBrandLoggingInformation,
+//			@HeaderParam("TPP-Notification-URI") String tpPNotificationURI,
+//			@HeaderParam("TPP-Notification-Content-Preferred") String tpPNotificationContentPreferred,
+//			@HeaderParam("PSU-IP-Port") String psUIPPort, @HeaderParam("PSU-Accept") String psUAccept,
+//			@HeaderParam("PSU-Accept-Charset") String psUAcceptCharset,
+//			@HeaderParam("PSU-Accept-Encoding") String psUAcceptEncoding,
+//			@HeaderParam("PSU-Accept-Language") String psUAcceptLanguage,
+//			@HeaderParam("PSU-User-Agent") String psUUserAgent, @HeaderParam("PSU-Http-Method") String psUHttpMethod,
+//			@HeaderParam("PSU-Device-ID") UUID psUDeviceID, @HeaderParam("PSU-Geo-Location") String psUGeoLocation);
 
 	/**
 	 * Start the authorisation process for a payment initiation
