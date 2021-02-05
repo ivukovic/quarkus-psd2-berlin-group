@@ -4,6 +4,8 @@ import org.eclipse.microprofile.openapi.annotations.media.Schema;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import io.swagger.util.ObjectUtil;
+
 /**
   * Body of the JSON response for a successful read transaction list request. This account report contains transactions resulting from the query parameters. 
  **/
@@ -99,22 +101,12 @@ public class TransactionsResponse200Json {
 		StringBuilder sb = new StringBuilder();
 		sb.append("class TransactionsResponse200Json {\n");
 
-		sb.append("    account: ").append(toIndentedString(account)).append("\n");
-		sb.append("    transactions: ").append(toIndentedString(transactions)).append("\n");
-		sb.append("    balances: ").append(toIndentedString(balances)).append("\n");
-		sb.append("    _links: ").append(toIndentedString(_links)).append("\n");
+		sb.append("    account: ").append(ObjectUtil.toIndentedString(account)).append("\n");
+		sb.append("    transactions: ").append(ObjectUtil.toIndentedString(transactions)).append("\n");
+		sb.append("    balances: ").append(ObjectUtil.toIndentedString(balances)).append("\n");
+		sb.append("    _links: ").append(ObjectUtil.toIndentedString(_links)).append("\n");
 		sb.append("}");
 		return sb.toString();
 	}
 
-	/**
-	 * Convert the given object to string with each line indented by 4 spaces
-	 * (except the first line).
-	 */
-	private static String toIndentedString(java.lang.Object o) {
-		if (o == null) {
-			return "null";
-		}
-		return o.toString().replace("\n", "\n    ");
-	}
 }

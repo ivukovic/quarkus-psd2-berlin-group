@@ -1,4 +1,4 @@
-package io.swagger.model.error;
+package io.swagger.model.error; import io.swagger.util.ObjectUtil;
 
 import java.util.List;
 
@@ -171,24 +171,15 @@ public class Error409PIIS {
 		StringBuilder sb = new StringBuilder();
 		sb.append("class Error409PIIS {\n");
 
-		sb.append("    type: ").append(toIndentedString(type)).append("\n");
-		sb.append("    title: ").append(toIndentedString(title)).append("\n");
-		sb.append("    detail: ").append(toIndentedString(detail)).append("\n");
-		sb.append("    code: ").append(toIndentedString(code)).append("\n");
-		sb.append("    additionalErrors: ").append(toIndentedString(additionalErrors)).append("\n");
-		sb.append("    _links: ").append(toIndentedString(_links)).append("\n");
+		sb.append("    type: ").append(ObjectUtil.toIndentedString(type)).append("\n");
+		sb.append("    title: ").append(ObjectUtil.toIndentedString(title)).append("\n");
+		sb.append("    detail: ").append(ObjectUtil.toIndentedString(detail)).append("\n");
+		sb.append("    code: ").append(ObjectUtil.toIndentedString(code)).append("\n");
+		sb.append("    additionalErrors: ").append(ObjectUtil.toIndentedString(additionalErrors)).append("\n");
+		sb.append("    _links: ").append(ObjectUtil.toIndentedString(_links)).append("\n");
 		sb.append("}");
 		return sb.toString();
 	}
 
-	/**
-	 * Convert the given object to string with each line indented by 4 spaces
-	 * (except the first line).
-	 */
-	private static String toIndentedString(java.lang.Object o) {
-		if (o == null) {
-			return "null";
-		}
-		return o.toString().replace("\n", "\n    ");
-	}
+
 }

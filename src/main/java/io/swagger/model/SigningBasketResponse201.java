@@ -10,6 +10,7 @@ import org.eclipse.microprofile.openapi.annotations.media.Schema;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import io.swagger.model.msg.TppMessage2XX;
+import io.swagger.util.ObjectUtil;
 
 /**
   * Body of the JSON response for a successful create signing basket request.
@@ -199,26 +200,16 @@ public class SigningBasketResponse201 {
 		StringBuilder sb = new StringBuilder();
 		sb.append("class SigningBasketResponse201 {\n");
 
-		sb.append("    transactionStatus: ").append(toIndentedString(transactionStatus)).append("\n");
-		sb.append("    basketId: ").append(toIndentedString(basketId)).append("\n");
-		sb.append("    scaMethods: ").append(toIndentedString(scaMethods)).append("\n");
-		sb.append("    chosenScaMethod: ").append(toIndentedString(chosenScaMethod)).append("\n");
-		sb.append("    challengeData: ").append(toIndentedString(challengeData)).append("\n");
-		sb.append("    _links: ").append(toIndentedString(_links)).append("\n");
-		sb.append("    psuMessage: ").append(toIndentedString(psuMessage)).append("\n");
-		sb.append("    tppMessages: ").append(toIndentedString(tppMessages)).append("\n");
+		sb.append("    transactionStatus: ").append(ObjectUtil.toIndentedString(transactionStatus)).append("\n");
+		sb.append("    basketId: ").append(ObjectUtil.toIndentedString(basketId)).append("\n");
+		sb.append("    scaMethods: ").append(ObjectUtil.toIndentedString(scaMethods)).append("\n");
+		sb.append("    chosenScaMethod: ").append(ObjectUtil.toIndentedString(chosenScaMethod)).append("\n");
+		sb.append("    challengeData: ").append(ObjectUtil.toIndentedString(challengeData)).append("\n");
+		sb.append("    _links: ").append(ObjectUtil.toIndentedString(_links)).append("\n");
+		sb.append("    psuMessage: ").append(ObjectUtil.toIndentedString(psuMessage)).append("\n");
+		sb.append("    tppMessages: ").append(ObjectUtil.toIndentedString(tppMessages)).append("\n");
 		sb.append("}");
 		return sb.toString();
 	}
 
-	/**
-	 * Convert the given object to string with each line indented by 4 spaces
-	 * (except the first line).
-	 */
-	private static String toIndentedString(java.lang.Object o) {
-		if (o == null) {
-			return "null";
-		}
-		return o.toString().replace("\n", "\n    ");
-	}
 }

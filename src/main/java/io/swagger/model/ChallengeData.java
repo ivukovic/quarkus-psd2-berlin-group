@@ -8,6 +8,8 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 
+import io.swagger.util.ObjectUtil;
+
 /**
   * It is contained in addition to the data element 'chosenScaMethod' if challenge data is needed for SCA. In rare cases this attribute is also used in the context of the 'startAuthorisationWithPsuAuthentication' link. 
  **/
@@ -201,24 +203,14 @@ public class ChallengeData {
 		StringBuilder sb = new StringBuilder();
 		sb.append("class ChallengeData {\n");
 
-		sb.append("    image: ").append(toIndentedString(image)).append("\n");
-		sb.append("    data: ").append(toIndentedString(data)).append("\n");
-		sb.append("    imageLink: ").append(toIndentedString(imageLink)).append("\n");
-		sb.append("    otpMaxLength: ").append(toIndentedString(otpMaxLength)).append("\n");
-		sb.append("    otpFormat: ").append(toIndentedString(otpFormat)).append("\n");
-		sb.append("    additionalInformation: ").append(toIndentedString(additionalInformation)).append("\n");
+		sb.append("    image: ").append(ObjectUtil.toIndentedString(image)).append("\n");
+		sb.append("    data: ").append(ObjectUtil.toIndentedString(data)).append("\n");
+		sb.append("    imageLink: ").append(ObjectUtil.toIndentedString(imageLink)).append("\n");
+		sb.append("    otpMaxLength: ").append(ObjectUtil.toIndentedString(otpMaxLength)).append("\n");
+		sb.append("    otpFormat: ").append(ObjectUtil.toIndentedString(otpFormat)).append("\n");
+		sb.append("    additionalInformation: ").append(ObjectUtil.toIndentedString(additionalInformation)).append("\n");
 		sb.append("}");
 		return sb.toString();
 	}
 
-	/**
-	 * Convert the given object to string with each line indented by 4 spaces
-	 * (except the first line).
-	 */
-	private static String toIndentedString(java.lang.Object o) {
-		if (o == null) {
-			return "null";
-		}
-		return o.toString().replace("\n", "\n    ");
-	}
 }

@@ -7,6 +7,8 @@ import org.eclipse.microprofile.openapi.annotations.media.Schema;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import io.swagger.util.ObjectUtil;
+
 /**
   * Body of the JSON response with SCA Status.
  **/
@@ -83,21 +85,11 @@ public class ScaStatusResponse implements OneOfinlineResponse2002 {
 		StringBuilder sb = new StringBuilder();
 		sb.append("class ScaStatusResponse {\n");
 
-		sb.append("    scaStatus: ").append(toIndentedString(scaStatus)).append("\n");
-		sb.append("    psuMessage: ").append(toIndentedString(psuMessage)).append("\n");
-		sb.append("    trustedBeneficiaryFlag: ").append(toIndentedString(trustedBeneficiaryFlag)).append("\n");
+		sb.append("    scaStatus: ").append(ObjectUtil.toIndentedString(scaStatus)).append("\n");
+		sb.append("    psuMessage: ").append(ObjectUtil.toIndentedString(psuMessage)).append("\n");
+		sb.append("    trustedBeneficiaryFlag: ").append(ObjectUtil.toIndentedString(trustedBeneficiaryFlag)).append("\n");
 		sb.append("}");
 		return sb.toString();
 	}
 
-	/**
-	 * Convert the given object to string with each line indented by 4 spaces
-	 * (except the first line).
-	 */
-	private static String toIndentedString(java.lang.Object o) {
-		if (o == null) {
-			return "null";
-		}
-		return o.toString().replace("\n", "\n    ");
-	}
 }

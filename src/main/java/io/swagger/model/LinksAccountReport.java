@@ -8,6 +8,8 @@ import org.eclipse.microprofile.openapi.annotations.media.Schema;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import io.swagger.util.ObjectUtil;
+
 public class LinksAccountReport extends HashMap<String, HrefType> {
 
 	@Schema(required = true, description = "")
@@ -120,24 +122,14 @@ public class LinksAccountReport extends HashMap<String, HrefType> {
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
 		sb.append("class LinksAccountReport {\n");
-		sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-		sb.append("    account: ").append(toIndentedString(account)).append("\n");
-		sb.append("    first: ").append(toIndentedString(first)).append("\n");
-		sb.append("    next: ").append(toIndentedString(next)).append("\n");
-		sb.append("    previous: ").append(toIndentedString(previous)).append("\n");
-		sb.append("    last: ").append(toIndentedString(last)).append("\n");
+		sb.append("    ").append(ObjectUtil.toIndentedString(super.toString())).append("\n");
+		sb.append("    account: ").append(ObjectUtil.toIndentedString(account)).append("\n");
+		sb.append("    first: ").append(ObjectUtil.toIndentedString(first)).append("\n");
+		sb.append("    next: ").append(ObjectUtil.toIndentedString(next)).append("\n");
+		sb.append("    previous: ").append(ObjectUtil.toIndentedString(previous)).append("\n");
+		sb.append("    last: ").append(ObjectUtil.toIndentedString(last)).append("\n");
 		sb.append("}");
 		return sb.toString();
 	}
 
-	/**
-	 * Convert the given object to string with each line indented by 4 spaces
-	 * (except the first line).
-	 */
-	private static String toIndentedString(java.lang.Object o) {
-		if (o == null) {
-			return "null";
-		}
-		return o.toString().replace("\n", "\n    ");
-	}
 }

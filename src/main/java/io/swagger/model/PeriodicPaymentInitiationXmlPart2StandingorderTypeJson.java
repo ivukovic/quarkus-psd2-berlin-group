@@ -9,6 +9,8 @@ import org.eclipse.microprofile.openapi.annotations.media.Schema;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import io.swagger.util.ObjectUtil;
+
 /**
   * The body part 2 of a periodic payment initation request containes the execution related informations  of the periodic payment. 
  **/
@@ -128,23 +130,13 @@ public class PeriodicPaymentInitiationXmlPart2StandingorderTypeJson {
 		StringBuilder sb = new StringBuilder();
 		sb.append("class PeriodicPaymentInitiationXmlPart2StandingorderTypeJson {\n");
 
-		sb.append("    startDate: ").append(toIndentedString(startDate)).append("\n");
-		sb.append("    endDate: ").append(toIndentedString(endDate)).append("\n");
-		sb.append("    executionRule: ").append(toIndentedString(executionRule)).append("\n");
-		sb.append("    frequency: ").append(toIndentedString(frequency)).append("\n");
-		sb.append("    dayOfExecution: ").append(toIndentedString(dayOfExecution)).append("\n");
+		sb.append("    startDate: ").append(ObjectUtil.toIndentedString(startDate)).append("\n");
+		sb.append("    endDate: ").append(ObjectUtil.toIndentedString(endDate)).append("\n");
+		sb.append("    executionRule: ").append(ObjectUtil.toIndentedString(executionRule)).append("\n");
+		sb.append("    frequency: ").append(ObjectUtil.toIndentedString(frequency)).append("\n");
+		sb.append("    dayOfExecution: ").append(ObjectUtil.toIndentedString(dayOfExecution)).append("\n");
 		sb.append("}");
 		return sb.toString();
 	}
 
-	/**
-	 * Convert the given object to string with each line indented by 4 spaces
-	 * (except the first line).
-	 */
-	private static String toIndentedString(java.lang.Object o) {
-		if (o == null) {
-			return "null";
-		}
-		return o.toString().replace("\n", "\n    ");
-	}
 }

@@ -6,6 +6,8 @@ import org.eclipse.microprofile.openapi.annotations.media.Schema;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import io.swagger.util.ObjectUtil;
+
 /**
   * A list of hyperlinks to be recognised by the TPP. The actual hyperlinks used in the  response depend on the dynamical decisions of the ASPSP when processing the request.  **Remark:** All links can be relative or full links, to be decided by the ASPSP.  Type of links admitted in this response, (further links might be added for ASPSP defined  extensions):  - 'scaRedirect':    In case of an SCA Redirect Approach, the ASPSP is transmitting the link to which to    redirect the PSU browser. - 'scaOAuth':    In case of a SCA OAuth2 Approach, the ASPSP is transmitting the URI where the configuration of the Authorisation Server can be retrieved. The configuration follows the OAuth 2.0 Authorisation Server Metadata specification. * 'confirmation':    Might be added by the ASPSP if either the \"scaRedirect\" or \"scaOAuth\" hyperlink is returned    in the same response message.    This hyperlink defines the URL to the resource which needs to be updated with      * a confirmation code as retrieved after the plain redirect authentication process with the ASPSP authentication server or     * an access token as retrieved by submitting an authorization code after the integrated OAuth based authentication process with the ASPSP authentication server. - 'updatePsuIdentification':    The link to the authorisation or cancellation authorisation sub-resource,    where PSU identification data needs to be uploaded. - 'startAuthorisationWithPsuAuthentication':   The link to the authorisation or cancellation authorisation sub-resource,    where PSU authentication data needs to be uploaded. - 'startAuthorisationWithEncryptedPsuAuthentication':     Same as startAuthorisactionWithPsuAuthentication where the authentication data need to be encrypted on      application layer in uploading. - 'selectAuthenticationMethod':   The link to the authorisation or cancellation authorisation sub-resource,    where the selected authentication method needs to be uploaded.    This link is contained under exactly the same conditions as the data element 'scaMethods'. - 'authoriseTransaction':   The link to the authorisation or cancellation authorisation sub-resource,    where the authorisation data has to be uploaded, e.g. the TOP received by SMS.  - 'scaStatus':    The link to retrieve the scaStatus of the corresponding authorisation sub-resource.  
  **/
@@ -205,28 +207,18 @@ public class LinksStartScaProcess extends HashMap<String, HrefType> {
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
 		sb.append("class LinksStartScaProcess {\n");
-		sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-		sb.append("    scaRedirect: ").append(toIndentedString(scaRedirect)).append("\n");
-		sb.append("    scaOAuth: ").append(toIndentedString(scaOAuth)).append("\n");
-		sb.append("    confirmation: ").append(toIndentedString(confirmation)).append("\n");
-		sb.append("    updatePsuIdentification: ").append(toIndentedString(updatePsuIdentification)).append("\n");
-		sb.append("    startAuthorisationWithPsuAuthentication: ").append(toIndentedString(startAuthorisationWithPsuAuthentication)).append("\n");
-		sb.append("    startAuthorisationWithEncryptedPsuAuthentication: ").append(toIndentedString(startAuthorisationWithEncryptedPsuAuthentication)).append("\n");
-		sb.append("    selectAuthenticationMethod: ").append(toIndentedString(selectAuthenticationMethod)).append("\n");
-		sb.append("    authoriseTransaction: ").append(toIndentedString(authoriseTransaction)).append("\n");
-		sb.append("    scaStatus: ").append(toIndentedString(scaStatus)).append("\n");
+		sb.append("    ").append(ObjectUtil.toIndentedString(super.toString())).append("\n");
+		sb.append("    scaRedirect: ").append(ObjectUtil.toIndentedString(scaRedirect)).append("\n");
+		sb.append("    scaOAuth: ").append(ObjectUtil.toIndentedString(scaOAuth)).append("\n");
+		sb.append("    confirmation: ").append(ObjectUtil.toIndentedString(confirmation)).append("\n");
+		sb.append("    updatePsuIdentification: ").append(ObjectUtil.toIndentedString(updatePsuIdentification)).append("\n");
+		sb.append("    startAuthorisationWithPsuAuthentication: ").append(ObjectUtil.toIndentedString(startAuthorisationWithPsuAuthentication)).append("\n");
+		sb.append("    startAuthorisationWithEncryptedPsuAuthentication: ").append(ObjectUtil.toIndentedString(startAuthorisationWithEncryptedPsuAuthentication)).append("\n");
+		sb.append("    selectAuthenticationMethod: ").append(ObjectUtil.toIndentedString(selectAuthenticationMethod)).append("\n");
+		sb.append("    authoriseTransaction: ").append(ObjectUtil.toIndentedString(authoriseTransaction)).append("\n");
+		sb.append("    scaStatus: ").append(ObjectUtil.toIndentedString(scaStatus)).append("\n");
 		sb.append("}");
 		return sb.toString();
 	}
 
-	/**
-	 * Convert the given object to string with each line indented by 4 spaces
-	 * (except the first line).
-	 */
-	private static String toIndentedString(java.lang.Object o) {
-		if (o == null) {
-			return "null";
-		}
-		return o.toString().replace("\n", "\n    ");
-	}
 }

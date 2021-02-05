@@ -1,4 +1,4 @@
-package io.swagger.model.error;
+package io.swagger.model.error; import io.swagger.util.ObjectUtil;
 
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -86,21 +86,12 @@ public class Error401PISAdditionalErrors {
 		StringBuilder sb = new StringBuilder();
 		sb.append("class Error401PISAdditionalErrors {\n");
 
-		sb.append("    title: ").append(toIndentedString(title)).append("\n");
-		sb.append("    detail: ").append(toIndentedString(detail)).append("\n");
-		sb.append("    code: ").append(toIndentedString(code)).append("\n");
+		sb.append("    title: ").append(ObjectUtil.toIndentedString(title)).append("\n");
+		sb.append("    detail: ").append(ObjectUtil.toIndentedString(detail)).append("\n");
+		sb.append("    code: ").append(ObjectUtil.toIndentedString(code)).append("\n");
 		sb.append("}");
 		return sb.toString();
 	}
 
-	/**
-	 * Convert the given object to string with each line indented by 4 spaces
-	 * (except the first line).
-	 */
-	private static String toIndentedString(java.lang.Object o) {
-		if (o == null) {
-			return "null";
-		}
-		return o.toString().replace("\n", "\n    ");
-	}
+	
 }

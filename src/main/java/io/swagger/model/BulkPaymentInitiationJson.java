@@ -11,6 +11,8 @@ import org.eclipse.microprofile.openapi.annotations.media.Schema;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import io.swagger.util.ObjectUtil;
+
 /**
   * Generic Body for a bulk payment initation via JSON.  paymentInformationId is contained in code but commented since it is n.a.  and not all ASPSP are able to support this field now. In a later version the field will be mandatory. 
  **/
@@ -137,23 +139,13 @@ public class BulkPaymentInitiationJson {
 		StringBuilder sb = new StringBuilder();
 		sb.append("class BulkPaymentInitiationJson {\n");
 
-		sb.append("    batchBookingPreferred: ").append(toIndentedString(batchBookingPreferred)).append("\n");
-		sb.append("    debtorAccount: ").append(toIndentedString(debtorAccount)).append("\n");
-		sb.append("    requestedExecutionDate: ").append(toIndentedString(requestedExecutionDate)).append("\n");
-		sb.append("    requestedExecutionTime: ").append(toIndentedString(requestedExecutionTime)).append("\n");
-		sb.append("    payments: ").append(toIndentedString(payments)).append("\n");
+		sb.append("    batchBookingPreferred: ").append(ObjectUtil.toIndentedString(batchBookingPreferred)).append("\n");
+		sb.append("    debtorAccount: ").append(ObjectUtil.toIndentedString(debtorAccount)).append("\n");
+		sb.append("    requestedExecutionDate: ").append(ObjectUtil.toIndentedString(requestedExecutionDate)).append("\n");
+		sb.append("    requestedExecutionTime: ").append(ObjectUtil.toIndentedString(requestedExecutionTime)).append("\n");
+		sb.append("    payments: ").append(ObjectUtil.toIndentedString(payments)).append("\n");
 		sb.append("}");
 		return sb.toString();
 	}
 
-	/**
-	 * Convert the given object to string with each line indented by 4 spaces
-	 * (except the first line).
-	 */
-	private static String toIndentedString(java.lang.Object o) {
-		if (o == null) {
-			return "null";
-		}
-		return o.toString().replace("\n", "\n    ");
-	}
 }

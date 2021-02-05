@@ -10,6 +10,8 @@ import org.eclipse.microprofile.openapi.annotations.media.Schema;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import io.swagger.util.ObjectUtil;
+
 /**
   * Generic JSON response body consistion of the corresponding periodic payment initation JSON body together with an optional transaction status field. 
  **/
@@ -326,32 +328,22 @@ public class PeriodicPaymentInitiationWithStatusResponse implements OneOfinlineR
 		StringBuilder sb = new StringBuilder();
 		sb.append("class PeriodicPaymentInitiationWithStatusResponse {\n");
 
-		sb.append("    endToEndIdentification: ").append(toIndentedString(endToEndIdentification)).append("\n");
-		sb.append("    debtorAccount: ").append(toIndentedString(debtorAccount)).append("\n");
-		sb.append("    instructedAmount: ").append(toIndentedString(instructedAmount)).append("\n");
-		sb.append("    creditorAccount: ").append(toIndentedString(creditorAccount)).append("\n");
-		sb.append("    creditorAgent: ").append(toIndentedString(creditorAgent)).append("\n");
-		sb.append("    creditorName: ").append(toIndentedString(creditorName)).append("\n");
-		sb.append("    creditorAddress: ").append(toIndentedString(creditorAddress)).append("\n");
-		sb.append("    remittanceInformationUnstructured: ").append(toIndentedString(remittanceInformationUnstructured)).append("\n");
-		sb.append("    startDate: ").append(toIndentedString(startDate)).append("\n");
-		sb.append("    endDate: ").append(toIndentedString(endDate)).append("\n");
-		sb.append("    executionRule: ").append(toIndentedString(executionRule)).append("\n");
-		sb.append("    frequency: ").append(toIndentedString(frequency)).append("\n");
-		sb.append("    dayOfExecution: ").append(toIndentedString(dayOfExecution)).append("\n");
-		sb.append("    transactionStatus: ").append(toIndentedString(transactionStatus)).append("\n");
+		sb.append("    endToEndIdentification: ").append(ObjectUtil.toIndentedString(endToEndIdentification)).append("\n");
+		sb.append("    debtorAccount: ").append(ObjectUtil.toIndentedString(debtorAccount)).append("\n");
+		sb.append("    instructedAmount: ").append(ObjectUtil.toIndentedString(instructedAmount)).append("\n");
+		sb.append("    creditorAccount: ").append(ObjectUtil.toIndentedString(creditorAccount)).append("\n");
+		sb.append("    creditorAgent: ").append(ObjectUtil.toIndentedString(creditorAgent)).append("\n");
+		sb.append("    creditorName: ").append(ObjectUtil.toIndentedString(creditorName)).append("\n");
+		sb.append("    creditorAddress: ").append(ObjectUtil.toIndentedString(creditorAddress)).append("\n");
+		sb.append("    remittanceInformationUnstructured: ").append(ObjectUtil.toIndentedString(remittanceInformationUnstructured)).append("\n");
+		sb.append("    startDate: ").append(ObjectUtil.toIndentedString(startDate)).append("\n");
+		sb.append("    endDate: ").append(ObjectUtil.toIndentedString(endDate)).append("\n");
+		sb.append("    executionRule: ").append(ObjectUtil.toIndentedString(executionRule)).append("\n");
+		sb.append("    frequency: ").append(ObjectUtil.toIndentedString(frequency)).append("\n");
+		sb.append("    dayOfExecution: ").append(ObjectUtil.toIndentedString(dayOfExecution)).append("\n");
+		sb.append("    transactionStatus: ").append(ObjectUtil.toIndentedString(transactionStatus)).append("\n");
 		sb.append("}");
 		return sb.toString();
 	}
 
-	/**
-	 * Convert the given object to string with each line indented by 4 spaces
-	 * (except the first line).
-	 */
-	private static String toIndentedString(java.lang.Object o) {
-		if (o == null) {
-			return "null";
-		}
-		return o.toString().replace("\n", "\n    ");
-	}
 }

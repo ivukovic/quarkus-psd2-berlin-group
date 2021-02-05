@@ -4,6 +4,8 @@ import org.eclipse.microprofile.openapi.annotations.media.Schema;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import io.swagger.util.ObjectUtil;
+
 /**
   * PSU Data for Update PSU authentication.
  **/
@@ -111,22 +113,12 @@ public class PsuData {
 		StringBuilder sb = new StringBuilder();
 		sb.append("class PsuData {\n");
 
-		sb.append("    password: ").append(toIndentedString(password)).append("\n");
-		sb.append("    encryptedPassword: ").append(toIndentedString(encryptedPassword)).append("\n");
-		sb.append("    additionalPassword: ").append(toIndentedString(additionalPassword)).append("\n");
-		sb.append("    additionalEncryptedPassword: ").append(toIndentedString(additionalEncryptedPassword)).append("\n");
+		sb.append("    password: ").append(ObjectUtil.toIndentedString(password)).append("\n");
+		sb.append("    encryptedPassword: ").append(ObjectUtil.toIndentedString(encryptedPassword)).append("\n");
+		sb.append("    additionalPassword: ").append(ObjectUtil.toIndentedString(additionalPassword)).append("\n");
+		sb.append("    additionalEncryptedPassword: ").append(ObjectUtil.toIndentedString(additionalEncryptedPassword)).append("\n");
 		sb.append("}");
 		return sb.toString();
 	}
 
-	/**
-	 * Convert the given object to string with each line indented by 4 spaces
-	 * (except the first line).
-	 */
-	private static String toIndentedString(java.lang.Object o) {
-		if (o == null) {
-			return "null";
-		}
-		return o.toString().replace("\n", "\n    ");
-	}
 }

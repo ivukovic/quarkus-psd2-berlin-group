@@ -7,6 +7,8 @@ import org.eclipse.microprofile.openapi.annotations.media.Schema;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import io.swagger.util.ObjectUtil;
+
 /**
   * Body of the response for a successful payment initiation status request in case of an JSON based endpoint.
  **/
@@ -83,21 +85,11 @@ public class PaymentInitiationStatusResponse200Json {
 		StringBuilder sb = new StringBuilder();
 		sb.append("class PaymentInitiationStatusResponse200Json {\n");
 
-		sb.append("    transactionStatus: ").append(toIndentedString(transactionStatus)).append("\n");
-		sb.append("    fundsAvailable: ").append(toIndentedString(fundsAvailable)).append("\n");
-		sb.append("    psuMessage: ").append(toIndentedString(psuMessage)).append("\n");
+		sb.append("    transactionStatus: ").append(ObjectUtil.toIndentedString(transactionStatus)).append("\n");
+		sb.append("    fundsAvailable: ").append(ObjectUtil.toIndentedString(fundsAvailable)).append("\n");
+		sb.append("    psuMessage: ").append(ObjectUtil.toIndentedString(psuMessage)).append("\n");
 		sb.append("}");
 		return sb.toString();
 	}
 
-	/**
-	 * Convert the given object to string with each line indented by 4 spaces
-	 * (except the first line).
-	 */
-	private static String toIndentedString(java.lang.Object o) {
-		if (o == null) {
-			return "null";
-		}
-		return o.toString().replace("\n", "\n    ");
-	}
 }

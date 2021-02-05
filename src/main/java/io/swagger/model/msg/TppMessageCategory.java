@@ -1,4 +1,4 @@
-package io.swagger.model.msg;
+package io.swagger.model.msg; import io.swagger.util.ObjectUtil;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;

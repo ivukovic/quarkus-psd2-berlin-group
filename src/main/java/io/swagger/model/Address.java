@@ -8,6 +8,8 @@ import org.eclipse.microprofile.openapi.annotations.media.Schema;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import io.swagger.util.ObjectUtil;
+
 public class Address {
 
 	@Schema(description = "")
@@ -123,23 +125,13 @@ public class Address {
 		StringBuilder sb = new StringBuilder();
 		sb.append("class Address {\n");
 
-		sb.append("    streetName: ").append(toIndentedString(streetName)).append("\n");
-		sb.append("    buildingNumber: ").append(toIndentedString(buildingNumber)).append("\n");
-		sb.append("    townName: ").append(toIndentedString(townName)).append("\n");
-		sb.append("    postCode: ").append(toIndentedString(postCode)).append("\n");
-		sb.append("    country: ").append(toIndentedString(country)).append("\n");
+		sb.append("    streetName: ").append(ObjectUtil.toIndentedString(streetName)).append("\n");
+		sb.append("    buildingNumber: ").append(ObjectUtil.toIndentedString(buildingNumber)).append("\n");
+		sb.append("    townName: ").append(ObjectUtil.toIndentedString(townName)).append("\n");
+		sb.append("    postCode: ").append(ObjectUtil.toIndentedString(postCode)).append("\n");
+		sb.append("    country: ").append(ObjectUtil.toIndentedString(country)).append("\n");
 		sb.append("}");
 		return sb.toString();
 	}
 
-	/**
-	 * Convert the given object to string with each line indented by 4 spaces
-	 * (except the first line).
-	 */
-	private static String toIndentedString(java.lang.Object o) {
-		if (o == null) {
-			return "null";
-		}
-		return o.toString().replace("\n", "\n    ");
-	}
 }

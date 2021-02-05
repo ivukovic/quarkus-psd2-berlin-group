@@ -6,6 +6,8 @@ import org.eclipse.microprofile.openapi.annotations.media.Schema;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import io.swagger.util.ObjectUtil;
+
 /**
   * Links to the account, which can be directly used for retrieving account information from this dedicated account.  Links to \"balances\" and/or \"transactions\"  These links are only supported, when the corresponding consent has been already granted. 
  **/
@@ -58,21 +60,11 @@ public class LinksAccountDetails extends HashMap<String, HrefType> {
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
 		sb.append("class LinksAccountDetails {\n");
-		sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-		sb.append("    balances: ").append(toIndentedString(balances)).append("\n");
-		sb.append("    transactions: ").append(toIndentedString(transactions)).append("\n");
+		sb.append("    ").append(ObjectUtil.toIndentedString(super.toString())).append("\n");
+		sb.append("    balances: ").append(ObjectUtil.toIndentedString(balances)).append("\n");
+		sb.append("    transactions: ").append(ObjectUtil.toIndentedString(transactions)).append("\n");
 		sb.append("}");
 		return sb.toString();
 	}
 
-	/**
-	 * Convert the given object to string with each line indented by 4 spaces
-	 * (except the first line).
-	 */
-	private static String toIndentedString(java.lang.Object o) {
-		if (o == null) {
-			return "null";
-		}
-		return o.toString().replace("\n", "\n    ");
-	}
 }

@@ -6,6 +6,8 @@ import org.eclipse.microprofile.openapi.annotations.media.Schema;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import io.swagger.util.ObjectUtil;
+
 /**
   * Body of the response for a successful read balance for a card account request.
  **/
@@ -81,21 +83,11 @@ public class ReadCardAccountBalanceResponse200 {
 		StringBuilder sb = new StringBuilder();
 		sb.append("class ReadCardAccountBalanceResponse200 {\n");
 
-		sb.append("    cardAccount: ").append(toIndentedString(cardAccount)).append("\n");
-		sb.append("    debitAccounting: ").append(toIndentedString(debitAccounting)).append("\n");
-		sb.append("    balances: ").append(toIndentedString(balances)).append("\n");
+		sb.append("    cardAccount: ").append(ObjectUtil.toIndentedString(cardAccount)).append("\n");
+		sb.append("    debitAccounting: ").append(ObjectUtil.toIndentedString(debitAccounting)).append("\n");
+		sb.append("    balances: ").append(ObjectUtil.toIndentedString(balances)).append("\n");
 		sb.append("}");
 		return sb.toString();
 	}
 
-	/**
-	 * Convert the given object to string with each line indented by 4 spaces
-	 * (except the first line).
-	 */
-	private static String toIndentedString(java.lang.Object o) {
-		if (o == null) {
-			return "null";
-		}
-		return o.toString().replace("\n", "\n    ");
-	}
 }

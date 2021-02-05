@@ -10,6 +10,8 @@ import org.eclipse.microprofile.openapi.annotations.media.Schema;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import io.swagger.util.ObjectUtil;
+
 /**
   * Transaction details.
  **/
@@ -727,50 +729,40 @@ public class Transactions {
 		StringBuilder sb = new StringBuilder();
 		sb.append("class Transactions {\n");
 
-		sb.append("    transactionId: ").append(toIndentedString(transactionId)).append("\n");
-		sb.append("    entryReference: ").append(toIndentedString(entryReference)).append("\n");
-		sb.append("    endToEndId: ").append(toIndentedString(endToEndId)).append("\n");
-		sb.append("    batchIndicator: ").append(toIndentedString(batchIndicator)).append("\n");
-		sb.append("    batchNumberOfTransactions: ").append(toIndentedString(batchNumberOfTransactions)).append("\n");
-		sb.append("    mandateId: ").append(toIndentedString(mandateId)).append("\n");
-		sb.append("    checkId: ").append(toIndentedString(checkId)).append("\n");
-		sb.append("    creditorId: ").append(toIndentedString(creditorId)).append("\n");
-		sb.append("    bookingDate: ").append(toIndentedString(bookingDate)).append("\n");
-		sb.append("    valueDate: ").append(toIndentedString(valueDate)).append("\n");
-		sb.append("    transactionAmount: ").append(toIndentedString(transactionAmount)).append("\n");
-		sb.append("    currencyExchange: ").append(toIndentedString(currencyExchange)).append("\n");
-		sb.append("    creditorName: ").append(toIndentedString(creditorName)).append("\n");
-		sb.append("    creditorAccount: ").append(toIndentedString(creditorAccount)).append("\n");
-		sb.append("    creditorAgent: ").append(toIndentedString(creditorAgent)).append("\n");
-		sb.append("    ultimateCreditor: ").append(toIndentedString(ultimateCreditor)).append("\n");
-		sb.append("    debtorName: ").append(toIndentedString(debtorName)).append("\n");
-		sb.append("    debtorAccount: ").append(toIndentedString(debtorAccount)).append("\n");
-		sb.append("    debtorAgent: ").append(toIndentedString(debtorAgent)).append("\n");
-		sb.append("    ultimateDebtor: ").append(toIndentedString(ultimateDebtor)).append("\n");
-		sb.append("    remittanceInformationUnstructured: ").append(toIndentedString(remittanceInformationUnstructured)).append("\n");
-		sb.append("    remittanceInformationUnstructuredArray: ").append(toIndentedString(remittanceInformationUnstructuredArray)).append("\n");
-		sb.append("    remittanceInformationStructured: ").append(toIndentedString(remittanceInformationStructured)).append("\n");
-		sb.append("    remittanceInformationStructuredArray: ").append(toIndentedString(remittanceInformationStructuredArray)).append("\n");
-		sb.append("    entryDetails: ").append(toIndentedString(entryDetails)).append("\n");
-		sb.append("    additionalInformation: ").append(toIndentedString(additionalInformation)).append("\n");
-		sb.append("    additionalInformationStructured: ").append(toIndentedString(additionalInformationStructured)).append("\n");
-		sb.append("    purposeCode: ").append(toIndentedString(purposeCode)).append("\n");
-		sb.append("    bankTransactionCode: ").append(toIndentedString(bankTransactionCode)).append("\n");
-		sb.append("    proprietaryBankTransactionCode: ").append(toIndentedString(proprietaryBankTransactionCode)).append("\n");
-		sb.append("    balanceAfterTransaction: ").append(toIndentedString(balanceAfterTransaction)).append("\n");
-		sb.append("    _links: ").append(toIndentedString(_links)).append("\n");
+		sb.append("    transactionId: ").append(ObjectUtil.toIndentedString(transactionId)).append("\n");
+		sb.append("    entryReference: ").append(ObjectUtil.toIndentedString(entryReference)).append("\n");
+		sb.append("    endToEndId: ").append(ObjectUtil.toIndentedString(endToEndId)).append("\n");
+		sb.append("    batchIndicator: ").append(ObjectUtil.toIndentedString(batchIndicator)).append("\n");
+		sb.append("    batchNumberOfTransactions: ").append(ObjectUtil.toIndentedString(batchNumberOfTransactions)).append("\n");
+		sb.append("    mandateId: ").append(ObjectUtil.toIndentedString(mandateId)).append("\n");
+		sb.append("    checkId: ").append(ObjectUtil.toIndentedString(checkId)).append("\n");
+		sb.append("    creditorId: ").append(ObjectUtil.toIndentedString(creditorId)).append("\n");
+		sb.append("    bookingDate: ").append(ObjectUtil.toIndentedString(bookingDate)).append("\n");
+		sb.append("    valueDate: ").append(ObjectUtil.toIndentedString(valueDate)).append("\n");
+		sb.append("    transactionAmount: ").append(ObjectUtil.toIndentedString(transactionAmount)).append("\n");
+		sb.append("    currencyExchange: ").append(ObjectUtil.toIndentedString(currencyExchange)).append("\n");
+		sb.append("    creditorName: ").append(ObjectUtil.toIndentedString(creditorName)).append("\n");
+		sb.append("    creditorAccount: ").append(ObjectUtil.toIndentedString(creditorAccount)).append("\n");
+		sb.append("    creditorAgent: ").append(ObjectUtil.toIndentedString(creditorAgent)).append("\n");
+		sb.append("    ultimateCreditor: ").append(ObjectUtil.toIndentedString(ultimateCreditor)).append("\n");
+		sb.append("    debtorName: ").append(ObjectUtil.toIndentedString(debtorName)).append("\n");
+		sb.append("    debtorAccount: ").append(ObjectUtil.toIndentedString(debtorAccount)).append("\n");
+		sb.append("    debtorAgent: ").append(ObjectUtil.toIndentedString(debtorAgent)).append("\n");
+		sb.append("    ultimateDebtor: ").append(ObjectUtil.toIndentedString(ultimateDebtor)).append("\n");
+		sb.append("    remittanceInformationUnstructured: ").append(ObjectUtil.toIndentedString(remittanceInformationUnstructured)).append("\n");
+		sb.append("    remittanceInformationUnstructuredArray: ").append(ObjectUtil.toIndentedString(remittanceInformationUnstructuredArray)).append("\n");
+		sb.append("    remittanceInformationStructured: ").append(ObjectUtil.toIndentedString(remittanceInformationStructured)).append("\n");
+		sb.append("    remittanceInformationStructuredArray: ").append(ObjectUtil.toIndentedString(remittanceInformationStructuredArray)).append("\n");
+		sb.append("    entryDetails: ").append(ObjectUtil.toIndentedString(entryDetails)).append("\n");
+		sb.append("    additionalInformation: ").append(ObjectUtil.toIndentedString(additionalInformation)).append("\n");
+		sb.append("    additionalInformationStructured: ").append(ObjectUtil.toIndentedString(additionalInformationStructured)).append("\n");
+		sb.append("    purposeCode: ").append(ObjectUtil.toIndentedString(purposeCode)).append("\n");
+		sb.append("    bankTransactionCode: ").append(ObjectUtil.toIndentedString(bankTransactionCode)).append("\n");
+		sb.append("    proprietaryBankTransactionCode: ").append(ObjectUtil.toIndentedString(proprietaryBankTransactionCode)).append("\n");
+		sb.append("    balanceAfterTransaction: ").append(ObjectUtil.toIndentedString(balanceAfterTransaction)).append("\n");
+		sb.append("    _links: ").append(ObjectUtil.toIndentedString(_links)).append("\n");
 		sb.append("}");
 		return sb.toString();
 	}
 
-	/**
-	 * Convert the given object to string with each line indented by 4 spaces
-	 * (except the first line).
-	 */
-	private static String toIndentedString(java.lang.Object o) {
-		if (o == null) {
-			return "null";
-		}
-		return o.toString().replace("\n", "\n    ");
-	}
 }

@@ -10,6 +10,8 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 
+import io.swagger.util.ObjectUtil;
+
 /**
   * The ASPSP shall give at least one of the account reference identifiers:   - iban   - bban   - pan   - maskedPan   - msisdn If the account is a multicurrency account currency code in \"currency\" is set to \"XXX\". 
  **/
@@ -442,35 +444,25 @@ public class AccountDetails {
 		StringBuilder sb = new StringBuilder();
 		sb.append("class AccountDetails {\n");
 
-		sb.append("    resourceId: ").append(toIndentedString(resourceId)).append("\n");
-		sb.append("    iban: ").append(toIndentedString(iban)).append("\n");
-		sb.append("    bban: ").append(toIndentedString(bban)).append("\n");
-		sb.append("    msisdn: ").append(toIndentedString(msisdn)).append("\n");
-		sb.append("    currency: ").append(toIndentedString(currency)).append("\n");
-		sb.append("    name: ").append(toIndentedString(name)).append("\n");
-		sb.append("    displayName: ").append(toIndentedString(displayName)).append("\n");
-		sb.append("    product: ").append(toIndentedString(product)).append("\n");
-		sb.append("    cashAccountType: ").append(toIndentedString(cashAccountType)).append("\n");
-		sb.append("    status: ").append(toIndentedString(status)).append("\n");
-		sb.append("    bic: ").append(toIndentedString(bic)).append("\n");
-		sb.append("    linkedAccounts: ").append(toIndentedString(linkedAccounts)).append("\n");
-		sb.append("    usage: ").append(toIndentedString(usage)).append("\n");
-		sb.append("    details: ").append(toIndentedString(details)).append("\n");
-		sb.append("    balances: ").append(toIndentedString(balances)).append("\n");
-		sb.append("    _links: ").append(toIndentedString(_links)).append("\n");
-		sb.append("    ownerName: ").append(toIndentedString(ownerName)).append("\n");
+		sb.append("    resourceId: ").append(ObjectUtil.toIndentedString(resourceId)).append("\n");
+		sb.append("    iban: ").append(ObjectUtil.toIndentedString(iban)).append("\n");
+		sb.append("    bban: ").append(ObjectUtil.toIndentedString(bban)).append("\n");
+		sb.append("    msisdn: ").append(ObjectUtil.toIndentedString(msisdn)).append("\n");
+		sb.append("    currency: ").append(ObjectUtil.toIndentedString(currency)).append("\n");
+		sb.append("    name: ").append(ObjectUtil.toIndentedString(name)).append("\n");
+		sb.append("    displayName: ").append(ObjectUtil.toIndentedString(displayName)).append("\n");
+		sb.append("    product: ").append(ObjectUtil.toIndentedString(product)).append("\n");
+		sb.append("    cashAccountType: ").append(ObjectUtil.toIndentedString(cashAccountType)).append("\n");
+		sb.append("    status: ").append(ObjectUtil.toIndentedString(status)).append("\n");
+		sb.append("    bic: ").append(ObjectUtil.toIndentedString(bic)).append("\n");
+		sb.append("    linkedAccounts: ").append(ObjectUtil.toIndentedString(linkedAccounts)).append("\n");
+		sb.append("    usage: ").append(ObjectUtil.toIndentedString(usage)).append("\n");
+		sb.append("    details: ").append(ObjectUtil.toIndentedString(details)).append("\n");
+		sb.append("    balances: ").append(ObjectUtil.toIndentedString(balances)).append("\n");
+		sb.append("    _links: ").append(ObjectUtil.toIndentedString(_links)).append("\n");
+		sb.append("    ownerName: ").append(ObjectUtil.toIndentedString(ownerName)).append("\n");
 		sb.append("}");
 		return sb.toString();
 	}
 
-	/**
-	 * Convert the given object to string with each line indented by 4 spaces
-	 * (except the first line).
-	 */
-	private static String toIndentedString(java.lang.Object o) {
-		if (o == null) {
-			return "null";
-		}
-		return o.toString().replace("\n", "\n    ");
-	}
 }

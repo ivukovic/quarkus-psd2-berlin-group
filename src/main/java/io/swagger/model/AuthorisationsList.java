@@ -4,6 +4,8 @@ import java.util.ArrayList;
 
 import org.eclipse.microprofile.openapi.annotations.media.Schema;
 
+import io.swagger.util.ObjectUtil;
+
 /**
   * An array of all authorisationIds.
  **/
@@ -14,19 +16,9 @@ public class AuthorisationsList extends ArrayList<String> {
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
 		sb.append("class AuthorisationsList {\n");
-		sb.append("    ").append(toIndentedString(super.toString())).append("\n");
+		sb.append("    ").append(ObjectUtil.toIndentedString(super.toString())).append("\n");
 		sb.append("}");
 		return sb.toString();
 	}
 
-	/**
-	 * Convert the given object to string with each line indented by 4 spaces
-	 * (except the first line).
-	 */
-	private static String toIndentedString(java.lang.Object o) {
-		if (o == null) {
-			return "null";
-		}
-		return o.toString().replace("\n", "\n    ");
-	}
 }

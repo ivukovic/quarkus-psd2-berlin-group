@@ -10,6 +10,8 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 
+import io.swagger.util.ObjectUtil;
+
 /**
   * Card account details. 
  **/
@@ -373,32 +375,22 @@ public class CardAccountDetails {
 		StringBuilder sb = new StringBuilder();
 		sb.append("class CardAccountDetails {\n");
 
-		sb.append("    resourceId: ").append(toIndentedString(resourceId)).append("\n");
-		sb.append("    maskedPan: ").append(toIndentedString(maskedPan)).append("\n");
-		sb.append("    currency: ").append(toIndentedString(currency)).append("\n");
-		sb.append("    ownerName: ").append(toIndentedString(ownerName)).append("\n");
-		sb.append("    name: ").append(toIndentedString(name)).append("\n");
-		sb.append("    displayName: ").append(toIndentedString(displayName)).append("\n");
-		sb.append("    product: ").append(toIndentedString(product)).append("\n");
-		sb.append("    debitAccounting: ").append(toIndentedString(debitAccounting)).append("\n");
-		sb.append("    status: ").append(toIndentedString(status)).append("\n");
-		sb.append("    usage: ").append(toIndentedString(usage)).append("\n");
-		sb.append("    details: ").append(toIndentedString(details)).append("\n");
-		sb.append("    creditLimit: ").append(toIndentedString(creditLimit)).append("\n");
-		sb.append("    balances: ").append(toIndentedString(balances)).append("\n");
-		sb.append("    _links: ").append(toIndentedString(_links)).append("\n");
+		sb.append("    resourceId: ").append(ObjectUtil.toIndentedString(resourceId)).append("\n");
+		sb.append("    maskedPan: ").append(ObjectUtil.toIndentedString(maskedPan)).append("\n");
+		sb.append("    currency: ").append(ObjectUtil.toIndentedString(currency)).append("\n");
+		sb.append("    ownerName: ").append(ObjectUtil.toIndentedString(ownerName)).append("\n");
+		sb.append("    name: ").append(ObjectUtil.toIndentedString(name)).append("\n");
+		sb.append("    displayName: ").append(ObjectUtil.toIndentedString(displayName)).append("\n");
+		sb.append("    product: ").append(ObjectUtil.toIndentedString(product)).append("\n");
+		sb.append("    debitAccounting: ").append(ObjectUtil.toIndentedString(debitAccounting)).append("\n");
+		sb.append("    status: ").append(ObjectUtil.toIndentedString(status)).append("\n");
+		sb.append("    usage: ").append(ObjectUtil.toIndentedString(usage)).append("\n");
+		sb.append("    details: ").append(ObjectUtil.toIndentedString(details)).append("\n");
+		sb.append("    creditLimit: ").append(ObjectUtil.toIndentedString(creditLimit)).append("\n");
+		sb.append("    balances: ").append(ObjectUtil.toIndentedString(balances)).append("\n");
+		sb.append("    _links: ").append(ObjectUtil.toIndentedString(_links)).append("\n");
 		sb.append("}");
 		return sb.toString();
 	}
 
-	/**
-	 * Convert the given object to string with each line indented by 4 spaces
-	 * (except the first line).
-	 */
-	private static String toIndentedString(java.lang.Object o) {
-		if (o == null) {
-			return "null";
-		}
-		return o.toString().replace("\n", "\n    ");
-	}
 }

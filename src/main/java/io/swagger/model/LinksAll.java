@@ -6,6 +6,8 @@ import org.eclipse.microprofile.openapi.annotations.media.Schema;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import io.swagger.util.ObjectUtil;
+
 /**
   * A _link object with all availabel link types. 
  **/
@@ -688,51 +690,41 @@ public class LinksAll extends HashMap<String, HrefType> {
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
 		sb.append("class LinksAll {\n");
-		sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-		sb.append("    scaRedirect: ").append(toIndentedString(scaRedirect)).append("\n");
-		sb.append("    scaOAuth: ").append(toIndentedString(scaOAuth)).append("\n");
-		sb.append("    confirmation: ").append(toIndentedString(confirmation)).append("\n");
-		sb.append("    startAuthorisation: ").append(toIndentedString(startAuthorisation)).append("\n");
-		sb.append("    startAuthorisationWithPsuIdentification: ").append(toIndentedString(startAuthorisationWithPsuIdentification)).append("\n");
-		sb.append("    updatePsuIdentification: ").append(toIndentedString(updatePsuIdentification)).append("\n");
-		sb.append("    startAuthorisationWithProprietaryData: ").append(toIndentedString(startAuthorisationWithProprietaryData)).append("\n");
-		sb.append("    updateProprietaryData: ").append(toIndentedString(updateProprietaryData)).append("\n");
-		sb.append("    startAuthorisationWithPsuAuthentication: ").append(toIndentedString(startAuthorisationWithPsuAuthentication)).append("\n");
-		sb.append("    updatePsuAuthentication: ").append(toIndentedString(updatePsuAuthentication)).append("\n");
-		sb.append("    startAuthorisationWithEncryptedPsuAuthentication: ").append(toIndentedString(startAuthorisationWithEncryptedPsuAuthentication)).append("\n");
-		sb.append("    updateEncryptedPsuAuthentication: ").append(toIndentedString(updateEncryptedPsuAuthentication)).append("\n");
-		sb.append("    updateAdditionalPsuAuthentication: ").append(toIndentedString(updateAdditionalPsuAuthentication)).append("\n");
-		sb.append("    updateAdditionalEncryptedPsuAuthentication: ").append(toIndentedString(updateAdditionalEncryptedPsuAuthentication)).append("\n");
-		sb.append("    startAuthorisationWithAuthenticationMethodSelection: ").append(toIndentedString(startAuthorisationWithAuthenticationMethodSelection)).append("\n");
-		sb.append("    selectAuthenticationMethod: ").append(toIndentedString(selectAuthenticationMethod)).append("\n");
-		sb.append("    startAuthorisationWithTransactionAuthorisation: ").append(toIndentedString(startAuthorisationWithTransactionAuthorisation)).append("\n");
-		sb.append("    authoriseTransaction: ").append(toIndentedString(authoriseTransaction)).append("\n");
-		sb.append("    self: ").append(toIndentedString(self)).append("\n");
-		sb.append("    status: ").append(toIndentedString(status)).append("\n");
-		sb.append("    scaStatus: ").append(toIndentedString(scaStatus)).append("\n");
-		sb.append("    account: ").append(toIndentedString(account)).append("\n");
-		sb.append("    balances: ").append(toIndentedString(balances)).append("\n");
-		sb.append("    transactions: ").append(toIndentedString(transactions)).append("\n");
-		sb.append("    transactionDetails: ").append(toIndentedString(transactionDetails)).append("\n");
-		sb.append("    cardAccount: ").append(toIndentedString(cardAccount)).append("\n");
-		sb.append("    cardTransactions: ").append(toIndentedString(cardTransactions)).append("\n");
-		sb.append("    first: ").append(toIndentedString(first)).append("\n");
-		sb.append("    next: ").append(toIndentedString(next)).append("\n");
-		sb.append("    previous: ").append(toIndentedString(previous)).append("\n");
-		sb.append("    last: ").append(toIndentedString(last)).append("\n");
-		sb.append("    download: ").append(toIndentedString(download)).append("\n");
+		sb.append("    ").append(ObjectUtil.toIndentedString(super.toString())).append("\n");
+		sb.append("    scaRedirect: ").append(ObjectUtil.toIndentedString(scaRedirect)).append("\n");
+		sb.append("    scaOAuth: ").append(ObjectUtil.toIndentedString(scaOAuth)).append("\n");
+		sb.append("    confirmation: ").append(ObjectUtil.toIndentedString(confirmation)).append("\n");
+		sb.append("    startAuthorisation: ").append(ObjectUtil.toIndentedString(startAuthorisation)).append("\n");
+		sb.append("    startAuthorisationWithPsuIdentification: ").append(ObjectUtil.toIndentedString(startAuthorisationWithPsuIdentification)).append("\n");
+		sb.append("    updatePsuIdentification: ").append(ObjectUtil.toIndentedString(updatePsuIdentification)).append("\n");
+		sb.append("    startAuthorisationWithProprietaryData: ").append(ObjectUtil.toIndentedString(startAuthorisationWithProprietaryData)).append("\n");
+		sb.append("    updateProprietaryData: ").append(ObjectUtil.toIndentedString(updateProprietaryData)).append("\n");
+		sb.append("    startAuthorisationWithPsuAuthentication: ").append(ObjectUtil.toIndentedString(startAuthorisationWithPsuAuthentication)).append("\n");
+		sb.append("    updatePsuAuthentication: ").append(ObjectUtil.toIndentedString(updatePsuAuthentication)).append("\n");
+		sb.append("    startAuthorisationWithEncryptedPsuAuthentication: ").append(ObjectUtil.toIndentedString(startAuthorisationWithEncryptedPsuAuthentication)).append("\n");
+		sb.append("    updateEncryptedPsuAuthentication: ").append(ObjectUtil.toIndentedString(updateEncryptedPsuAuthentication)).append("\n");
+		sb.append("    updateAdditionalPsuAuthentication: ").append(ObjectUtil.toIndentedString(updateAdditionalPsuAuthentication)).append("\n");
+		sb.append("    updateAdditionalEncryptedPsuAuthentication: ").append(ObjectUtil.toIndentedString(updateAdditionalEncryptedPsuAuthentication)).append("\n");
+		sb.append("    startAuthorisationWithAuthenticationMethodSelection: ").append(ObjectUtil.toIndentedString(startAuthorisationWithAuthenticationMethodSelection)).append("\n");
+		sb.append("    selectAuthenticationMethod: ").append(ObjectUtil.toIndentedString(selectAuthenticationMethod)).append("\n");
+		sb.append("    startAuthorisationWithTransactionAuthorisation: ").append(ObjectUtil.toIndentedString(startAuthorisationWithTransactionAuthorisation)).append("\n");
+		sb.append("    authoriseTransaction: ").append(ObjectUtil.toIndentedString(authoriseTransaction)).append("\n");
+		sb.append("    self: ").append(ObjectUtil.toIndentedString(self)).append("\n");
+		sb.append("    status: ").append(ObjectUtil.toIndentedString(status)).append("\n");
+		sb.append("    scaStatus: ").append(ObjectUtil.toIndentedString(scaStatus)).append("\n");
+		sb.append("    account: ").append(ObjectUtil.toIndentedString(account)).append("\n");
+		sb.append("    balances: ").append(ObjectUtil.toIndentedString(balances)).append("\n");
+		sb.append("    transactions: ").append(ObjectUtil.toIndentedString(transactions)).append("\n");
+		sb.append("    transactionDetails: ").append(ObjectUtil.toIndentedString(transactionDetails)).append("\n");
+		sb.append("    cardAccount: ").append(ObjectUtil.toIndentedString(cardAccount)).append("\n");
+		sb.append("    cardTransactions: ").append(ObjectUtil.toIndentedString(cardTransactions)).append("\n");
+		sb.append("    first: ").append(ObjectUtil.toIndentedString(first)).append("\n");
+		sb.append("    next: ").append(ObjectUtil.toIndentedString(next)).append("\n");
+		sb.append("    previous: ").append(ObjectUtil.toIndentedString(previous)).append("\n");
+		sb.append("    last: ").append(ObjectUtil.toIndentedString(last)).append("\n");
+		sb.append("    download: ").append(ObjectUtil.toIndentedString(download)).append("\n");
 		sb.append("}");
 		return sb.toString();
 	}
 
-	/**
-	 * Convert the given object to string with each line indented by 4 spaces
-	 * (except the first line).
-	 */
-	private static String toIndentedString(java.lang.Object o) {
-		if (o == null) {
-			return "null";
-		}
-		return o.toString().replace("\n", "\n    ");
-	}
 }

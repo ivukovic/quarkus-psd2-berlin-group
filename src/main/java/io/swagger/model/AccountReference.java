@@ -7,6 +7,8 @@ import org.eclipse.microprofile.openapi.annotations.media.Schema;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import io.swagger.util.ObjectUtil;
+
 /**
   * Reference to an account by either   * IBAN, of a payment accounts, or   * BBAN, for payment accounts if there is no IBAN, or    * the Primary Account Number (PAN) of a card, can be tokenised by the ASPSP due to PCI DSS requirements, or   * the Primary Account Number (PAN) of a card in a masked form, or   * an alias to access a payment account via a registered mobile phone number (MSISDN). 
  **/
@@ -171,25 +173,15 @@ public class AccountReference {
 		StringBuilder sb = new StringBuilder();
 		sb.append("class AccountReference {\n");
 
-		sb.append("    iban: ").append(toIndentedString(iban)).append("\n");
-		sb.append("    bban: ").append(toIndentedString(bban)).append("\n");
-		sb.append("    pan: ").append(toIndentedString(pan)).append("\n");
-		sb.append("    maskedPan: ").append(toIndentedString(maskedPan)).append("\n");
-		sb.append("    msisdn: ").append(toIndentedString(msisdn)).append("\n");
-		sb.append("    currency: ").append(toIndentedString(currency)).append("\n");
-		sb.append("    cashAccountType: ").append(toIndentedString(cashAccountType)).append("\n");
+		sb.append("    iban: ").append(ObjectUtil.toIndentedString(iban)).append("\n");
+		sb.append("    bban: ").append(ObjectUtil.toIndentedString(bban)).append("\n");
+		sb.append("    pan: ").append(ObjectUtil.toIndentedString(pan)).append("\n");
+		sb.append("    maskedPan: ").append(ObjectUtil.toIndentedString(maskedPan)).append("\n");
+		sb.append("    msisdn: ").append(ObjectUtil.toIndentedString(msisdn)).append("\n");
+		sb.append("    currency: ").append(ObjectUtil.toIndentedString(currency)).append("\n");
+		sb.append("    cashAccountType: ").append(ObjectUtil.toIndentedString(cashAccountType)).append("\n");
 		sb.append("}");
 		return sb.toString();
 	}
 
-	/**
-	 * Convert the given object to string with each line indented by 4 spaces
-	 * (except the first line).
-	 */
-	private static String toIndentedString(java.lang.Object o) {
-		if (o == null) {
-			return "null";
-		}
-		return o.toString().replace("\n", "\n    ");
-	}
 }

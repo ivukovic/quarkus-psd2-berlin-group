@@ -7,6 +7,8 @@ import org.eclipse.microprofile.openapi.annotations.media.Schema;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import io.swagger.util.ObjectUtil;
+
 /**
   * Body of the JSON response for a successful update PSU authentication request.
  **/
@@ -251,29 +253,19 @@ public class UpdatePsuAuthenticationResponse implements OneOfinlineResponse2002 
 		StringBuilder sb = new StringBuilder();
 		sb.append("class UpdatePsuAuthenticationResponse {\n");
 
-		sb.append("    transactionFees: ").append(toIndentedString(transactionFees)).append("\n");
-		sb.append("    currencyConversionFees: ").append(toIndentedString(currencyConversionFees)).append("\n");
-		sb.append("    estimatedTotalAmount: ").append(toIndentedString(estimatedTotalAmount)).append("\n");
-		sb.append("    estimatedInterbankSettlementAmount: ").append(toIndentedString(estimatedInterbankSettlementAmount)).append("\n");
-		sb.append("    chosenScaMethod: ").append(toIndentedString(chosenScaMethod)).append("\n");
-		sb.append("    challengeData: ").append(toIndentedString(challengeData)).append("\n");
-		sb.append("    scaMethods: ").append(toIndentedString(scaMethods)).append("\n");
-		sb.append("    _links: ").append(toIndentedString(_links)).append("\n");
-		sb.append("    scaStatus: ").append(toIndentedString(scaStatus)).append("\n");
-		sb.append("    psuMessage: ").append(toIndentedString(psuMessage)).append("\n");
-		sb.append("    authorisationId: ").append(toIndentedString(authorisationId)).append("\n");
+		sb.append("    transactionFees: ").append(ObjectUtil.toIndentedString(transactionFees)).append("\n");
+		sb.append("    currencyConversionFees: ").append(ObjectUtil.toIndentedString(currencyConversionFees)).append("\n");
+		sb.append("    estimatedTotalAmount: ").append(ObjectUtil.toIndentedString(estimatedTotalAmount)).append("\n");
+		sb.append("    estimatedInterbankSettlementAmount: ").append(ObjectUtil.toIndentedString(estimatedInterbankSettlementAmount)).append("\n");
+		sb.append("    chosenScaMethod: ").append(ObjectUtil.toIndentedString(chosenScaMethod)).append("\n");
+		sb.append("    challengeData: ").append(ObjectUtil.toIndentedString(challengeData)).append("\n");
+		sb.append("    scaMethods: ").append(ObjectUtil.toIndentedString(scaMethods)).append("\n");
+		sb.append("    _links: ").append(ObjectUtil.toIndentedString(_links)).append("\n");
+		sb.append("    scaStatus: ").append(ObjectUtil.toIndentedString(scaStatus)).append("\n");
+		sb.append("    psuMessage: ").append(ObjectUtil.toIndentedString(psuMessage)).append("\n");
+		sb.append("    authorisationId: ").append(ObjectUtil.toIndentedString(authorisationId)).append("\n");
 		sb.append("}");
 		return sb.toString();
 	}
 
-	/**
-	 * Convert the given object to string with each line indented by 4 spaces
-	 * (except the first line).
-	 */
-	private static String toIndentedString(java.lang.Object o) {
-		if (o == null) {
-			return "null";
-		}
-		return o.toString().replace("\n", "\n    ");
-	}
 }

@@ -7,6 +7,8 @@ import org.eclipse.microprofile.openapi.annotations.media.Schema;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import io.swagger.util.ObjectUtil;
+
 /**
   * Body of the JSON response for a successful get status request for a consent.
  **/
@@ -62,20 +64,10 @@ public class ConsentStatusResponse200 {
 		StringBuilder sb = new StringBuilder();
 		sb.append("class ConsentStatusResponse200 {\n");
 
-		sb.append("    consentStatus: ").append(toIndentedString(consentStatus)).append("\n");
-		sb.append("    psuMessage: ").append(toIndentedString(psuMessage)).append("\n");
+		sb.append("    consentStatus: ").append(ObjectUtil.toIndentedString(consentStatus)).append("\n");
+		sb.append("    psuMessage: ").append(ObjectUtil.toIndentedString(psuMessage)).append("\n");
 		sb.append("}");
 		return sb.toString();
 	}
 
-	/**
-	 * Convert the given object to string with each line indented by 4 spaces
-	 * (except the first line).
-	 */
-	private static String toIndentedString(java.lang.Object o) {
-		if (o == null) {
-			return "null";
-		}
-		return o.toString().replace("\n", "\n    ");
-	}
 }

@@ -6,6 +6,8 @@ import org.eclipse.microprofile.openapi.annotations.media.Schema;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import io.swagger.util.ObjectUtil;
+
 /**
   * Equals \"true\" if sufficient funds are available at the time of the request,  \"false\" otherwise. 
  **/
@@ -39,19 +41,9 @@ public class InlineResponse2008 {
 		StringBuilder sb = new StringBuilder();
 		sb.append("class InlineResponse2008 {\n");
 
-		sb.append("    fundsAvailable: ").append(toIndentedString(fundsAvailable)).append("\n");
+		sb.append("    fundsAvailable: ").append(ObjectUtil.toIndentedString(fundsAvailable)).append("\n");
 		sb.append("}");
 		return sb.toString();
 	}
 
-	/**
-	 * Convert the given object to string with each line indented by 4 spaces
-	 * (except the first line).
-	 */
-	private static String toIndentedString(java.lang.Object o) {
-		if (o == null) {
-			return "null";
-		}
-		return o.toString().replace("\n", "\n    ");
-	}
 }

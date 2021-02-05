@@ -1,5 +1,7 @@
 package io.swagger.model.error;
 
+import io.swagger.util.ObjectUtil;
+
 import java.util.List;
 
 import org.eclipse.microprofile.openapi.annotations.media.Schema;
@@ -67,20 +69,10 @@ public class Error409NGSBS {
 		StringBuilder sb = new StringBuilder();
 		sb.append("class Error409NGSBS {\n");
 
-		sb.append("    tppMessages: ").append(toIndentedString(tppMessages)).append("\n");
-		sb.append("    _links: ").append(toIndentedString(_links)).append("\n");
+		sb.append("    tppMessages: ").append(ObjectUtil.toIndentedString(tppMessages)).append("\n");
+		sb.append("    _links: ").append(ObjectUtil.toIndentedString(_links)).append("\n");
 		sb.append("}");
 		return sb.toString();
 	}
 
-	/**
-	 * Convert the given object to string with each line indented by 4 spaces
-	 * (except the first line).
-	 */
-	private static String toIndentedString(java.lang.Object o) {
-		if (o == null) {
-			return "null";
-		}
-		return o.toString().replace("\n", "\n    ");
-	}
 }

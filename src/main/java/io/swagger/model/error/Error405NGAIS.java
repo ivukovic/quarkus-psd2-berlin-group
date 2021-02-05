@@ -1,4 +1,4 @@
-package io.swagger.model.error;
+package io.swagger.model.error; import io.swagger.util.ObjectUtil;
 
 import java.util.List;
 
@@ -62,25 +62,6 @@ public class Error405NGAIS {
 		return this;
 	}
 
-	@Override
-	public String toString() {
-		StringBuilder sb = new StringBuilder();
-		sb.append("class Error405NGAIS {\n");
 
-		sb.append("    tppMessages: ").append(toIndentedString(tppMessages)).append("\n");
-		sb.append("    _links: ").append(toIndentedString(_links)).append("\n");
-		sb.append("}");
-		return sb.toString();
-	}
-
-	/**
-	 * Convert the given object to string with each line indented by 4 spaces
-	 * (except the first line).
-	 */
-	private static String toIndentedString(java.lang.Object o) {
-		if (o == null) {
-			return "null";
-		}
-		return o.toString().replace("\n", "\n    ");
-	}
+	
 }

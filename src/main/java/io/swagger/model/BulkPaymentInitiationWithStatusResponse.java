@@ -12,6 +12,8 @@ import org.eclipse.microprofile.openapi.annotations.media.Schema;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import io.swagger.util.ObjectUtil;
+
 /**
   * Generic JSON response body consistion of the corresponding bulk payment initation JSON body together with an optional transaction status field. 
  **/
@@ -181,25 +183,15 @@ public class BulkPaymentInitiationWithStatusResponse implements OneOfinlineRespo
 		StringBuilder sb = new StringBuilder();
 		sb.append("class BulkPaymentInitiationWithStatusResponse {\n");
 
-		sb.append("    batchBookingPreferred: ").append(toIndentedString(batchBookingPreferred)).append("\n");
-		sb.append("    requestedExecutionDate: ").append(toIndentedString(requestedExecutionDate)).append("\n");
-		sb.append("    acceptorTransactionDateTime: ").append(toIndentedString(acceptorTransactionDateTime)).append("\n");
-		sb.append("    debtorAccount: ").append(toIndentedString(debtorAccount)).append("\n");
-		sb.append("    paymentInformationId: ").append(toIndentedString(paymentInformationId)).append("\n");
-		sb.append("    payments: ").append(toIndentedString(payments)).append("\n");
-		sb.append("    transactionStatus: ").append(toIndentedString(transactionStatus)).append("\n");
+		sb.append("    batchBookingPreferred: ").append(ObjectUtil.toIndentedString(batchBookingPreferred)).append("\n");
+		sb.append("    requestedExecutionDate: ").append(ObjectUtil.toIndentedString(requestedExecutionDate)).append("\n");
+		sb.append("    acceptorTransactionDateTime: ").append(ObjectUtil.toIndentedString(acceptorTransactionDateTime)).append("\n");
+		sb.append("    debtorAccount: ").append(ObjectUtil.toIndentedString(debtorAccount)).append("\n");
+		sb.append("    paymentInformationId: ").append(ObjectUtil.toIndentedString(paymentInformationId)).append("\n");
+		sb.append("    payments: ").append(ObjectUtil.toIndentedString(payments)).append("\n");
+		sb.append("    transactionStatus: ").append(ObjectUtil.toIndentedString(transactionStatus)).append("\n");
 		sb.append("}");
 		return sb.toString();
 	}
 
-	/**
-	 * Convert the given object to string with each line indented by 4 spaces
-	 * (except the first line).
-	 */
-	private static String toIndentedString(java.lang.Object o) {
-		if (o == null) {
-			return "null";
-		}
-		return o.toString().replace("\n", "\n    ");
-	}
 }

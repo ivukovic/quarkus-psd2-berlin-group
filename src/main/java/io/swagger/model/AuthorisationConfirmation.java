@@ -6,6 +6,8 @@ import org.eclipse.microprofile.openapi.annotations.media.Schema;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import io.swagger.util.ObjectUtil;
+
 /**
   * Content of the body of an authorisation confirmation request 
  **/
@@ -42,19 +44,9 @@ public class AuthorisationConfirmation implements OneOfbody {
 		StringBuilder sb = new StringBuilder();
 		sb.append("class AuthorisationConfirmation {\n");
 
-		sb.append("    confirmationCode: ").append(toIndentedString(confirmationCode)).append("\n");
+		sb.append("    confirmationCode: ").append(ObjectUtil.toIndentedString(confirmationCode)).append("\n");
 		sb.append("}");
 		return sb.toString();
 	}
 
-	/**
-	 * Convert the given object to string with each line indented by 4 spaces
-	 * (except the first line).
-	 */
-	private static String toIndentedString(java.lang.Object o) {
-		if (o == null) {
-			return "null";
-		}
-		return o.toString().replace("\n", "\n    ");
-	}
 }

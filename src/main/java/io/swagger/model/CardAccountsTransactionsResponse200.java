@@ -4,6 +4,8 @@ import org.eclipse.microprofile.openapi.annotations.media.Schema;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import io.swagger.util.ObjectUtil;
+
 /**
   * Body of the JSON response for a successful read card account transaction list request. This card account report contains transactions resulting from the query parameters. 
  **/
@@ -120,23 +122,13 @@ public class CardAccountsTransactionsResponse200 {
 		StringBuilder sb = new StringBuilder();
 		sb.append("class CardAccountsTransactionsResponse200 {\n");
 
-		sb.append("    cardAccount: ").append(toIndentedString(cardAccount)).append("\n");
-		sb.append("    debitAccounting: ").append(toIndentedString(debitAccounting)).append("\n");
-		sb.append("    cardTransactions: ").append(toIndentedString(cardTransactions)).append("\n");
-		sb.append("    balances: ").append(toIndentedString(balances)).append("\n");
-		sb.append("    _links: ").append(toIndentedString(_links)).append("\n");
+		sb.append("    cardAccount: ").append(ObjectUtil.toIndentedString(cardAccount)).append("\n");
+		sb.append("    debitAccounting: ").append(ObjectUtil.toIndentedString(debitAccounting)).append("\n");
+		sb.append("    cardTransactions: ").append(ObjectUtil.toIndentedString(cardTransactions)).append("\n");
+		sb.append("    balances: ").append(ObjectUtil.toIndentedString(balances)).append("\n");
+		sb.append("    _links: ").append(ObjectUtil.toIndentedString(_links)).append("\n");
 		sb.append("}");
 		return sb.toString();
 	}
 
-	/**
-	 * Convert the given object to string with each line indented by 4 spaces
-	 * (except the first line).
-	 */
-	private static String toIndentedString(java.lang.Object o) {
-		if (o == null) {
-			return "null";
-		}
-		return o.toString().replace("\n", "\n    ");
-	}
 }

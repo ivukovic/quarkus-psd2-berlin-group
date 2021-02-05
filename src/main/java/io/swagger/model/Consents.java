@@ -8,6 +8,8 @@ import org.eclipse.microprofile.openapi.annotations.media.Schema;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import io.swagger.util.ObjectUtil;
+
 /**
   * Content of the body of a consent request. 
  **/
@@ -132,23 +134,13 @@ public class Consents {
 		StringBuilder sb = new StringBuilder();
 		sb.append("class Consents {\n");
 
-		sb.append("    access: ").append(toIndentedString(access)).append("\n");
-		sb.append("    recurringIndicator: ").append(toIndentedString(recurringIndicator)).append("\n");
-		sb.append("    validUntil: ").append(toIndentedString(validUntil)).append("\n");
-		sb.append("    frequencyPerDay: ").append(toIndentedString(frequencyPerDay)).append("\n");
-		sb.append("    combinedServiceIndicator: ").append(toIndentedString(combinedServiceIndicator)).append("\n");
+		sb.append("    access: ").append(ObjectUtil.toIndentedString(access)).append("\n");
+		sb.append("    recurringIndicator: ").append(ObjectUtil.toIndentedString(recurringIndicator)).append("\n");
+		sb.append("    validUntil: ").append(ObjectUtil.toIndentedString(validUntil)).append("\n");
+		sb.append("    frequencyPerDay: ").append(ObjectUtil.toIndentedString(frequencyPerDay)).append("\n");
+		sb.append("    combinedServiceIndicator: ").append(ObjectUtil.toIndentedString(combinedServiceIndicator)).append("\n");
 		sb.append("}");
 		return sb.toString();
 	}
 
-	/**
-	 * Convert the given object to string with each line indented by 4 spaces
-	 * (except the first line).
-	 */
-	private static String toIndentedString(java.lang.Object o) {
-		if (o == null) {
-			return "null";
-		}
-		return o.toString().replace("\n", "\n    ");
-	}
 }

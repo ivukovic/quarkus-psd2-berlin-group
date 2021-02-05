@@ -6,6 +6,8 @@ import org.eclipse.microprofile.openapi.annotations.media.Schema;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import io.swagger.util.ObjectUtil;
+
 /**
   * Optional if supported by API provider.  Is asking for additional information as added within this structured object. The usage of this data element requires at least one of the entries \"accounts\",  \"transactions\" or \"balances\" also to be contained in the object.  If detailed accounts are referenced, it is required in addition that any account addressed within  the additionalInformation attribute is also addressed by at least one of the attributes \"accounts\",  \"transactions\" or \"balances\". 
  **/
@@ -75,20 +77,10 @@ public class AdditionalInformationAccess {
 		StringBuilder sb = new StringBuilder();
 		sb.append("class AdditionalInformationAccess {\n");
 
-		sb.append("    ownerName: ").append(toIndentedString(ownerName)).append("\n");
-		sb.append("    trustedBeneficiaries: ").append(toIndentedString(trustedBeneficiaries)).append("\n");
+		sb.append("    ownerName: ").append(ObjectUtil.toIndentedString(ownerName)).append("\n");
+		sb.append("    trustedBeneficiaries: ").append(ObjectUtil.toIndentedString(trustedBeneficiaries)).append("\n");
 		sb.append("}");
 		return sb.toString();
 	}
 
-	/**
-	 * Convert the given object to string with each line indented by 4 spaces
-	 * (except the first line).
-	 */
-	private static String toIndentedString(java.lang.Object o) {
-		if (o == null) {
-			return "null";
-		}
-		return o.toString().replace("\n", "\n    ");
-	}
 }

@@ -1,4 +1,4 @@
-package io.swagger.model.msg;
+package io.swagger.model.msg; import io.swagger.util.ObjectUtil;
 
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -103,22 +103,13 @@ public class TppMessage409SBS {
 		StringBuilder sb = new StringBuilder();
 		sb.append("class TppMessage409SBS {\n");
 
-		sb.append("    category: ").append(toIndentedString(category)).append("\n");
-		sb.append("    code: ").append(toIndentedString(code)).append("\n");
-		sb.append("    path: ").append(toIndentedString(path)).append("\n");
-		sb.append("    text: ").append(toIndentedString(text)).append("\n");
+		sb.append("    category: ").append(ObjectUtil.toIndentedString(category)).append("\n");
+		sb.append("    code: ").append(ObjectUtil.toIndentedString(code)).append("\n");
+		sb.append("    path: ").append(ObjectUtil.toIndentedString(path)).append("\n");
+		sb.append("    text: ").append(ObjectUtil.toIndentedString(text)).append("\n");
 		sb.append("}");
 		return sb.toString();
 	}
 
-	/**
-	 * Convert the given object to string with each line indented by 4 spaces
-	 * (except the first line).
-	 */
-	private static String toIndentedString(java.lang.Object o) {
-		if (o == null) {
-			return "null";
-		}
-		return o.toString().replace("\n", "\n    ");
-	}
+
 }

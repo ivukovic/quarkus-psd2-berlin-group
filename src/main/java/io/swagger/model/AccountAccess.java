@@ -8,6 +8,8 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 
+import io.swagger.util.ObjectUtil;
+
 /**
   * Requested access services for a consent. 
  **/
@@ -327,26 +329,16 @@ public class AccountAccess {
 		StringBuilder sb = new StringBuilder();
 		sb.append("class AccountAccess {\n");
 
-		sb.append("    accounts: ").append(toIndentedString(accounts)).append("\n");
-		sb.append("    balances: ").append(toIndentedString(balances)).append("\n");
-		sb.append("    transactions: ").append(toIndentedString(transactions)).append("\n");
-		sb.append("    additionalInformation: ").append(toIndentedString(additionalInformation)).append("\n");
-		sb.append("    availableAccounts: ").append(toIndentedString(availableAccounts)).append("\n");
-		sb.append("    availableAccountsWithBalance: ").append(toIndentedString(availableAccountsWithBalance)).append("\n");
-		sb.append("    allPsd2: ").append(toIndentedString(allPsd2)).append("\n");
-		sb.append("    restrictedTo: ").append(toIndentedString(restrictedTo)).append("\n");
+		sb.append("    accounts: ").append(ObjectUtil.toIndentedString(accounts)).append("\n");
+		sb.append("    balances: ").append(ObjectUtil.toIndentedString(balances)).append("\n");
+		sb.append("    transactions: ").append(ObjectUtil.toIndentedString(transactions)).append("\n");
+		sb.append("    additionalInformation: ").append(ObjectUtil.toIndentedString(additionalInformation)).append("\n");
+		sb.append("    availableAccounts: ").append(ObjectUtil.toIndentedString(availableAccounts)).append("\n");
+		sb.append("    availableAccountsWithBalance: ").append(ObjectUtil.toIndentedString(availableAccountsWithBalance)).append("\n");
+		sb.append("    allPsd2: ").append(ObjectUtil.toIndentedString(allPsd2)).append("\n");
+		sb.append("    restrictedTo: ").append(ObjectUtil.toIndentedString(restrictedTo)).append("\n");
 		sb.append("}");
 		return sb.toString();
 	}
 
-	/**
-	 * Convert the given object to string with each line indented by 4 spaces
-	 * (except the first line).
-	 */
-	private static String toIndentedString(java.lang.Object o) {
-		if (o == null) {
-			return "null";
-		}
-		return o.toString().replace("\n", "\n    ");
-	}
 }

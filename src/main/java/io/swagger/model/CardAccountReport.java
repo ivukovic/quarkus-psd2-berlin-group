@@ -6,6 +6,8 @@ import org.eclipse.microprofile.openapi.annotations.media.Schema;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import io.swagger.util.ObjectUtil;
+
 /**
   * JSON based card account report.  This card account report contains transactions resulting from the query parameters. 
  **/
@@ -82,21 +84,11 @@ public class CardAccountReport {
 		StringBuilder sb = new StringBuilder();
 		sb.append("class CardAccountReport {\n");
 
-		sb.append("    booked: ").append(toIndentedString(booked)).append("\n");
-		sb.append("    pending: ").append(toIndentedString(pending)).append("\n");
-		sb.append("    _links: ").append(toIndentedString(_links)).append("\n");
+		sb.append("    booked: ").append(ObjectUtil.toIndentedString(booked)).append("\n");
+		sb.append("    pending: ").append(ObjectUtil.toIndentedString(pending)).append("\n");
+		sb.append("    _links: ").append(ObjectUtil.toIndentedString(_links)).append("\n");
 		sb.append("}");
 		return sb.toString();
 	}
 
-	/**
-	 * Convert the given object to string with each line indented by 4 spaces
-	 * (except the first line).
-	 */
-	private static String toIndentedString(java.lang.Object o) {
-		if (o == null) {
-			return "null";
-		}
-		return o.toString().replace("\n", "\n    ");
-	}
 }

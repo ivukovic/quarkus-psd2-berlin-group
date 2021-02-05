@@ -9,6 +9,8 @@ import org.eclipse.microprofile.openapi.annotations.media.Schema;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import io.swagger.util.ObjectUtil;
+
 /**
   * Exchange Rate.
  **/
@@ -153,24 +155,14 @@ public class ReportExchangeRate {
 		StringBuilder sb = new StringBuilder();
 		sb.append("class ReportExchangeRate {\n");
 
-		sb.append("    sourceCurrency: ").append(toIndentedString(sourceCurrency)).append("\n");
-		sb.append("    exchangeRate: ").append(toIndentedString(exchangeRate)).append("\n");
-		sb.append("    unitCurrency: ").append(toIndentedString(unitCurrency)).append("\n");
-		sb.append("    targetCurrency: ").append(toIndentedString(targetCurrency)).append("\n");
-		sb.append("    quotationDate: ").append(toIndentedString(quotationDate)).append("\n");
-		sb.append("    contractIdentification: ").append(toIndentedString(contractIdentification)).append("\n");
+		sb.append("    sourceCurrency: ").append(ObjectUtil.toIndentedString(sourceCurrency)).append("\n");
+		sb.append("    exchangeRate: ").append(ObjectUtil.toIndentedString(exchangeRate)).append("\n");
+		sb.append("    unitCurrency: ").append(ObjectUtil.toIndentedString(unitCurrency)).append("\n");
+		sb.append("    targetCurrency: ").append(ObjectUtil.toIndentedString(targetCurrency)).append("\n");
+		sb.append("    quotationDate: ").append(ObjectUtil.toIndentedString(quotationDate)).append("\n");
+		sb.append("    contractIdentification: ").append(ObjectUtil.toIndentedString(contractIdentification)).append("\n");
 		sb.append("}");
 		return sb.toString();
 	}
 
-	/**
-	 * Convert the given object to string with each line indented by 4 spaces
-	 * (except the first line).
-	 */
-	private static String toIndentedString(java.lang.Object o) {
-		if (o == null) {
-			return "null";
-		}
-		return o.toString().replace("\n", "\n    ");
-	}
 }

@@ -7,6 +7,8 @@ import org.eclipse.microprofile.openapi.annotations.media.Schema;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import io.swagger.util.ObjectUtil;
+
 /**
   * Authentication object. 
  **/
@@ -135,23 +137,13 @@ public class AuthenticationObject {
 		StringBuilder sb = new StringBuilder();
 		sb.append("class AuthenticationObject {\n");
 
-		sb.append("    authenticationType: ").append(toIndentedString(authenticationType)).append("\n");
-		sb.append("    authenticationVersion: ").append(toIndentedString(authenticationVersion)).append("\n");
-		sb.append("    authenticationMethodId: ").append(toIndentedString(authenticationMethodId)).append("\n");
-		sb.append("    name: ").append(toIndentedString(name)).append("\n");
-		sb.append("    explanation: ").append(toIndentedString(explanation)).append("\n");
+		sb.append("    authenticationType: ").append(ObjectUtil.toIndentedString(authenticationType)).append("\n");
+		sb.append("    authenticationVersion: ").append(ObjectUtil.toIndentedString(authenticationVersion)).append("\n");
+		sb.append("    authenticationMethodId: ").append(ObjectUtil.toIndentedString(authenticationMethodId)).append("\n");
+		sb.append("    name: ").append(ObjectUtil.toIndentedString(name)).append("\n");
+		sb.append("    explanation: ").append(ObjectUtil.toIndentedString(explanation)).append("\n");
 		sb.append("}");
 		return sb.toString();
 	}
 
-	/**
-	 * Convert the given object to string with each line indented by 4 spaces
-	 * (except the first line).
-	 */
-	private static String toIndentedString(java.lang.Object o) {
-		if (o == null) {
-			return "null";
-		}
-		return o.toString().replace("\n", "\n    ");
-	}
 }

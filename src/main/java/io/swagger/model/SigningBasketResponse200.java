@@ -6,6 +6,8 @@ import org.eclipse.microprofile.openapi.annotations.media.Schema;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import io.swagger.util.ObjectUtil;
+
 /**
   * Body of the JSON response for a successful get signing basket request.    * 'payments': payment initiations which shall be authorised through this signing basket.   * 'consents': consent objects which shall be authorised through this signing basket.   * 'transactionStatus': Only the codes RCVD, ACTC, RJCT are used.   * '_links': The ASPSP might integrate hyperlinks to indicate next (authorisation) steps to be taken. 
  **/
@@ -102,22 +104,12 @@ public class SigningBasketResponse200 {
 		StringBuilder sb = new StringBuilder();
 		sb.append("class SigningBasketResponse200 {\n");
 
-		sb.append("    payments: ").append(toIndentedString(payments)).append("\n");
-		sb.append("    consents: ").append(toIndentedString(consents)).append("\n");
-		sb.append("    transactionStatus: ").append(toIndentedString(transactionStatus)).append("\n");
-		sb.append("    _links: ").append(toIndentedString(_links)).append("\n");
+		sb.append("    payments: ").append(ObjectUtil.toIndentedString(payments)).append("\n");
+		sb.append("    consents: ").append(ObjectUtil.toIndentedString(consents)).append("\n");
+		sb.append("    transactionStatus: ").append(ObjectUtil.toIndentedString(transactionStatus)).append("\n");
+		sb.append("    _links: ").append(ObjectUtil.toIndentedString(_links)).append("\n");
 		sb.append("}");
 		return sb.toString();
 	}
 
-	/**
-	 * Convert the given object to string with each line indented by 4 spaces
-	 * (except the first line).
-	 */
-	private static String toIndentedString(java.lang.Object o) {
-		if (o == null) {
-			return "null";
-		}
-		return o.toString().replace("\n", "\n    ");
-	}
 }

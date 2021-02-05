@@ -10,6 +10,8 @@ import org.eclipse.microprofile.openapi.annotations.media.Schema;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import io.swagger.util.ObjectUtil;
+
 /**
   * A single balance element. 
  **/
@@ -162,24 +164,14 @@ public class Balance {
 		StringBuilder sb = new StringBuilder();
 		sb.append("class Balance {\n");
 
-		sb.append("    balanceAmount: ").append(toIndentedString(balanceAmount)).append("\n");
-		sb.append("    balanceType: ").append(toIndentedString(balanceType)).append("\n");
-		sb.append("    creditLimitIncluded: ").append(toIndentedString(creditLimitIncluded)).append("\n");
-		sb.append("    lastChangeDateTime: ").append(toIndentedString(lastChangeDateTime)).append("\n");
-		sb.append("    referenceDate: ").append(toIndentedString(referenceDate)).append("\n");
-		sb.append("    lastCommittedTransaction: ").append(toIndentedString(lastCommittedTransaction)).append("\n");
+		sb.append("    balanceAmount: ").append(ObjectUtil.toIndentedString(balanceAmount)).append("\n");
+		sb.append("    balanceType: ").append(ObjectUtil.toIndentedString(balanceType)).append("\n");
+		sb.append("    creditLimitIncluded: ").append(ObjectUtil.toIndentedString(creditLimitIncluded)).append("\n");
+		sb.append("    lastChangeDateTime: ").append(ObjectUtil.toIndentedString(lastChangeDateTime)).append("\n");
+		sb.append("    referenceDate: ").append(ObjectUtil.toIndentedString(referenceDate)).append("\n");
+		sb.append("    lastCommittedTransaction: ").append(ObjectUtil.toIndentedString(lastCommittedTransaction)).append("\n");
 		sb.append("}");
 		return sb.toString();
 	}
 
-	/**
-	 * Convert the given object to string with each line indented by 4 spaces
-	 * (except the first line).
-	 */
-	private static String toIndentedString(java.lang.Object o) {
-		if (o == null) {
-			return "null";
-		}
-		return o.toString().replace("\n", "\n    ");
-	}
 }

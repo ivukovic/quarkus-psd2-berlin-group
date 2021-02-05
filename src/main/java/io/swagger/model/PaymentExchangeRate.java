@@ -6,6 +6,8 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 
+import io.swagger.util.ObjectUtil;
+
 /**
   * Exchange Rate.
  **/
@@ -134,22 +136,12 @@ public class PaymentExchangeRate {
 		StringBuilder sb = new StringBuilder();
 		sb.append("class PaymentExchangeRate {\n");
 
-		sb.append("    unitCurrency: ").append(toIndentedString(unitCurrency)).append("\n");
-		sb.append("    exchangeRate: ").append(toIndentedString(exchangeRate)).append("\n");
-		sb.append("    contractIdentification: ").append(toIndentedString(contractIdentification)).append("\n");
-		sb.append("    rateType: ").append(toIndentedString(rateType)).append("\n");
+		sb.append("    unitCurrency: ").append(ObjectUtil.toIndentedString(unitCurrency)).append("\n");
+		sb.append("    exchangeRate: ").append(ObjectUtil.toIndentedString(exchangeRate)).append("\n");
+		sb.append("    contractIdentification: ").append(ObjectUtil.toIndentedString(contractIdentification)).append("\n");
+		sb.append("    rateType: ").append(ObjectUtil.toIndentedString(rateType)).append("\n");
 		sb.append("}");
 		return sb.toString();
 	}
 
-	/**
-	 * Convert the given object to string with each line indented by 4 spaces
-	 * (except the first line).
-	 */
-	private static String toIndentedString(java.lang.Object o) {
-		if (o == null) {
-			return "null";
-		}
-		return o.toString().replace("\n", "\n    ");
-	}
 }

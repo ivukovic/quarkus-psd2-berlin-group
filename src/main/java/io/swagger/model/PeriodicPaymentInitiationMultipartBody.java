@@ -4,6 +4,8 @@ import org.eclipse.microprofile.openapi.annotations.media.Schema;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import io.swagger.util.ObjectUtil;
+
 /**
   * The multipart message definition for the initiation of a periodic payment initiation  where the information of the payment is contained in a pain.001 message (Part 1) and  the additional informations related to the periodic payment is an additional JSON message (Part 2). 
  **/
@@ -57,20 +59,10 @@ public class PeriodicPaymentInitiationMultipartBody {
 		StringBuilder sb = new StringBuilder();
 		sb.append("class PeriodicPaymentInitiationMultipartBody {\n");
 
-		sb.append("    xmlSct: ").append(toIndentedString(xmlSct)).append("\n");
-		sb.append("    jsonStandingorderType: ").append(toIndentedString(jsonStandingorderType)).append("\n");
+		sb.append("    xmlSct: ").append(ObjectUtil.toIndentedString(xmlSct)).append("\n");
+		sb.append("    jsonStandingorderType: ").append(ObjectUtil.toIndentedString(jsonStandingorderType)).append("\n");
 		sb.append("}");
 		return sb.toString();
 	}
 
-	/**
-	 * Convert the given object to string with each line indented by 4 spaces
-	 * (except the first line).
-	 */
-	private static String toIndentedString(java.lang.Object o) {
-		if (o == null) {
-			return "null";
-		}
-		return o.toString().replace("\n", "\n    ");
-	}
 }

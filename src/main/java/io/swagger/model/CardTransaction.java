@@ -1,24 +1,16 @@
 package io.swagger.model;
 
-import io.swagger.model.Address;
-import io.swagger.model.Amount;
-import io.swagger.model.ReportExchangeRateList;
-import org.eclipse.microprofile.openapi.annotations.media.Schema;
-import java.util.Date;
 import java.time.LocalDate;
-import javax.validation.constraints.*;
+import java.util.Date;
+
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 import org.eclipse.microprofile.openapi.annotations.media.Schema;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.XmlEnum;
-import javax.xml.bind.annotation.XmlEnumValue;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonValue;
-import com.fasterxml.jackson.annotation.JsonCreator;
+
+import io.swagger.util.ObjectUtil;
 
 /**
   * Card transaction information.
@@ -421,36 +413,26 @@ public class CardTransaction {
 		StringBuilder sb = new StringBuilder();
 		sb.append("class CardTransaction {\n");
 
-		sb.append("    cardTransactionId: ").append(toIndentedString(cardTransactionId)).append("\n");
-		sb.append("    terminalId: ").append(toIndentedString(terminalId)).append("\n");
-		sb.append("    transactionDate: ").append(toIndentedString(transactionDate)).append("\n");
-		sb.append("    acceptorTransactionDateTime: ").append(toIndentedString(acceptorTransactionDateTime)).append("\n");
-		sb.append("    bookingDate: ").append(toIndentedString(bookingDate)).append("\n");
-		sb.append("    transactionAmount: ").append(toIndentedString(transactionAmount)).append("\n");
-		sb.append("    currencyExchange: ").append(toIndentedString(currencyExchange)).append("\n");
-		sb.append("    originalAmount: ").append(toIndentedString(originalAmount)).append("\n");
-		sb.append("    markupFee: ").append(toIndentedString(markupFee)).append("\n");
-		sb.append("    markupFeePercentage: ").append(toIndentedString(markupFeePercentage)).append("\n");
-		sb.append("    cardAcceptorId: ").append(toIndentedString(cardAcceptorId)).append("\n");
-		sb.append("    cardAcceptorAddress: ").append(toIndentedString(cardAcceptorAddress)).append("\n");
-		sb.append("    cardAcceptorPhone: ").append(toIndentedString(cardAcceptorPhone)).append("\n");
-		sb.append("    merchantCategoryCode: ").append(toIndentedString(merchantCategoryCode)).append("\n");
-		sb.append("    maskedPAN: ").append(toIndentedString(maskedPAN)).append("\n");
-		sb.append("    transactionDetails: ").append(toIndentedString(transactionDetails)).append("\n");
-		sb.append("    invoiced: ").append(toIndentedString(invoiced)).append("\n");
-		sb.append("    proprietaryBankTransactionCode: ").append(toIndentedString(proprietaryBankTransactionCode)).append("\n");
+		sb.append("    cardTransactionId: ").append(ObjectUtil.toIndentedString(cardTransactionId)).append("\n");
+		sb.append("    terminalId: ").append(ObjectUtil.toIndentedString(terminalId)).append("\n");
+		sb.append("    transactionDate: ").append(ObjectUtil.toIndentedString(transactionDate)).append("\n");
+		sb.append("    acceptorTransactionDateTime: ").append(ObjectUtil.toIndentedString(acceptorTransactionDateTime)).append("\n");
+		sb.append("    bookingDate: ").append(ObjectUtil.toIndentedString(bookingDate)).append("\n");
+		sb.append("    transactionAmount: ").append(ObjectUtil.toIndentedString(transactionAmount)).append("\n");
+		sb.append("    currencyExchange: ").append(ObjectUtil.toIndentedString(currencyExchange)).append("\n");
+		sb.append("    originalAmount: ").append(ObjectUtil.toIndentedString(originalAmount)).append("\n");
+		sb.append("    markupFee: ").append(ObjectUtil.toIndentedString(markupFee)).append("\n");
+		sb.append("    markupFeePercentage: ").append(ObjectUtil.toIndentedString(markupFeePercentage)).append("\n");
+		sb.append("    cardAcceptorId: ").append(ObjectUtil.toIndentedString(cardAcceptorId)).append("\n");
+		sb.append("    cardAcceptorAddress: ").append(ObjectUtil.toIndentedString(cardAcceptorAddress)).append("\n");
+		sb.append("    cardAcceptorPhone: ").append(ObjectUtil.toIndentedString(cardAcceptorPhone)).append("\n");
+		sb.append("    merchantCategoryCode: ").append(ObjectUtil.toIndentedString(merchantCategoryCode)).append("\n");
+		sb.append("    maskedPAN: ").append(ObjectUtil.toIndentedString(maskedPAN)).append("\n");
+		sb.append("    transactionDetails: ").append(ObjectUtil.toIndentedString(transactionDetails)).append("\n");
+		sb.append("    invoiced: ").append(ObjectUtil.toIndentedString(invoiced)).append("\n");
+		sb.append("    proprietaryBankTransactionCode: ").append(ObjectUtil.toIndentedString(proprietaryBankTransactionCode)).append("\n");
 		sb.append("}");
 		return sb.toString();
 	}
 
-	/**
-	 * Convert the given object to string with each line indented by 4 spaces
-	 * (except the first line).
-	 */
-	private static String toIndentedString(java.lang.Object o) {
-		if (o == null) {
-			return "null";
-		}
-		return o.toString().replace("\n", "\n    ");
-	}
 }

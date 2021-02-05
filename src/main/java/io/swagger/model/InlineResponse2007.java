@@ -6,6 +6,8 @@ import org.eclipse.microprofile.openapi.annotations.media.Schema;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import io.swagger.util.ObjectUtil;
+
 public class InlineResponse2007 {
 
 	@Schema(required = true, description = "")
@@ -35,19 +37,9 @@ public class InlineResponse2007 {
 		StringBuilder sb = new StringBuilder();
 		sb.append("class InlineResponse2007 {\n");
 
-		sb.append("    cardAccount: ").append(toIndentedString(cardAccount)).append("\n");
+		sb.append("    cardAccount: ").append(ObjectUtil.toIndentedString(cardAccount)).append("\n");
 		sb.append("}");
 		return sb.toString();
 	}
 
-	/**
-	 * Convert the given object to string with each line indented by 4 spaces
-	 * (except the first line).
-	 */
-	private static String toIndentedString(java.lang.Object o) {
-		if (o == null) {
-			return "null";
-		}
-		return o.toString().replace("\n", "\n    ");
-	}
 }
