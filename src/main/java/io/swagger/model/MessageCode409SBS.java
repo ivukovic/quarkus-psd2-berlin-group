@@ -1,12 +1,5 @@
 package io.swagger.model;
 
-import org.eclipse.microprofile.openapi.annotations.media.Schema;
-import javax.validation.constraints.*;
-import javax.validation.Valid;
-
-/**
- * Message codes defined for signing baskets for HTTP Error code 409 (CONFLICT).
- **/
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
@@ -14,28 +7,30 @@ import com.fasterxml.jackson.annotation.JsonValue;
  * Message codes defined for signing baskets for HTTP Error code 409 (CONFLICT).
  */
 public enum MessageCode409SBS {
-  REFERENCE_STATUS_INVALID("REFERENCE_STATUS_INVALID"),
-    STATUS_INVALID("STATUS_INVALID");
+	REFERENCE_STATUS_INVALID("REFERENCE_STATUS_INVALID"),
 
-  private String value;
+	STATUS_INVALID("STATUS_INVALID");
 
-  MessageCode409SBS(String value) {
-    this.value = value;
-  }
+	private String value;
 
-  @Override
-  @JsonValue
-  public String toString() {
-    return String.valueOf(value);
-  }
+	MessageCode409SBS(String value) {
+		this.value = value;
+	}
 
-  @JsonCreator
-  public static MessageCode409SBS fromValue(String text) {
-    for (MessageCode409SBS b : MessageCode409SBS.values()) {
-      if (String.valueOf(b.value).equals(text)) {
-        return b;
-      }
-    }
-    return null;
-  }
+	@Override
+	@JsonValue
+	public String toString() {
+		return String.valueOf(value);
+	}
+
+	@JsonCreator
+	public static MessageCode409SBS fromValue(String text) {
+		for (MessageCode409SBS b : MessageCode409SBS.values()) {
+			if (String.valueOf(b.value).equals(text)) {
+				return b;
+			}
+		}
+		return null;
+	}
+
 }

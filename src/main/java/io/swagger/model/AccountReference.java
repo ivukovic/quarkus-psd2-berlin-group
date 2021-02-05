@@ -1,200 +1,195 @@
 package io.swagger.model;
 
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
+
 import org.eclipse.microprofile.openapi.annotations.media.Schema;
-import javax.validation.constraints.*;
-import javax.validation.Valid;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
- * Reference to an account by either   * IBAN, of a payment accounts, or   * BBAN, for payment accounts if there is no IBAN, or    * the Primary Account Number (PAN) of a card, can be tokenised by the ASPSP due to PCI DSS requirements, or   * the Primary Account Number (PAN) of a card in a masked form, or   * an alias to access a payment account via a registered mobile phone number (MSISDN). 
+  * Reference to an account by either   * IBAN, of a payment accounts, or   * BBAN, for payment accounts if there is no IBAN, or    * the Primary Account Number (PAN) of a card, can be tokenised by the ASPSP due to PCI DSS requirements, or   * the Primary Account Number (PAN) of a card in a masked form, or   * an alias to access a payment account via a registered mobile phone number (MSISDN). 
  **/
-import io.swagger.annotations.*;
-import java.util.Objects;
-import com.fasterxml.jackson.annotation.JsonProperty;
 @Schema(description = "Reference to an account by either   * IBAN, of a payment accounts, or   * BBAN, for payment accounts if there is no IBAN, or    * the Primary Account Number (PAN) of a card, can be tokenised by the ASPSP due to PCI DSS requirements, or   * the Primary Account Number (PAN) of a card in a masked form, or   * an alias to access a payment account via a registered mobile phone number (MSISDN). ")
+public class AccountReference {
 
-public class AccountReference   {
-  private @Valid String iban = null;
-  private @Valid String bban = null;
-  private @Valid String pan = null;
-  private @Valid String maskedPan = null;
-  private @Valid String msisdn = null;
-  private @Valid String currency = null;
-  private @Valid String cashAccountType = null;
+	@Schema(description = "")
+	private String iban = null;
 
-  /**
-   **/
-  public AccountReference iban(String iban) {
-    this.iban = iban;
-    return this;
-  }
+	@Schema(description = "")
+	private String bban = null;
 
-  
-  @ApiModelProperty(value = "")
-  @JsonProperty("iban")
- @Pattern(regexp="[A-Z]{2,2}[0-9]{2,2}[a-zA-Z0-9]{1,30}")
-  public String getIban() {
-    return iban;
-  }
-  public void setIban(String iban) {
-    this.iban = iban;
-  }
+	@Schema(description = "")
+	private String pan = null;
 
-  /**
-   **/
-  public AccountReference bban(String bban) {
-    this.bban = bban;
-    return this;
-  }
+	@Schema(description = "")
+	private String maskedPan = null;
 
-  
-  @ApiModelProperty(value = "")
-  @JsonProperty("bban")
- @Pattern(regexp="[a-zA-Z0-9]{1,30}")
-  public String getBban() {
-    return bban;
-  }
-  public void setBban(String bban) {
-    this.bban = bban;
-  }
+	@Schema(description = "")
+	private String msisdn = null;
 
-  /**
-   **/
-  public AccountReference pan(String pan) {
-    this.pan = pan;
-    return this;
-  }
+	@Schema(description = "")
+	private String currency = null;
 
-  
-  @ApiModelProperty(value = "")
-  @JsonProperty("pan")
- @Size(max=35)
-  public String getPan() {
-    return pan;
-  }
-  public void setPan(String pan) {
-    this.pan = pan;
-  }
+	@Schema(description = "")
+	private String cashAccountType = null;
 
-  /**
-   **/
-  public AccountReference maskedPan(String maskedPan) {
-    this.maskedPan = maskedPan;
-    return this;
-  }
+	/**
+	  * Get iban
+	  * @return iban
+	 **/
+	@JsonProperty("iban")
+	@Pattern(regexp = "[A-Z]{2,2}[0-9]{2,2}[a-zA-Z0-9]{1,30}")
+	public String getIban() {
+		return iban;
+	}
 
-  
-  @ApiModelProperty(value = "")
-  @JsonProperty("maskedPan")
- @Size(max=35)
-  public String getMaskedPan() {
-    return maskedPan;
-  }
-  public void setMaskedPan(String maskedPan) {
-    this.maskedPan = maskedPan;
-  }
+	public void setIban(String iban) {
+		this.iban = iban;
+	}
 
-  /**
-   **/
-  public AccountReference msisdn(String msisdn) {
-    this.msisdn = msisdn;
-    return this;
-  }
+	public AccountReference iban(String iban) {
+		this.iban = iban;
+		return this;
+	}
 
-  
-  @ApiModelProperty(value = "")
-  @JsonProperty("msisdn")
- @Size(max=35)
-  public String getMsisdn() {
-    return msisdn;
-  }
-  public void setMsisdn(String msisdn) {
-    this.msisdn = msisdn;
-  }
+	/**
+	  * Get bban
+	  * @return bban
+	 **/
+	@JsonProperty("bban")
+	@Pattern(regexp = "[a-zA-Z0-9]{1,30}")
+	public String getBban() {
+		return bban;
+	}
 
-  /**
-   **/
-  public AccountReference currency(String currency) {
-    this.currency = currency;
-    return this;
-  }
+	public void setBban(String bban) {
+		this.bban = bban;
+	}
 
-  
-  @ApiModelProperty(value = "")
-  @JsonProperty("currency")
- @Pattern(regexp="[A-Z]{3}")
-  public String getCurrency() {
-    return currency;
-  }
-  public void setCurrency(String currency) {
-    this.currency = currency;
-  }
+	public AccountReference bban(String bban) {
+		this.bban = bban;
+		return this;
+	}
 
-  /**
-   **/
-  public AccountReference cashAccountType(String cashAccountType) {
-    this.cashAccountType = cashAccountType;
-    return this;
-  }
+	/**
+	  * Get pan
+	  * @return pan
+	 **/
+	@JsonProperty("pan")
+	@Size(max = 35)
+	public String getPan() {
+		return pan;
+	}
 
-  
-  @ApiModelProperty(value = "")
-  @JsonProperty("cashAccountType")
+	public void setPan(String pan) {
+		this.pan = pan;
+	}
 
-  public String getCashAccountType() {
-    return cashAccountType;
-  }
-  public void setCashAccountType(String cashAccountType) {
-    this.cashAccountType = cashAccountType;
-  }
+	public AccountReference pan(String pan) {
+		this.pan = pan;
+		return this;
+	}
 
+	/**
+	  * Get maskedPan
+	  * @return maskedPan
+	 **/
+	@JsonProperty("maskedPan")
+	@Size(max = 35)
+	public String getMaskedPan() {
+		return maskedPan;
+	}
 
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
-    AccountReference accountReference = (AccountReference) o;
-    return Objects.equals(iban, accountReference.iban) &&
-        Objects.equals(bban, accountReference.bban) &&
-        Objects.equals(pan, accountReference.pan) &&
-        Objects.equals(maskedPan, accountReference.maskedPan) &&
-        Objects.equals(msisdn, accountReference.msisdn) &&
-        Objects.equals(currency, accountReference.currency) &&
-        Objects.equals(cashAccountType, accountReference.cashAccountType);
-  }
+	public void setMaskedPan(String maskedPan) {
+		this.maskedPan = maskedPan;
+	}
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(iban, bban, pan, maskedPan, msisdn, currency, cashAccountType);
-  }
+	public AccountReference maskedPan(String maskedPan) {
+		this.maskedPan = maskedPan;
+		return this;
+	}
 
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class AccountReference {\n");
-    
-    sb.append("    iban: ").append(toIndentedString(iban)).append("\n");
-    sb.append("    bban: ").append(toIndentedString(bban)).append("\n");
-    sb.append("    pan: ").append(toIndentedString(pan)).append("\n");
-    sb.append("    maskedPan: ").append(toIndentedString(maskedPan)).append("\n");
-    sb.append("    msisdn: ").append(toIndentedString(msisdn)).append("\n");
-    sb.append("    currency: ").append(toIndentedString(currency)).append("\n");
-    sb.append("    cashAccountType: ").append(toIndentedString(cashAccountType)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
+	/**
+	  * Get msisdn
+	  * @return msisdn
+	 **/
+	@JsonProperty("msisdn")
+	@Size(max = 35)
+	public String getMsisdn() {
+		return msisdn;
+	}
 
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(java.lang.Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
-  }
+	public void setMsisdn(String msisdn) {
+		this.msisdn = msisdn;
+	}
+
+	public AccountReference msisdn(String msisdn) {
+		this.msisdn = msisdn;
+		return this;
+	}
+
+	/**
+	  * Get currency
+	  * @return currency
+	 **/
+	@JsonProperty("currency")
+	@Pattern(regexp = "[A-Z]{3}")
+	public String getCurrency() {
+		return currency;
+	}
+
+	public void setCurrency(String currency) {
+		this.currency = currency;
+	}
+
+	public AccountReference currency(String currency) {
+		this.currency = currency;
+		return this;
+	}
+
+	/**
+	  * Get cashAccountType
+	  * @return cashAccountType
+	 **/
+	@JsonProperty("cashAccountType")
+	public String getCashAccountType() {
+		return cashAccountType;
+	}
+
+	public void setCashAccountType(String cashAccountType) {
+		this.cashAccountType = cashAccountType;
+	}
+
+	public AccountReference cashAccountType(String cashAccountType) {
+		this.cashAccountType = cashAccountType;
+		return this;
+	}
+
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		sb.append("class AccountReference {\n");
+
+		sb.append("    iban: ").append(toIndentedString(iban)).append("\n");
+		sb.append("    bban: ").append(toIndentedString(bban)).append("\n");
+		sb.append("    pan: ").append(toIndentedString(pan)).append("\n");
+		sb.append("    maskedPan: ").append(toIndentedString(maskedPan)).append("\n");
+		sb.append("    msisdn: ").append(toIndentedString(msisdn)).append("\n");
+		sb.append("    currency: ").append(toIndentedString(currency)).append("\n");
+		sb.append("    cashAccountType: ").append(toIndentedString(cashAccountType)).append("\n");
+		sb.append("}");
+		return sb.toString();
+	}
+
+	/**
+	 * Convert the given object to string with each line indented by 4 spaces
+	 * (except the first line).
+	 */
+	private static String toIndentedString(java.lang.Object o) {
+		if (o == null) {
+			return "null";
+		}
+		return o.toString().replace("\n", "\n    ");
+	}
 }

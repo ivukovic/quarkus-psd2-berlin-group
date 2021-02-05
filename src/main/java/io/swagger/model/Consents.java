@@ -1,166 +1,154 @@
 package io.swagger.model;
 
-import io.swagger.model.AccountAccess;
+import java.time.LocalDate;
+
+import javax.validation.constraints.NotNull;
+
 import org.eclipse.microprofile.openapi.annotations.media.Schema;
-import org.joda.time.LocalDate;
-import javax.validation.constraints.*;
-import javax.validation.Valid;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
- * Content of the body of a consent request. 
+  * Content of the body of a consent request. 
  **/
-import io.swagger.annotations.*;
-import java.util.Objects;
-import com.fasterxml.jackson.annotation.JsonProperty;
 @Schema(description = "Content of the body of a consent request. ")
+public class Consents {
 
-public class Consents   {
-  private @Valid AccountAccess access = null;
-  private @Valid Boolean recurringIndicator = null;
-  private @Valid LocalDate validUntil = null;
-  private @Valid Integer frequencyPerDay = null;
-  private @Valid Boolean combinedServiceIndicator = null;
+	@Schema(required = true, description = "")
+	private AccountAccess access = null;
 
-  /**
-   **/
-  public Consents access(AccountAccess access) {
-    this.access = access;
-    return this;
-  }
+	@Schema(required = true, description = "")
+	private Boolean recurringIndicator = null;
 
-  
-  @ApiModelProperty(required = true, value = "")
-  @JsonProperty("access")
-  @NotNull
+	@Schema(required = true, description = "")
+	private LocalDate validUntil = null;
 
-  public AccountAccess getAccess() {
-    return access;
-  }
-  public void setAccess(AccountAccess access) {
-    this.access = access;
-  }
+	@Schema(required = true, description = "")
+	private Integer frequencyPerDay = null;
 
-  /**
-   **/
-  public Consents recurringIndicator(Boolean recurringIndicator) {
-    this.recurringIndicator = recurringIndicator;
-    return this;
-  }
+	@Schema(example = "false", required = true, description = "If \"true\" indicates that a payment initiation service will be addressed in the same \"session\". ")
+	/**
+	  * If \"true\" indicates that a payment initiation service will be addressed in the same \"session\".   
+	 **/
+	private Boolean combinedServiceIndicator = null;
 
-  
-  @ApiModelProperty(required = true, value = "")
-  @JsonProperty("recurringIndicator")
-  @NotNull
+	/**
+	  * Get access
+	  * @return access
+	 **/
+	@JsonProperty("access")
+	@NotNull
+	public AccountAccess getAccess() {
+		return access;
+	}
 
-  public Boolean getRecurringIndicator() {
-    return recurringIndicator;
-  }
-  public void setRecurringIndicator(Boolean recurringIndicator) {
-    this.recurringIndicator = recurringIndicator;
-  }
+	public void setAccess(AccountAccess access) {
+		this.access = access;
+	}
 
-  /**
-   **/
-  public Consents validUntil(LocalDate validUntil) {
-    this.validUntil = validUntil;
-    return this;
-  }
+	public Consents access(AccountAccess access) {
+		this.access = access;
+		return this;
+	}
 
-  
-  @ApiModelProperty(required = true, value = "")
-  @JsonProperty("validUntil")
-  @NotNull
+	/**
+	  * Get recurringIndicator
+	  * @return recurringIndicator
+	 **/
+	@JsonProperty("recurringIndicator")
+	@NotNull
+	public Boolean getRecurringIndicator() {
+		return recurringIndicator;
+	}
 
-  public LocalDate getValidUntil() {
-    return validUntil;
-  }
-  public void setValidUntil(LocalDate validUntil) {
-    this.validUntil = validUntil;
-  }
+	public void setRecurringIndicator(Boolean recurringIndicator) {
+		this.recurringIndicator = recurringIndicator;
+	}
 
-  /**
-   **/
-  public Consents frequencyPerDay(Integer frequencyPerDay) {
-    this.frequencyPerDay = frequencyPerDay;
-    return this;
-  }
+	public Consents recurringIndicator(Boolean recurringIndicator) {
+		this.recurringIndicator = recurringIndicator;
+		return this;
+	}
 
-  
-  @ApiModelProperty(required = true, value = "")
-  @JsonProperty("frequencyPerDay")
-  @NotNull
+	/**
+	  * Get validUntil
+	  * @return validUntil
+	 **/
+	@JsonProperty("validUntil")
+	@NotNull
+	public LocalDate getValidUntil() {
+		return validUntil;
+	}
 
-  public Integer getFrequencyPerDay() {
-    return frequencyPerDay;
-  }
-  public void setFrequencyPerDay(Integer frequencyPerDay) {
-    this.frequencyPerDay = frequencyPerDay;
-  }
+	public void setValidUntil(LocalDate validUntil) {
+		this.validUntil = validUntil;
+	}
 
-  /**
-   * If \&quot;true\&quot; indicates that a payment initiation service will be addressed in the same \&quot;session\&quot;. 
-   **/
-  public Consents combinedServiceIndicator(Boolean combinedServiceIndicator) {
-    this.combinedServiceIndicator = combinedServiceIndicator;
-    return this;
-  }
+	public Consents validUntil(LocalDate validUntil) {
+		this.validUntil = validUntil;
+		return this;
+	}
 
-  
-  @ApiModelProperty(example = "false", required = true, value = "If \"true\" indicates that a payment initiation service will be addressed in the same \"session\". ")
-  @JsonProperty("combinedServiceIndicator")
-  @NotNull
+	/**
+	  * Get frequencyPerDay
+	  * @return frequencyPerDay
+	 **/
+	@JsonProperty("frequencyPerDay")
+	@NotNull
+	public Integer getFrequencyPerDay() {
+		return frequencyPerDay;
+	}
 
-  public Boolean isCombinedServiceIndicator() {
-    return combinedServiceIndicator;
-  }
-  public void setCombinedServiceIndicator(Boolean combinedServiceIndicator) {
-    this.combinedServiceIndicator = combinedServiceIndicator;
-  }
+	public void setFrequencyPerDay(Integer frequencyPerDay) {
+		this.frequencyPerDay = frequencyPerDay;
+	}
 
+	public Consents frequencyPerDay(Integer frequencyPerDay) {
+		this.frequencyPerDay = frequencyPerDay;
+		return this;
+	}
 
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
-    Consents consents = (Consents) o;
-    return Objects.equals(access, consents.access) &&
-        Objects.equals(recurringIndicator, consents.recurringIndicator) &&
-        Objects.equals(validUntil, consents.validUntil) &&
-        Objects.equals(frequencyPerDay, consents.frequencyPerDay) &&
-        Objects.equals(combinedServiceIndicator, consents.combinedServiceIndicator);
-  }
+	/**
+	  * If \&quot;true\&quot; indicates that a payment initiation service will be addressed in the same \&quot;session\&quot;. 
+	  * @return combinedServiceIndicator
+	 **/
+	@JsonProperty("combinedServiceIndicator")
+	@NotNull
+	public Boolean isCombinedServiceIndicator() {
+		return combinedServiceIndicator;
+	}
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(access, recurringIndicator, validUntil, frequencyPerDay, combinedServiceIndicator);
-  }
+	public void setCombinedServiceIndicator(Boolean combinedServiceIndicator) {
+		this.combinedServiceIndicator = combinedServiceIndicator;
+	}
 
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class Consents {\n");
-    
-    sb.append("    access: ").append(toIndentedString(access)).append("\n");
-    sb.append("    recurringIndicator: ").append(toIndentedString(recurringIndicator)).append("\n");
-    sb.append("    validUntil: ").append(toIndentedString(validUntil)).append("\n");
-    sb.append("    frequencyPerDay: ").append(toIndentedString(frequencyPerDay)).append("\n");
-    sb.append("    combinedServiceIndicator: ").append(toIndentedString(combinedServiceIndicator)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
+	public Consents combinedServiceIndicator(Boolean combinedServiceIndicator) {
+		this.combinedServiceIndicator = combinedServiceIndicator;
+		return this;
+	}
 
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(java.lang.Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
-  }
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		sb.append("class Consents {\n");
+
+		sb.append("    access: ").append(toIndentedString(access)).append("\n");
+		sb.append("    recurringIndicator: ").append(toIndentedString(recurringIndicator)).append("\n");
+		sb.append("    validUntil: ").append(toIndentedString(validUntil)).append("\n");
+		sb.append("    frequencyPerDay: ").append(toIndentedString(frequencyPerDay)).append("\n");
+		sb.append("    combinedServiceIndicator: ").append(toIndentedString(combinedServiceIndicator)).append("\n");
+		sb.append("}");
+		return sb.toString();
+	}
+
+	/**
+	 * Convert the given object to string with each line indented by 4 spaces
+	 * (except the first line).
+	 */
+	private static String toIndentedString(java.lang.Object o) {
+		if (o == null) {
+			return "null";
+		}
+		return o.toString().replace("\n", "\n    ");
+	}
 }

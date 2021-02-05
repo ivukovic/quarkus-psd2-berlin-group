@@ -1,12 +1,5 @@
 package io.swagger.model;
 
-import org.eclipse.microprofile.openapi.annotations.media.Schema;
-import javax.validation.constraints.*;
-import javax.validation.Valid;
-
-/**
- * The following codes from the \&quot;EventFrequency7Code\&quot; of ISO 20022 are supported: - \&quot;Daily\&quot; - \&quot;Weekly\&quot; - \&quot;EveryTwoWeeks\&quot; - \&quot;Monthly\&quot; - \&quot;EveryTwoMonths\&quot; - \&quot;Quarterly\&quot; - \&quot;SemiAnnual\&quot; - \&quot;Annual\&quot; - \&quot;MonthlyVariable\&quot; 
- **/
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
@@ -14,35 +7,44 @@ import com.fasterxml.jackson.annotation.JsonValue;
  * The following codes from the \&quot;EventFrequency7Code\&quot; of ISO 20022 are supported: - \&quot;Daily\&quot; - \&quot;Weekly\&quot; - \&quot;EveryTwoWeeks\&quot; - \&quot;Monthly\&quot; - \&quot;EveryTwoMonths\&quot; - \&quot;Quarterly\&quot; - \&quot;SemiAnnual\&quot; - \&quot;Annual\&quot; - \&quot;MonthlyVariable\&quot; 
  */
 public enum FrequencyCode {
-  DAILY("Daily"),
-    WEEKLY("Weekly"),
-    EVERYTWOWEEKS("EveryTwoWeeks"),
-    MONTHLY("Monthly"),
-    EVERYTWOMONTHS("EveryTwoMonths"),
-    QUARTERLY("Quarterly"),
-    SEMIANNUAL("SemiAnnual"),
-    ANNUAL("Annual"),
-    MONTHLYVARIABLE("MonthlyVariable");
+	DAILY("Daily"),
 
-  private String value;
+	WEEKLY("Weekly"),
 
-  FrequencyCode(String value) {
-    this.value = value;
-  }
+	EVERYTWOWEEKS("EveryTwoWeeks"),
 
-  @Override
-  @JsonValue
-  public String toString() {
-    return String.valueOf(value);
-  }
+	MONTHLY("Monthly"),
 
-  @JsonCreator
-  public static FrequencyCode fromValue(String text) {
-    for (FrequencyCode b : FrequencyCode.values()) {
-      if (String.valueOf(b.value).equals(text)) {
-        return b;
-      }
-    }
-    return null;
-  }
+	EVERYTWOMONTHS("EveryTwoMonths"),
+
+	QUARTERLY("Quarterly"),
+
+	SEMIANNUAL("SemiAnnual"),
+
+	ANNUAL("Annual"),
+
+	MONTHLYVARIABLE("MonthlyVariable");
+
+	private String value;
+
+	FrequencyCode(String value) {
+		this.value = value;
+	}
+
+	@Override
+	@JsonValue
+	public String toString() {
+		return String.valueOf(value);
+	}
+
+	@JsonCreator
+	public static FrequencyCode fromValue(String text) {
+		for (FrequencyCode b : FrequencyCode.values()) {
+			if (String.valueOf(b.value).equals(text)) {
+				return b;
+			}
+		}
+		return null;
+	}
+
 }

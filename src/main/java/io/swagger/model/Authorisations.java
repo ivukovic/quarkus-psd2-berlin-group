@@ -1,76 +1,57 @@
 package io.swagger.model;
 
-import io.swagger.model.AuthorisationsList;
+import javax.validation.constraints.NotNull;
+
 import org.eclipse.microprofile.openapi.annotations.media.Schema;
-import javax.validation.constraints.*;
-import javax.validation.Valid;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
- * An array of all authorisationIds.
+  * An array of all authorisationIds.
  **/
-import io.swagger.annotations.*;
-import java.util.Objects;
-import com.fasterxml.jackson.annotation.JsonProperty;
 @Schema(description = "An array of all authorisationIds.")
+public class Authorisations {
 
-public class Authorisations   {
-  private @Valid AuthorisationsList authorisationIds = null;
+	@Schema(required = true, description = "")
+	private AuthorisationsList authorisationIds = null;
 
-  /**
-   **/
-  public Authorisations authorisationIds(AuthorisationsList authorisationIds) {
-    this.authorisationIds = authorisationIds;
-    return this;
-  }
+	/**
+	  * Get authorisationIds
+	  * @return authorisationIds
+	 **/
+	@JsonProperty("authorisationIds")
+	@NotNull
+	public AuthorisationsList getAuthorisationIds() {
+		return authorisationIds;
+	}
 
-  
-  @ApiModelProperty(required = true, value = "")
-  @JsonProperty("authorisationIds")
-  @NotNull
+	public void setAuthorisationIds(AuthorisationsList authorisationIds) {
+		this.authorisationIds = authorisationIds;
+	}
 
-  public AuthorisationsList getAuthorisationIds() {
-    return authorisationIds;
-  }
-  public void setAuthorisationIds(AuthorisationsList authorisationIds) {
-    this.authorisationIds = authorisationIds;
-  }
+	public Authorisations authorisationIds(AuthorisationsList authorisationIds) {
+		this.authorisationIds = authorisationIds;
+		return this;
+	}
 
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		sb.append("class Authorisations {\n");
 
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
-    Authorisations authorisations = (Authorisations) o;
-    return Objects.equals(authorisationIds, authorisations.authorisationIds);
-  }
+		sb.append("    authorisationIds: ").append(toIndentedString(authorisationIds)).append("\n");
+		sb.append("}");
+		return sb.toString();
+	}
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(authorisationIds);
-  }
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class Authorisations {\n");
-    
-    sb.append("    authorisationIds: ").append(toIndentedString(authorisationIds)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(java.lang.Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
-  }
+	/**
+	 * Convert the given object to string with each line indented by 4 spaces
+	 * (except the first line).
+	 */
+	private static String toIndentedString(java.lang.Object o) {
+		if (o == null) {
+			return "null";
+		}
+		return o.toString().replace("\n", "\n    ");
+	}
 }

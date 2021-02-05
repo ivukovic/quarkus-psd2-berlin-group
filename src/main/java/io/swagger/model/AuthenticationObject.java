@@ -1,164 +1,157 @@
 package io.swagger.model;
 
-import io.swagger.model.AuthenticationType;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
 import org.eclipse.microprofile.openapi.annotations.media.Schema;
-import javax.validation.constraints.*;
-import javax.validation.Valid;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
- * Authentication object. 
+  * Authentication object. 
  **/
-import io.swagger.annotations.*;
-import java.util.Objects;
-import com.fasterxml.jackson.annotation.JsonProperty;
 @Schema(description = "Authentication object. ")
+public class AuthenticationObject {
 
-public class AuthenticationObject   {
-  private @Valid AuthenticationType authenticationType = null;
-  private @Valid String authenticationVersion = null;
-  private @Valid String authenticationMethodId = null;
-  private @Valid String name = null;
-  private @Valid String explanation = null;
+	@Schema(required = true, description = "")
+	private AuthenticationType authenticationType = null;
 
-  /**
-   **/
-  public AuthenticationObject authenticationType(AuthenticationType authenticationType) {
-    this.authenticationType = authenticationType;
-    return this;
-  }
+	@Schema(description = "Depending on the \"authenticationType\". This version can be used by differentiating authentication tools used within performing OTP generation in the same authentication type. This version can be referred to in the ASPSP?s documentation. ")
+	/**
+	  * Depending on the \"authenticationType\". This version can be used by differentiating authentication tools used within performing OTP generation in the same authentication type. This version can be referred to in the ASPSP?s documentation.   
+	 **/
+	private String authenticationVersion = null;
 
-  
-  @ApiModelProperty(required = true, value = "")
-  @JsonProperty("authenticationType")
-  @NotNull
+	@Schema(required = true, description = "")
+	private String authenticationMethodId = null;
 
-  public AuthenticationType getAuthenticationType() {
-    return authenticationType;
-  }
-  public void setAuthenticationType(AuthenticationType authenticationType) {
-    this.authenticationType = authenticationType;
-  }
+	@Schema(example = "SMS OTP on phone +49160 xxxxx 28", description = "This is the name of the authentication method defined by the PSU in the Online Banking frontend of the ASPSP. Alternatively this could be a description provided by the ASPSP like \"SMS OTP on phone +49160 xxxxx 28\". This name shall be used by the TPP when presenting a list of authentication methods to the PSU, if available. ")
+	/**
+	  * This is the name of the authentication method defined by the PSU in the Online Banking frontend of the ASPSP. Alternatively this could be a description provided by the ASPSP like \"SMS OTP on phone +49160 xxxxx 28\". This name shall be used by the TPP when presenting a list of authentication methods to the PSU, if available.   
+	 **/
+	private String name = null;
 
-  /**
-   * Depending on the \&quot;authenticationType\&quot;. This version can be used by differentiating authentication tools used within performing OTP generation in the same authentication type. This version can be referred to in the ASPSP?s documentation. 
-   **/
-  public AuthenticationObject authenticationVersion(String authenticationVersion) {
-    this.authenticationVersion = authenticationVersion;
-    return this;
-  }
+	@Schema(example = "Detailed information about the SCA method for the PSU.", description = "Detailed information about the SCA method for the PSU. ")
+	/**
+	  * Detailed information about the SCA method for the PSU.   
+	 **/
+	private String explanation = null;
 
-  
-  @ApiModelProperty(value = "Depending on the \"authenticationType\". This version can be used by differentiating authentication tools used within performing OTP generation in the same authentication type. This version can be referred to in the ASPSP?s documentation. ")
-  @JsonProperty("authenticationVersion")
+	/**
+	  * Get authenticationType
+	  * @return authenticationType
+	 **/
+	@JsonProperty("authenticationType")
+	@NotNull
+	public AuthenticationType getAuthenticationType() {
+		return authenticationType;
+	}
 
-  public String getAuthenticationVersion() {
-    return authenticationVersion;
-  }
-  public void setAuthenticationVersion(String authenticationVersion) {
-    this.authenticationVersion = authenticationVersion;
-  }
+	public void setAuthenticationType(AuthenticationType authenticationType) {
+		this.authenticationType = authenticationType;
+	}
 
-  /**
-   **/
-  public AuthenticationObject authenticationMethodId(String authenticationMethodId) {
-    this.authenticationMethodId = authenticationMethodId;
-    return this;
-  }
+	public AuthenticationObject authenticationType(AuthenticationType authenticationType) {
+		this.authenticationType = authenticationType;
+		return this;
+	}
 
-  
-  @ApiModelProperty(required = true, value = "")
-  @JsonProperty("authenticationMethodId")
-  @NotNull
- @Size(max=35)
-  public String getAuthenticationMethodId() {
-    return authenticationMethodId;
-  }
-  public void setAuthenticationMethodId(String authenticationMethodId) {
-    this.authenticationMethodId = authenticationMethodId;
-  }
+	/**
+	  * Depending on the \&quot;authenticationType\&quot;. This version can be used by differentiating authentication tools used within performing OTP generation in the same authentication type. This version can be referred to in the ASPSP?s documentation. 
+	  * @return authenticationVersion
+	 **/
+	@JsonProperty("authenticationVersion")
+	public String getAuthenticationVersion() {
+		return authenticationVersion;
+	}
 
-  /**
-   * This is the name of the authentication method defined by the PSU in the Online Banking frontend of the ASPSP. Alternatively this could be a description provided by the ASPSP like \&quot;SMS OTP on phone +49160 xxxxx 28\&quot;. This name shall be used by the TPP when presenting a list of authentication methods to the PSU, if available. 
-   **/
-  public AuthenticationObject name(String name) {
-    this.name = name;
-    return this;
-  }
+	public void setAuthenticationVersion(String authenticationVersion) {
+		this.authenticationVersion = authenticationVersion;
+	}
 
-  
-  @ApiModelProperty(example = "SMS OTP on phone +49160 xxxxx 28", value = "This is the name of the authentication method defined by the PSU in the Online Banking frontend of the ASPSP. Alternatively this could be a description provided by the ASPSP like \"SMS OTP on phone +49160 xxxxx 28\". This name shall be used by the TPP when presenting a list of authentication methods to the PSU, if available. ")
-  @JsonProperty("name")
+	public AuthenticationObject authenticationVersion(String authenticationVersion) {
+		this.authenticationVersion = authenticationVersion;
+		return this;
+	}
 
-  public String getName() {
-    return name;
-  }
-  public void setName(String name) {
-    this.name = name;
-  }
+	/**
+	  * Get authenticationMethodId
+	  * @return authenticationMethodId
+	 **/
+	@JsonProperty("authenticationMethodId")
+	@NotNull
+	@Size(max = 35)
+	public String getAuthenticationMethodId() {
+		return authenticationMethodId;
+	}
 
-  /**
-   * Detailed information about the SCA method for the PSU. 
-   **/
-  public AuthenticationObject explanation(String explanation) {
-    this.explanation = explanation;
-    return this;
-  }
+	public void setAuthenticationMethodId(String authenticationMethodId) {
+		this.authenticationMethodId = authenticationMethodId;
+	}
 
-  
-  @ApiModelProperty(example = "Detailed information about the SCA method for the PSU.", value = "Detailed information about the SCA method for the PSU. ")
-  @JsonProperty("explanation")
+	public AuthenticationObject authenticationMethodId(String authenticationMethodId) {
+		this.authenticationMethodId = authenticationMethodId;
+		return this;
+	}
 
-  public String getExplanation() {
-    return explanation;
-  }
-  public void setExplanation(String explanation) {
-    this.explanation = explanation;
-  }
+	/**
+	  * This is the name of the authentication method defined by the PSU in the Online Banking frontend of the ASPSP. Alternatively this could be a description provided by the ASPSP like \&quot;SMS OTP on phone +49160 xxxxx 28\&quot;. This name shall be used by the TPP when presenting a list of authentication methods to the PSU, if available. 
+	  * @return name
+	 **/
+	@JsonProperty("name")
+	public String getName() {
+		return name;
+	}
 
+	public void setName(String name) {
+		this.name = name;
+	}
 
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
-    AuthenticationObject authenticationObject = (AuthenticationObject) o;
-    return Objects.equals(authenticationType, authenticationObject.authenticationType) &&
-        Objects.equals(authenticationVersion, authenticationObject.authenticationVersion) &&
-        Objects.equals(authenticationMethodId, authenticationObject.authenticationMethodId) &&
-        Objects.equals(name, authenticationObject.name) &&
-        Objects.equals(explanation, authenticationObject.explanation);
-  }
+	public AuthenticationObject name(String name) {
+		this.name = name;
+		return this;
+	}
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(authenticationType, authenticationVersion, authenticationMethodId, name, explanation);
-  }
+	/**
+	  * Detailed information about the SCA method for the PSU. 
+	  * @return explanation
+	 **/
+	@JsonProperty("explanation")
+	public String getExplanation() {
+		return explanation;
+	}
 
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class AuthenticationObject {\n");
-    
-    sb.append("    authenticationType: ").append(toIndentedString(authenticationType)).append("\n");
-    sb.append("    authenticationVersion: ").append(toIndentedString(authenticationVersion)).append("\n");
-    sb.append("    authenticationMethodId: ").append(toIndentedString(authenticationMethodId)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    explanation: ").append(toIndentedString(explanation)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
+	public void setExplanation(String explanation) {
+		this.explanation = explanation;
+	}
 
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(java.lang.Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
-  }
+	public AuthenticationObject explanation(String explanation) {
+		this.explanation = explanation;
+		return this;
+	}
+
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		sb.append("class AuthenticationObject {\n");
+
+		sb.append("    authenticationType: ").append(toIndentedString(authenticationType)).append("\n");
+		sb.append("    authenticationVersion: ").append(toIndentedString(authenticationVersion)).append("\n");
+		sb.append("    authenticationMethodId: ").append(toIndentedString(authenticationMethodId)).append("\n");
+		sb.append("    name: ").append(toIndentedString(name)).append("\n");
+		sb.append("    explanation: ").append(toIndentedString(explanation)).append("\n");
+		sb.append("}");
+		return sb.toString();
+	}
+
+	/**
+	 * Convert the given object to string with each line indented by 4 spaces
+	 * (except the first line).
+	 */
+	private static String toIndentedString(java.lang.Object o) {
+		if (o == null) {
+			return "null";
+		}
+		return o.toString().replace("\n", "\n    ");
+	}
 }

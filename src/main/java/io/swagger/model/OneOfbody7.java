@@ -1,6 +1,5 @@
 package io.swagger.model;
 
-
 /**
 * OneOfbody7
 */

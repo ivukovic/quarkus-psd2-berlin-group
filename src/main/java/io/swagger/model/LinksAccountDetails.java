@@ -1,98 +1,78 @@
 package io.swagger.model;
 
-import io.swagger.model.HrefType;
-import org.eclipse.microprofile.openapi.annotations.media.Schema;
 import java.util.HashMap;
-import java.util.Map;
-import javax.validation.constraints.*;
-import javax.validation.Valid;
+
+import org.eclipse.microprofile.openapi.annotations.media.Schema;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
- * Links to the account, which can be directly used for retrieving account information from this dedicated account.  Links to \&quot;balances\&quot; and/or \&quot;transactions\&quot;  These links are only supported, when the corresponding consent has been already granted. 
+  * Links to the account, which can be directly used for retrieving account information from this dedicated account.  Links to \"balances\" and/or \"transactions\"  These links are only supported, when the corresponding consent has been already granted. 
  **/
-import io.swagger.annotations.*;
-import java.util.Objects;
-import com.fasterxml.jackson.annotation.JsonProperty;
 @Schema(description = "Links to the account, which can be directly used for retrieving account information from this dedicated account.  Links to \"balances\" and/or \"transactions\"  These links are only supported, when the corresponding consent has been already granted. ")
+public class LinksAccountDetails extends HashMap<String, HrefType> {
 
-public class LinksAccountDetails extends HashMap<String, HrefType>  {
-  private @Valid HrefType balances = null;
-  private @Valid HrefType transactions = null;
+	@Schema(description = "")
+	private HrefType balances = null;
 
-  /**
-   **/
-  public LinksAccountDetails balances(HrefType balances) {
-    this.balances = balances;
-    return this;
-  }
+	@Schema(description = "")
+	private HrefType transactions = null;
 
-  
-  @ApiModelProperty(value = "")
-  @JsonProperty("balances")
+	/**
+	  * Get balances
+	  * @return balances
+	 **/
+	@JsonProperty("balances")
+	public HrefType getBalances() {
+		return balances;
+	}
 
-  public HrefType getBalances() {
-    return balances;
-  }
-  public void setBalances(HrefType balances) {
-    this.balances = balances;
-  }
+	public void setBalances(HrefType balances) {
+		this.balances = balances;
+	}
 
-  /**
-   **/
-  public LinksAccountDetails transactions(HrefType transactions) {
-    this.transactions = transactions;
-    return this;
-  }
+	public LinksAccountDetails balances(HrefType balances) {
+		this.balances = balances;
+		return this;
+	}
 
-  
-  @ApiModelProperty(value = "")
-  @JsonProperty("transactions")
+	/**
+	  * Get transactions
+	  * @return transactions
+	 **/
+	@JsonProperty("transactions")
+	public HrefType getTransactions() {
+		return transactions;
+	}
 
-  public HrefType getTransactions() {
-    return transactions;
-  }
-  public void setTransactions(HrefType transactions) {
-    this.transactions = transactions;
-  }
+	public void setTransactions(HrefType transactions) {
+		this.transactions = transactions;
+	}
 
+	public LinksAccountDetails transactions(HrefType transactions) {
+		this.transactions = transactions;
+		return this;
+	}
 
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
-    LinksAccountDetails _linksAccountDetails = (LinksAccountDetails) o;
-    return Objects.equals(balances, _linksAccountDetails.balances) &&
-        Objects.equals(transactions, _linksAccountDetails.transactions);
-  }
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		sb.append("class LinksAccountDetails {\n");
+		sb.append("    ").append(toIndentedString(super.toString())).append("\n");
+		sb.append("    balances: ").append(toIndentedString(balances)).append("\n");
+		sb.append("    transactions: ").append(toIndentedString(transactions)).append("\n");
+		sb.append("}");
+		return sb.toString();
+	}
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(balances, transactions);
-  }
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class LinksAccountDetails {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    balances: ").append(toIndentedString(balances)).append("\n");
-    sb.append("    transactions: ").append(toIndentedString(transactions)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(java.lang.Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
-  }
+	/**
+	 * Convert the given object to string with each line indented by 4 spaces
+	 * (except the first line).
+	 */
+	private static String toIndentedString(java.lang.Object o) {
+		if (o == null) {
+			return "null";
+		}
+		return o.toString().replace("\n", "\n    ");
+	}
 }

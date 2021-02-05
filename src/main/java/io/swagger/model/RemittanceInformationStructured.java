@@ -1,117 +1,105 @@
 package io.swagger.model;
 
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
 import org.eclipse.microprofile.openapi.annotations.media.Schema;
-import javax.validation.constraints.*;
-import javax.validation.Valid;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
- * Structured remittance information. 
+  * Structured remittance information. 
  **/
-import io.swagger.annotations.*;
-import java.util.Objects;
-import com.fasterxml.jackson.annotation.JsonProperty;
 @Schema(description = "Structured remittance information. ")
+public class RemittanceInformationStructured {
 
-public class RemittanceInformationStructured   {
-  private @Valid String reference = null;
-  private @Valid String referenceType = null;
-  private @Valid String referenceIssuer = null;
+	@Schema(required = true, description = "")
+	private String reference = null;
 
-  /**
-   **/
-  public RemittanceInformationStructured reference(String reference) {
-    this.reference = reference;
-    return this;
-  }
+	@Schema(description = "")
+	private String referenceType = null;
 
-  
-  @ApiModelProperty(required = true, value = "")
-  @JsonProperty("reference")
-  @NotNull
- @Size(max=35)
-  public String getReference() {
-    return reference;
-  }
-  public void setReference(String reference) {
-    this.reference = reference;
-  }
+	@Schema(description = "")
+	private String referenceIssuer = null;
 
-  /**
-   **/
-  public RemittanceInformationStructured referenceType(String referenceType) {
-    this.referenceType = referenceType;
-    return this;
-  }
+	/**
+	  * Get reference
+	  * @return reference
+	 **/
+	@JsonProperty("reference")
+	@NotNull
+	@Size(max = 35)
+	public String getReference() {
+		return reference;
+	}
 
-  
-  @ApiModelProperty(value = "")
-  @JsonProperty("referenceType")
- @Size(max=35)
-  public String getReferenceType() {
-    return referenceType;
-  }
-  public void setReferenceType(String referenceType) {
-    this.referenceType = referenceType;
-  }
+	public void setReference(String reference) {
+		this.reference = reference;
+	}
 
-  /**
-   **/
-  public RemittanceInformationStructured referenceIssuer(String referenceIssuer) {
-    this.referenceIssuer = referenceIssuer;
-    return this;
-  }
+	public RemittanceInformationStructured reference(String reference) {
+		this.reference = reference;
+		return this;
+	}
 
-  
-  @ApiModelProperty(value = "")
-  @JsonProperty("referenceIssuer")
- @Size(max=35)
-  public String getReferenceIssuer() {
-    return referenceIssuer;
-  }
-  public void setReferenceIssuer(String referenceIssuer) {
-    this.referenceIssuer = referenceIssuer;
-  }
+	/**
+	  * Get referenceType
+	  * @return referenceType
+	 **/
+	@JsonProperty("referenceType")
+	@Size(max = 35)
+	public String getReferenceType() {
+		return referenceType;
+	}
 
+	public void setReferenceType(String referenceType) {
+		this.referenceType = referenceType;
+	}
 
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
-    RemittanceInformationStructured remittanceInformationStructured = (RemittanceInformationStructured) o;
-    return Objects.equals(reference, remittanceInformationStructured.reference) &&
-        Objects.equals(referenceType, remittanceInformationStructured.referenceType) &&
-        Objects.equals(referenceIssuer, remittanceInformationStructured.referenceIssuer);
-  }
+	public RemittanceInformationStructured referenceType(String referenceType) {
+		this.referenceType = referenceType;
+		return this;
+	}
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(reference, referenceType, referenceIssuer);
-  }
+	/**
+	  * Get referenceIssuer
+	  * @return referenceIssuer
+	 **/
+	@JsonProperty("referenceIssuer")
+	@Size(max = 35)
+	public String getReferenceIssuer() {
+		return referenceIssuer;
+	}
 
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class RemittanceInformationStructured {\n");
-    
-    sb.append("    reference: ").append(toIndentedString(reference)).append("\n");
-    sb.append("    referenceType: ").append(toIndentedString(referenceType)).append("\n");
-    sb.append("    referenceIssuer: ").append(toIndentedString(referenceIssuer)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
+	public void setReferenceIssuer(String referenceIssuer) {
+		this.referenceIssuer = referenceIssuer;
+	}
 
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(java.lang.Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
-  }
+	public RemittanceInformationStructured referenceIssuer(String referenceIssuer) {
+		this.referenceIssuer = referenceIssuer;
+		return this;
+	}
+
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		sb.append("class RemittanceInformationStructured {\n");
+
+		sb.append("    reference: ").append(toIndentedString(reference)).append("\n");
+		sb.append("    referenceType: ").append(toIndentedString(referenceType)).append("\n");
+		sb.append("    referenceIssuer: ").append(toIndentedString(referenceIssuer)).append("\n");
+		sb.append("}");
+		return sb.toString();
+	}
+
+	/**
+	 * Convert the given object to string with each line indented by 4 spaces
+	 * (except the first line).
+	 */
+	private static String toIndentedString(java.lang.Object o) {
+		if (o == null) {
+			return "null";
+		}
+		return o.toString().replace("\n", "\n    ");
+	}
 }

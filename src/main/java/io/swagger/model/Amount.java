@@ -1,94 +1,86 @@
 package io.swagger.model;
 
 import javax.validation.constraints.*;
-import javax.validation.Valid;
 
-
-import io.swagger.annotations.*;
-import java.util.Objects;
+import org.eclipse.microprofile.openapi.annotations.media.Schema;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.XmlEnum;
+import javax.xml.bind.annotation.XmlEnumValue;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonCreator;
 
+public class Amount {
 
-public class Amount   {
-  private @Valid String currency = null;
-  private @Valid String amount = null;
+	@Schema(required = true, description = "")
+	private String currency = null;
 
-  /**
-   **/
-  public Amount currency(String currency) {
-    this.currency = currency;
-    return this;
-  }
+	@Schema(required = true, description = "")
+	private String amount = null;
 
-  
-  @ApiModelProperty(required = true, value = "")
-  @JsonProperty("currency")
-  @NotNull
- @Pattern(regexp="[A-Z]{3}")
-  public String getCurrency() {
-    return currency;
-  }
-  public void setCurrency(String currency) {
-    this.currency = currency;
-  }
+	/**
+	  * Get currency
+	  * @return currency
+	 **/
+	@JsonProperty("currency")
+	@NotNull
+	@Pattern(regexp = "[A-Z]{3}")
+	public String getCurrency() {
+		return currency;
+	}
 
-  /**
-   **/
-  public Amount amount(String amount) {
-    this.amount = amount;
-    return this;
-  }
+	public void setCurrency(String currency) {
+		this.currency = currency;
+	}
 
-  
-  @ApiModelProperty(required = true, value = "")
-  @JsonProperty("amount")
-  @NotNull
- @Pattern(regexp="-?[0-9]{1,14}(\.[0-9]{1,3})?")
-  public String getAmount() {
-    return amount;
-  }
-  public void setAmount(String amount) {
-    this.amount = amount;
-  }
+	public Amount currency(String currency) {
+		this.currency = currency;
+		return this;
+	}
 
+	/**
+	  * Get amount
+	  * @return amount
+	 **/
+	@JsonProperty("amount")
+	@NotNull
+	// @Pattern(regexp="-?[0-9]{1,14}(\.[0-9]{1,3})?")  
+	public String getAmount() {
+		return amount;
+	}
 
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
-    Amount amount = (Amount) o;
-    return Objects.equals(currency, amount.currency) &&
-        Objects.equals(amount, amount.amount);
-  }
+	public void setAmount(String amount) {
+		this.amount = amount;
+	}
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(currency, amount);
-  }
+	public Amount amount(String amount) {
+		this.amount = amount;
+		return this;
+	}
 
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class Amount {\n");
-    
-    sb.append("    currency: ").append(toIndentedString(currency)).append("\n");
-    sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		sb.append("class Amount {\n");
 
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(java.lang.Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
-  }
+		sb.append("    currency: ").append(toIndentedString(currency)).append("\n");
+		sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
+		sb.append("}");
+		return sb.toString();
+	}
+
+	/**
+	 * Convert the given object to string with each line indented by 4 spaces
+	 * (except the first line).
+	 */
+	private static String toIndentedString(java.lang.Object o) {
+		if (o == null) {
+			return "null";
+		}
+		return o.toString().replace("\n", "\n    ");
+	}
 }

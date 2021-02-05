@@ -1,451 +1,476 @@
 package io.swagger.model;
 
-import io.swagger.model.AccountStatus;
-import io.swagger.model.BalanceList;
-import io.swagger.model.LinksAccountDetails;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
+
 import org.eclipse.microprofile.openapi.annotations.media.Schema;
-import javax.validation.constraints.*;
-import javax.validation.Valid;
+
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
- * The ASPSP shall give at least one of the account reference identifiers:   - iban   - bban   - pan   - maskedPan   - msisdn If the account is a multicurrency account currency code in \&quot;currency\&quot; is set to \&quot;XXX\&quot;. 
+  * The ASPSP shall give at least one of the account reference identifiers:   - iban   - bban   - pan   - maskedPan   - msisdn If the account is a multicurrency account currency code in \"currency\" is set to \"XXX\". 
  **/
-import io.swagger.annotations.*;
-import java.util.Objects;
-import com.fasterxml.jackson.annotation.JsonProperty;
 @Schema(description = "The ASPSP shall give at least one of the account reference identifiers:   - iban   - bban   - pan   - maskedPan   - msisdn If the account is a multicurrency account currency code in \"currency\" is set to \"XXX\". ")
+public class AccountDetails {
 
-public class AccountDetails   {
-  private @Valid String resourceId = null;
-  private @Valid String iban = null;
-  private @Valid String bban = null;
-  private @Valid String msisdn = null;
-  private @Valid String currency = null;
-  private @Valid String name = null;
-  private @Valid String displayName = null;
-  private @Valid String product = null;
-  private @Valid String cashAccountType = null;
-  private @Valid AccountStatus status = null;
-  private @Valid String bic = null;
-  private @Valid String linkedAccounts = null;
-public enum UsageEnum {
+	@Schema(description = "This shall be filled, if addressable resource are created by the ASPSP on the /accounts or /card-accounts endpoint.")
+	/**
+	  * This shall be filled, if addressable resource are created by the ASPSP on the /accounts or /card-accounts endpoint.  
+	 **/
+	private String resourceId = null;
 
-    PRIV(String.valueOf("PRIV")), ORGA(String.valueOf("ORGA"));
+	@Schema(description = "")
+	private String iban = null;
 
+	@Schema(description = "")
+	private String bban = null;
 
-    private String value;
+	@Schema(description = "")
+	private String msisdn = null;
 
-    UsageEnum (String v) {
-        value = v;
-    }
+	@Schema(required = true, description = "")
+	private String currency = null;
 
-    public String value() {
-        return value;
-    }
+	@Schema(description = "Name of the account, as assigned by the ASPSP, in agreement with the account owner in order to provide an additional means of identification of the account.")
+	/**
+	  * Name of the account, as assigned by the ASPSP, in agreement with the account owner in order to provide an additional means of identification of the account.  
+	 **/
+	private String name = null;
 
-    @Override
-    @JsonValue
-    public String toString() {
-        return String.valueOf(value);
-    }
+	@Schema(description = "")
+	private String displayName = null;
 
-    @JsonCreator
-    public static UsageEnum fromValue(String v) {
-        for (UsageEnum b : UsageEnum.values()) {
-            if (String.valueOf(b.value).equals(v)) {
-                return b;
-            }
-        }
-        return null;
-    }
-}
-  private @Valid UsageEnum usage = null;
-  private @Valid String details = null;
-  private @Valid BalanceList balances = null;
-  private @Valid LinksAccountDetails _links = null;
-  private @Valid String ownerName = null;
+	@Schema(description = "Product name of the bank for this account, proprietary definition.")
+	/**
+	  * Product name of the bank for this account, proprietary definition.  
+	 **/
+	private String product = null;
 
-  /**
-   * This shall be filled, if addressable resource are created by the ASPSP on the /accounts or /card-accounts endpoint.
-   **/
-  public AccountDetails resourceId(String resourceId) {
-    this.resourceId = resourceId;
-    return this;
-  }
+	@Schema(description = "")
+	private String cashAccountType = null;
 
-  
-  @ApiModelProperty(value = "This shall be filled, if addressable resource are created by the ASPSP on the /accounts or /card-accounts endpoint.")
-  @JsonProperty("resourceId")
+	@Schema(description = "")
+	private AccountStatus status = null;
 
-  public String getResourceId() {
-    return resourceId;
-  }
-  public void setResourceId(String resourceId) {
-    this.resourceId = resourceId;
-  }
+	@Schema(description = "")
+	private String bic = null;
 
-  /**
-   **/
-  public AccountDetails iban(String iban) {
-    this.iban = iban;
-    return this;
-  }
+	@Schema(description = "Case of a set of pending card transactions, the APSP will provide the relevant cash account the card is set up on.")
+	/**
+	  * Case of a set of pending card transactions, the APSP will provide the relevant cash account the card is set up on.  
+	 **/
+	private String linkedAccounts = null;
 
-  
-  @ApiModelProperty(value = "")
-  @JsonProperty("iban")
- @Pattern(regexp="[A-Z]{2,2}[0-9]{2,2}[a-zA-Z0-9]{1,30}")
-  public String getIban() {
-    return iban;
-  }
-  public void setIban(String iban) {
-    this.iban = iban;
-  }
+	public enum UsageEnum {
+		PRIV("PRIV"), ORGA("ORGA");
 
-  /**
-   **/
-  public AccountDetails bban(String bban) {
-    this.bban = bban;
-    return this;
-  }
+		private String value;
 
-  
-  @ApiModelProperty(value = "")
-  @JsonProperty("bban")
- @Pattern(regexp="[a-zA-Z0-9]{1,30}")
-  public String getBban() {
-    return bban;
-  }
-  public void setBban(String bban) {
-    this.bban = bban;
-  }
+		UsageEnum(String value) {
+			this.value = value;
+		}
 
-  /**
-   **/
-  public AccountDetails msisdn(String msisdn) {
-    this.msisdn = msisdn;
-    return this;
-  }
+		@JsonValue
+		public String getValue() {
+			return value;
+		}
 
-  
-  @ApiModelProperty(value = "")
-  @JsonProperty("msisdn")
- @Size(max=35)
-  public String getMsisdn() {
-    return msisdn;
-  }
-  public void setMsisdn(String msisdn) {
-    this.msisdn = msisdn;
-  }
+		@Override
+		public String toString() {
+			return String.valueOf(value);
+		}
 
-  /**
-   **/
-  public AccountDetails currency(String currency) {
-    this.currency = currency;
-    return this;
-  }
+		@JsonCreator
+		public static UsageEnum fromValue(String text) {
+			for (UsageEnum b : UsageEnum.values()) {
+				if (String.valueOf(b.value).equals(text)) {
+					return b;
+				}
+			}
+			return null;
+		}
+	}
 
-  
-  @ApiModelProperty(required = true, value = "")
-  @JsonProperty("currency")
-  @NotNull
- @Pattern(regexp="[A-Z]{3}")
-  public String getCurrency() {
-    return currency;
-  }
-  public void setCurrency(String currency) {
-    this.currency = currency;
-  }
+	@Schema(description = "Specifies the usage of the account:   * PRIV: private personal account   * ORGA: professional account ")
+	/**
+	  * Specifies the usage of the account:   * PRIV: private personal account   * ORGA: professional account   
+	 **/
+	private UsageEnum usage = null;
 
-  /**
-   * Name of the account, as assigned by the ASPSP, in agreement with the account owner in order to provide an additional means of identification of the account.
-   **/
-  public AccountDetails name(String name) {
-    this.name = name;
-    return this;
-  }
+	@Schema(description = "Specifications that might be provided by the ASPSP:   - characteristics of the account   - characteristics of the relevant card ")
+	/**
+	  * Specifications that might be provided by the ASPSP:   - characteristics of the account   - characteristics of the relevant card   
+	 **/
+	private String details = null;
 
-  
-  @ApiModelProperty(value = "Name of the account, as assigned by the ASPSP, in agreement with the account owner in order to provide an additional means of identification of the account.")
-  @JsonProperty("name")
- @Size(max=70)
-  public String getName() {
-    return name;
-  }
-  public void setName(String name) {
-    this.name = name;
-  }
+	@Schema(description = "")
+	private BalanceList balances = null;
 
-  /**
-   **/
-  public AccountDetails displayName(String displayName) {
-    this.displayName = displayName;
-    return this;
-  }
+	@Schema(description = "")
+	private LinksAccountDetails _links = null;
 
-  
-  @ApiModelProperty(value = "")
-  @JsonProperty("displayName")
- @Size(max=70)
-  public String getDisplayName() {
-    return displayName;
-  }
-  public void setDisplayName(String displayName) {
-    this.displayName = displayName;
-  }
+	@Schema(description = "")
+	private String ownerName = null;
 
-  /**
-   * Product name of the bank for this account, proprietary definition.
-   **/
-  public AccountDetails product(String product) {
-    this.product = product;
-    return this;
-  }
+	/**
+	  * This shall be filled, if addressable resource are created by the ASPSP on the /accounts or /card-accounts endpoint.
+	  * @return resourceId
+	 **/
+	@JsonProperty("resourceId")
+	public String getResourceId() {
+		return resourceId;
+	}
 
-  
-  @ApiModelProperty(value = "Product name of the bank for this account, proprietary definition.")
-  @JsonProperty("product")
- @Size(max=35)
-  public String getProduct() {
-    return product;
-  }
-  public void setProduct(String product) {
-    this.product = product;
-  }
+	public void setResourceId(String resourceId) {
+		this.resourceId = resourceId;
+	}
 
-  /**
-   **/
-  public AccountDetails cashAccountType(String cashAccountType) {
-    this.cashAccountType = cashAccountType;
-    return this;
-  }
+	public AccountDetails resourceId(String resourceId) {
+		this.resourceId = resourceId;
+		return this;
+	}
 
-  
-  @ApiModelProperty(value = "")
-  @JsonProperty("cashAccountType")
+	/**
+	  * Get iban
+	  * @return iban
+	 **/
+	@JsonProperty("iban")
+	@Pattern(regexp = "[A-Z]{2,2}[0-9]{2,2}[a-zA-Z0-9]{1,30}")
+	public String getIban() {
+		return iban;
+	}
 
-  public String getCashAccountType() {
-    return cashAccountType;
-  }
-  public void setCashAccountType(String cashAccountType) {
-    this.cashAccountType = cashAccountType;
-  }
+	public void setIban(String iban) {
+		this.iban = iban;
+	}
 
-  /**
-   **/
-  public AccountDetails status(AccountStatus status) {
-    this.status = status;
-    return this;
-  }
+	public AccountDetails iban(String iban) {
+		this.iban = iban;
+		return this;
+	}
 
-  
-  @ApiModelProperty(value = "")
-  @JsonProperty("status")
+	/**
+	  * Get bban
+	  * @return bban
+	 **/
+	@JsonProperty("bban")
+	@Pattern(regexp = "[a-zA-Z0-9]{1,30}")
+	public String getBban() {
+		return bban;
+	}
 
-  public AccountStatus getStatus() {
-    return status;
-  }
-  public void setStatus(AccountStatus status) {
-    this.status = status;
-  }
+	public void setBban(String bban) {
+		this.bban = bban;
+	}
 
-  /**
-   **/
-  public AccountDetails bic(String bic) {
-    this.bic = bic;
-    return this;
-  }
+	public AccountDetails bban(String bban) {
+		this.bban = bban;
+		return this;
+	}
 
-  
-  @ApiModelProperty(value = "")
-  @JsonProperty("bic")
- @Pattern(regexp="[A-Z]{6,6}[A-Z2-9][A-NP-Z0-9]([A-Z0-9]{3,3}){0,1}")
-  public String getBic() {
-    return bic;
-  }
-  public void setBic(String bic) {
-    this.bic = bic;
-  }
+	/**
+	  * Get msisdn
+	  * @return msisdn
+	 **/
+	@JsonProperty("msisdn")
+	@Size(max = 35)
+	public String getMsisdn() {
+		return msisdn;
+	}
 
-  /**
-   * Case of a set of pending card transactions, the APSP will provide the relevant cash account the card is set up on.
-   **/
-  public AccountDetails linkedAccounts(String linkedAccounts) {
-    this.linkedAccounts = linkedAccounts;
-    return this;
-  }
+	public void setMsisdn(String msisdn) {
+		this.msisdn = msisdn;
+	}
 
-  
-  @ApiModelProperty(value = "Case of a set of pending card transactions, the APSP will provide the relevant cash account the card is set up on.")
-  @JsonProperty("linkedAccounts")
- @Size(max=70)
-  public String getLinkedAccounts() {
-    return linkedAccounts;
-  }
-  public void setLinkedAccounts(String linkedAccounts) {
-    this.linkedAccounts = linkedAccounts;
-  }
+	public AccountDetails msisdn(String msisdn) {
+		this.msisdn = msisdn;
+		return this;
+	}
 
-  /**
-   * Specifies the usage of the account:   * PRIV: private personal account   * ORGA: professional account 
-   **/
-  public AccountDetails usage(UsageEnum usage) {
-    this.usage = usage;
-    return this;
-  }
+	/**
+	  * Get currency
+	  * @return currency
+	 **/
+	@JsonProperty("currency")
+	@NotNull
+	@Pattern(regexp = "[A-Z]{3}")
+	public String getCurrency() {
+		return currency;
+	}
 
-  
-  @ApiModelProperty(value = "Specifies the usage of the account:   * PRIV: private personal account   * ORGA: professional account ")
-  @JsonProperty("usage")
- @Size(max=4)
-  public UsageEnum getUsage() {
-    return usage;
-  }
-  public void setUsage(UsageEnum usage) {
-    this.usage = usage;
-  }
+	public void setCurrency(String currency) {
+		this.currency = currency;
+	}
 
-  /**
-   * Specifications that might be provided by the ASPSP:   - characteristics of the account   - characteristics of the relevant card 
-   **/
-  public AccountDetails details(String details) {
-    this.details = details;
-    return this;
-  }
+	public AccountDetails currency(String currency) {
+		this.currency = currency;
+		return this;
+	}
 
-  
-  @ApiModelProperty(value = "Specifications that might be provided by the ASPSP:   - characteristics of the account   - characteristics of the relevant card ")
-  @JsonProperty("details")
- @Size(max=500)
-  public String getDetails() {
-    return details;
-  }
-  public void setDetails(String details) {
-    this.details = details;
-  }
+	/**
+	  * Name of the account, as assigned by the ASPSP, in agreement with the account owner in order to provide an additional means of identification of the account.
+	  * @return name
+	 **/
+	@JsonProperty("name")
+	@Size(max = 70)
+	public String getName() {
+		return name;
+	}
 
-  /**
-   **/
-  public AccountDetails balances(BalanceList balances) {
-    this.balances = balances;
-    return this;
-  }
+	public void setName(String name) {
+		this.name = name;
+	}
 
-  
-  @ApiModelProperty(value = "")
-  @JsonProperty("balances")
+	public AccountDetails name(String name) {
+		this.name = name;
+		return this;
+	}
 
-  public BalanceList getBalances() {
-    return balances;
-  }
-  public void setBalances(BalanceList balances) {
-    this.balances = balances;
-  }
+	/**
+	  * Get displayName
+	  * @return displayName
+	 **/
+	@JsonProperty("displayName")
+	@Size(max = 70)
+	public String getDisplayName() {
+		return displayName;
+	}
 
-  /**
-   **/
-  public AccountDetails _links(LinksAccountDetails _links) {
-    this._links = _links;
-    return this;
-  }
+	public void setDisplayName(String displayName) {
+		this.displayName = displayName;
+	}
 
-  
-  @ApiModelProperty(value = "")
-  @JsonProperty("_links")
+	public AccountDetails displayName(String displayName) {
+		this.displayName = displayName;
+		return this;
+	}
 
-  public LinksAccountDetails getLinks() {
-    return _links;
-  }
-  public void setLinks(LinksAccountDetails _links) {
-    this._links = _links;
-  }
+	/**
+	  * Product name of the bank for this account, proprietary definition.
+	  * @return product
+	 **/
+	@JsonProperty("product")
+	@Size(max = 35)
+	public String getProduct() {
+		return product;
+	}
 
-  /**
-   **/
-  public AccountDetails ownerName(String ownerName) {
-    this.ownerName = ownerName;
-    return this;
-  }
+	public void setProduct(String product) {
+		this.product = product;
+	}
 
-  
-  @ApiModelProperty(value = "")
-  @JsonProperty("ownerName")
- @Size(max=140)
-  public String getOwnerName() {
-    return ownerName;
-  }
-  public void setOwnerName(String ownerName) {
-    this.ownerName = ownerName;
-  }
+	public AccountDetails product(String product) {
+		this.product = product;
+		return this;
+	}
 
+	/**
+	  * Get cashAccountType
+	  * @return cashAccountType
+	 **/
+	@JsonProperty("cashAccountType")
+	public String getCashAccountType() {
+		return cashAccountType;
+	}
 
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
-    AccountDetails accountDetails = (AccountDetails) o;
-    return Objects.equals(resourceId, accountDetails.resourceId) &&
-        Objects.equals(iban, accountDetails.iban) &&
-        Objects.equals(bban, accountDetails.bban) &&
-        Objects.equals(msisdn, accountDetails.msisdn) &&
-        Objects.equals(currency, accountDetails.currency) &&
-        Objects.equals(name, accountDetails.name) &&
-        Objects.equals(displayName, accountDetails.displayName) &&
-        Objects.equals(product, accountDetails.product) &&
-        Objects.equals(cashAccountType, accountDetails.cashAccountType) &&
-        Objects.equals(status, accountDetails.status) &&
-        Objects.equals(bic, accountDetails.bic) &&
-        Objects.equals(linkedAccounts, accountDetails.linkedAccounts) &&
-        Objects.equals(usage, accountDetails.usage) &&
-        Objects.equals(details, accountDetails.details) &&
-        Objects.equals(balances, accountDetails.balances) &&
-        Objects.equals(_links, accountDetails._links) &&
-        Objects.equals(ownerName, accountDetails.ownerName);
-  }
+	public void setCashAccountType(String cashAccountType) {
+		this.cashAccountType = cashAccountType;
+	}
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(resourceId, iban, bban, msisdn, currency, name, displayName, product, cashAccountType, status, bic, linkedAccounts, usage, details, balances, _links, ownerName);
-  }
+	public AccountDetails cashAccountType(String cashAccountType) {
+		this.cashAccountType = cashAccountType;
+		return this;
+	}
 
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class AccountDetails {\n");
-    
-    sb.append("    resourceId: ").append(toIndentedString(resourceId)).append("\n");
-    sb.append("    iban: ").append(toIndentedString(iban)).append("\n");
-    sb.append("    bban: ").append(toIndentedString(bban)).append("\n");
-    sb.append("    msisdn: ").append(toIndentedString(msisdn)).append("\n");
-    sb.append("    currency: ").append(toIndentedString(currency)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    displayName: ").append(toIndentedString(displayName)).append("\n");
-    sb.append("    product: ").append(toIndentedString(product)).append("\n");
-    sb.append("    cashAccountType: ").append(toIndentedString(cashAccountType)).append("\n");
-    sb.append("    status: ").append(toIndentedString(status)).append("\n");
-    sb.append("    bic: ").append(toIndentedString(bic)).append("\n");
-    sb.append("    linkedAccounts: ").append(toIndentedString(linkedAccounts)).append("\n");
-    sb.append("    usage: ").append(toIndentedString(usage)).append("\n");
-    sb.append("    details: ").append(toIndentedString(details)).append("\n");
-    sb.append("    balances: ").append(toIndentedString(balances)).append("\n");
-    sb.append("    _links: ").append(toIndentedString(_links)).append("\n");
-    sb.append("    ownerName: ").append(toIndentedString(ownerName)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
+	/**
+	  * Get status
+	  * @return status
+	 **/
+	@JsonProperty("status")
+	public AccountStatus getStatus() {
+		return status;
+	}
 
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(java.lang.Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
-  }
+	public void setStatus(AccountStatus status) {
+		this.status = status;
+	}
+
+	public AccountDetails status(AccountStatus status) {
+		this.status = status;
+		return this;
+	}
+
+	/**
+	  * Get bic
+	  * @return bic
+	 **/
+	@JsonProperty("bic")
+	@Pattern(regexp = "[A-Z]{6,6}[A-Z2-9][A-NP-Z0-9]([A-Z0-9]{3,3}){0,1}")
+	public String getBic() {
+		return bic;
+	}
+
+	public void setBic(String bic) {
+		this.bic = bic;
+	}
+
+	public AccountDetails bic(String bic) {
+		this.bic = bic;
+		return this;
+	}
+
+	/**
+	  * Case of a set of pending card transactions, the APSP will provide the relevant cash account the card is set up on.
+	  * @return linkedAccounts
+	 **/
+	@JsonProperty("linkedAccounts")
+	@Size(max = 70)
+	public String getLinkedAccounts() {
+		return linkedAccounts;
+	}
+
+	public void setLinkedAccounts(String linkedAccounts) {
+		this.linkedAccounts = linkedAccounts;
+	}
+
+	public AccountDetails linkedAccounts(String linkedAccounts) {
+		this.linkedAccounts = linkedAccounts;
+		return this;
+	}
+
+	/**
+	  * Specifies the usage of the account:   * PRIV: private personal account   * ORGA: professional account 
+	  * @return usage
+	 **/
+	@JsonProperty("usage")
+	@Size(max = 4)
+	public String getUsage() {
+		if (usage == null) {
+			return null;
+		}
+		return usage.getValue();
+	}
+
+	public void setUsage(UsageEnum usage) {
+		this.usage = usage;
+	}
+
+	public AccountDetails usage(UsageEnum usage) {
+		this.usage = usage;
+		return this;
+	}
+
+	/**
+	  * Specifications that might be provided by the ASPSP:   - characteristics of the account   - characteristics of the relevant card 
+	  * @return details
+	 **/
+	@JsonProperty("details")
+	@Size(max = 500)
+	public String getDetails() {
+		return details;
+	}
+
+	public void setDetails(String details) {
+		this.details = details;
+	}
+
+	public AccountDetails details(String details) {
+		this.details = details;
+		return this;
+	}
+
+	/**
+	  * Get balances
+	  * @return balances
+	 **/
+	@JsonProperty("balances")
+	public BalanceList getBalances() {
+		return balances;
+	}
+
+	public void setBalances(BalanceList balances) {
+		this.balances = balances;
+	}
+
+	public AccountDetails balances(BalanceList balances) {
+		this.balances = balances;
+		return this;
+	}
+
+	/**
+	  * Get _links
+	  * @return _links
+	 **/
+	@JsonProperty("_links")
+	public LinksAccountDetails getLinks() {
+		return _links;
+	}
+
+	public void setLinks(LinksAccountDetails _links) {
+		this._links = _links;
+	}
+
+	public AccountDetails _links(LinksAccountDetails _links) {
+		this._links = _links;
+		return this;
+	}
+
+	/**
+	  * Get ownerName
+	  * @return ownerName
+	 **/
+	@JsonProperty("ownerName")
+	@Size(max = 140)
+	public String getOwnerName() {
+		return ownerName;
+	}
+
+	public void setOwnerName(String ownerName) {
+		this.ownerName = ownerName;
+	}
+
+	public AccountDetails ownerName(String ownerName) {
+		this.ownerName = ownerName;
+		return this;
+	}
+
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		sb.append("class AccountDetails {\n");
+
+		sb.append("    resourceId: ").append(toIndentedString(resourceId)).append("\n");
+		sb.append("    iban: ").append(toIndentedString(iban)).append("\n");
+		sb.append("    bban: ").append(toIndentedString(bban)).append("\n");
+		sb.append("    msisdn: ").append(toIndentedString(msisdn)).append("\n");
+		sb.append("    currency: ").append(toIndentedString(currency)).append("\n");
+		sb.append("    name: ").append(toIndentedString(name)).append("\n");
+		sb.append("    displayName: ").append(toIndentedString(displayName)).append("\n");
+		sb.append("    product: ").append(toIndentedString(product)).append("\n");
+		sb.append("    cashAccountType: ").append(toIndentedString(cashAccountType)).append("\n");
+		sb.append("    status: ").append(toIndentedString(status)).append("\n");
+		sb.append("    bic: ").append(toIndentedString(bic)).append("\n");
+		sb.append("    linkedAccounts: ").append(toIndentedString(linkedAccounts)).append("\n");
+		sb.append("    usage: ").append(toIndentedString(usage)).append("\n");
+		sb.append("    details: ").append(toIndentedString(details)).append("\n");
+		sb.append("    balances: ").append(toIndentedString(balances)).append("\n");
+		sb.append("    _links: ").append(toIndentedString(_links)).append("\n");
+		sb.append("    ownerName: ").append(toIndentedString(ownerName)).append("\n");
+		sb.append("}");
+		return sb.toString();
+	}
+
+	/**
+	 * Convert the given object to string with each line indented by 4 spaces
+	 * (except the first line).
+	 */
+	private static String toIndentedString(java.lang.Object o) {
+		if (o == null) {
+			return "null";
+		}
+		return o.toString().replace("\n", "\n    ");
+	}
 }

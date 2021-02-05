@@ -1,252 +1,244 @@
 package io.swagger.model;
 
-import io.swagger.model.Amount;
-import io.swagger.model.DayOfExecution;
-import io.swagger.model.ExecutionRule;
-import io.swagger.model.FrequencyCode;
-import io.swagger.model.MonthsOfExecution;
+import java.time.LocalDate;
+
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
 import org.eclipse.microprofile.openapi.annotations.media.Schema;
-import org.joda.time.LocalDate;
-import javax.validation.constraints.*;
-import javax.validation.Valid;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
- * Details of underlying standing orders. 
+  * Details of underlying standing orders. 
  **/
-import io.swagger.annotations.*;
-import java.util.Objects;
-import com.fasterxml.jackson.annotation.JsonProperty;
 @Schema(description = "Details of underlying standing orders. ")
+public class StandingOrderDetails {
 
-public class StandingOrderDetails   {
-  private @Valid LocalDate startDate = null;
-  private @Valid FrequencyCode frequency = null;
-  private @Valid LocalDate endDate = null;
-  private @Valid ExecutionRule executionRule = null;
-  private @Valid Boolean withinAMonthFlag = null;
-  private @Valid MonthsOfExecution monthsOfExecution = null;
-  private @Valid Integer multiplicator = null;
-  private @Valid DayOfExecution dayOfExecution = null;
-  private @Valid Amount limitAmount = null;
+	@Schema(required = true, description = "")
+	private LocalDate startDate = null;
 
-  /**
-   **/
-  public StandingOrderDetails startDate(LocalDate startDate) {
-    this.startDate = startDate;
-    return this;
-  }
+	@Schema(required = true, description = "")
+	private FrequencyCode frequency = null;
 
-  
-  @ApiModelProperty(required = true, value = "")
-  @JsonProperty("startDate")
-  @NotNull
+	@Schema(description = "")
+	private LocalDate endDate = null;
 
-  public LocalDate getStartDate() {
-    return startDate;
-  }
-  public void setStartDate(LocalDate startDate) {
-    this.startDate = startDate;
-  }
+	@Schema(description = "")
+	private ExecutionRule executionRule = null;
 
-  /**
-   **/
-  public StandingOrderDetails frequency(FrequencyCode frequency) {
-    this.frequency = frequency;
-    return this;
-  }
+	@Schema(description = "This element is only used in case of frequency equals \"Monthly\".  If this element equals false it has no effect. If this element equals true, then the execution rule is overruled if the day of execution would fall into a different month using the execution rule.  Example: executionRule equals \"preceding\", dayOfExecution equals \"02\" and the second of a month is a Sunday.  In this case, the transaction date would be on the last day of the month before.  This would be overruled if withinAMonthFlag equals true and the payment is processed on Monday the third of the Month. Remark: This attribute is rarely supported in the market. ")
+	/**
+	  * This element is only used in case of frequency equals \"Monthly\".  If this element equals false it has no effect. If this element equals true, then the execution rule is overruled if the day of execution would fall into a different month using the execution rule.  Example: executionRule equals \"preceding\", dayOfExecution equals \"02\" and the second of a month is a Sunday.  In this case, the transaction date would be on the last day of the month before.  This would be overruled if withinAMonthFlag equals true and the payment is processed on Monday the third of the Month. Remark: This attribute is rarely supported in the market.   
+	 **/
+	private Boolean withinAMonthFlag = null;
 
-  
-  @ApiModelProperty(required = true, value = "")
-  @JsonProperty("frequency")
-  @NotNull
+	@Schema(description = "")
+	private MonthsOfExecution monthsOfExecution = null;
 
-  public FrequencyCode getFrequency() {
-    return frequency;
-  }
-  public void setFrequency(FrequencyCode frequency) {
-    this.frequency = frequency;
-  }
+	@Schema(description = "This is multiplying the given frequency resulting the exact frequency, e.g. Frequency=weekly and multiplicator=3 means every 3 weeks. Remark: This attribute is rarely supported in the market. ")
+	/**
+	  * This is multiplying the given frequency resulting the exact frequency, e.g. Frequency=weekly and multiplicator=3 means every 3 weeks. Remark: This attribute is rarely supported in the market.   
+	 **/
+	private Integer multiplicator = null;
 
-  /**
-   **/
-  public StandingOrderDetails endDate(LocalDate endDate) {
-    this.endDate = endDate;
-    return this;
-  }
+	@Schema(description = "")
+	private DayOfExecution dayOfExecution = null;
 
-  
-  @ApiModelProperty(value = "")
-  @JsonProperty("endDate")
+	@Schema(description = "")
+	private Amount limitAmount = null;
 
-  public LocalDate getEndDate() {
-    return endDate;
-  }
-  public void setEndDate(LocalDate endDate) {
-    this.endDate = endDate;
-  }
+	/**
+	  * Get startDate
+	  * @return startDate
+	 **/
+	@JsonProperty("startDate")
+	@NotNull
+	public LocalDate getStartDate() {
+		return startDate;
+	}
 
-  /**
-   **/
-  public StandingOrderDetails executionRule(ExecutionRule executionRule) {
-    this.executionRule = executionRule;
-    return this;
-  }
+	public void setStartDate(LocalDate startDate) {
+		this.startDate = startDate;
+	}
 
-  
-  @ApiModelProperty(value = "")
-  @JsonProperty("executionRule")
+	public StandingOrderDetails startDate(LocalDate startDate) {
+		this.startDate = startDate;
+		return this;
+	}
 
-  public ExecutionRule getExecutionRule() {
-    return executionRule;
-  }
-  public void setExecutionRule(ExecutionRule executionRule) {
-    this.executionRule = executionRule;
-  }
+	/**
+	  * Get frequency
+	  * @return frequency
+	 **/
+	@JsonProperty("frequency")
+	@NotNull
+	public FrequencyCode getFrequency() {
+		return frequency;
+	}
 
-  /**
-   * This element is only used in case of frequency equals \&quot;Monthly\&quot;.  If this element equals false it has no effect. If this element equals true, then the execution rule is overruled if the day of execution would fall into a different month using the execution rule.  Example: executionRule equals \&quot;preceding\&quot;, dayOfExecution equals \&quot;02\&quot; and the second of a month is a Sunday.  In this case, the transaction date would be on the last day of the month before.  This would be overruled if withinAMonthFlag equals true and the payment is processed on Monday the third of the Month. Remark: This attribute is rarely supported in the market. 
-   **/
-  public StandingOrderDetails withinAMonthFlag(Boolean withinAMonthFlag) {
-    this.withinAMonthFlag = withinAMonthFlag;
-    return this;
-  }
+	public void setFrequency(FrequencyCode frequency) {
+		this.frequency = frequency;
+	}
 
-  
-  @ApiModelProperty(value = "This element is only used in case of frequency equals \"Monthly\".  If this element equals false it has no effect. If this element equals true, then the execution rule is overruled if the day of execution would fall into a different month using the execution rule.  Example: executionRule equals \"preceding\", dayOfExecution equals \"02\" and the second of a month is a Sunday.  In this case, the transaction date would be on the last day of the month before.  This would be overruled if withinAMonthFlag equals true and the payment is processed on Monday the third of the Month. Remark: This attribute is rarely supported in the market. ")
-  @JsonProperty("withinAMonthFlag")
+	public StandingOrderDetails frequency(FrequencyCode frequency) {
+		this.frequency = frequency;
+		return this;
+	}
 
-  public Boolean isWithinAMonthFlag() {
-    return withinAMonthFlag;
-  }
-  public void setWithinAMonthFlag(Boolean withinAMonthFlag) {
-    this.withinAMonthFlag = withinAMonthFlag;
-  }
+	/**
+	  * Get endDate
+	  * @return endDate
+	 **/
+	@JsonProperty("endDate")
+	public LocalDate getEndDate() {
+		return endDate;
+	}
 
-  /**
-   **/
-  public StandingOrderDetails monthsOfExecution(MonthsOfExecution monthsOfExecution) {
-    this.monthsOfExecution = monthsOfExecution;
-    return this;
-  }
+	public void setEndDate(LocalDate endDate) {
+		this.endDate = endDate;
+	}
 
-  
-  @ApiModelProperty(value = "")
-  @JsonProperty("monthsOfExecution")
+	public StandingOrderDetails endDate(LocalDate endDate) {
+		this.endDate = endDate;
+		return this;
+	}
 
-  public MonthsOfExecution getMonthsOfExecution() {
-    return monthsOfExecution;
-  }
-  public void setMonthsOfExecution(MonthsOfExecution monthsOfExecution) {
-    this.monthsOfExecution = monthsOfExecution;
-  }
+	/**
+	  * Get executionRule
+	  * @return executionRule
+	 **/
+	@JsonProperty("executionRule")
+	public ExecutionRule getExecutionRule() {
+		return executionRule;
+	}
 
-  /**
-   * This is multiplying the given frequency resulting the exact frequency, e.g. Frequency&#x3D;weekly and multiplicator&#x3D;3 means every 3 weeks. Remark: This attribute is rarely supported in the market. 
-   **/
-  public StandingOrderDetails multiplicator(Integer multiplicator) {
-    this.multiplicator = multiplicator;
-    return this;
-  }
+	public void setExecutionRule(ExecutionRule executionRule) {
+		this.executionRule = executionRule;
+	}
 
-  
-  @ApiModelProperty(value = "This is multiplying the given frequency resulting the exact frequency, e.g. Frequency=weekly and multiplicator=3 means every 3 weeks. Remark: This attribute is rarely supported in the market. ")
-  @JsonProperty("multiplicator")
+	public StandingOrderDetails executionRule(ExecutionRule executionRule) {
+		this.executionRule = executionRule;
+		return this;
+	}
 
-  public Integer getMultiplicator() {
-    return multiplicator;
-  }
-  public void setMultiplicator(Integer multiplicator) {
-    this.multiplicator = multiplicator;
-  }
+	/**
+	  * This element is only used in case of frequency equals \&quot;Monthly\&quot;.  If this element equals false it has no effect. If this element equals true, then the execution rule is overruled if the day of execution would fall into a different month using the execution rule.  Example: executionRule equals \&quot;preceding\&quot;, dayOfExecution equals \&quot;02\&quot; and the second of a month is a Sunday.  In this case, the transaction date would be on the last day of the month before.  This would be overruled if withinAMonthFlag equals true and the payment is processed on Monday the third of the Month. Remark: This attribute is rarely supported in the market. 
+	  * @return withinAMonthFlag
+	 **/
+	@JsonProperty("withinAMonthFlag")
+	public Boolean isWithinAMonthFlag() {
+		return withinAMonthFlag;
+	}
 
-  /**
-   **/
-  public StandingOrderDetails dayOfExecution(DayOfExecution dayOfExecution) {
-    this.dayOfExecution = dayOfExecution;
-    return this;
-  }
+	public void setWithinAMonthFlag(Boolean withinAMonthFlag) {
+		this.withinAMonthFlag = withinAMonthFlag;
+	}
 
-  
-  @ApiModelProperty(value = "")
-  @JsonProperty("dayOfExecution")
- @Size(max=2)
-  public DayOfExecution getDayOfExecution() {
-    return dayOfExecution;
-  }
-  public void setDayOfExecution(DayOfExecution dayOfExecution) {
-    this.dayOfExecution = dayOfExecution;
-  }
+	public StandingOrderDetails withinAMonthFlag(Boolean withinAMonthFlag) {
+		this.withinAMonthFlag = withinAMonthFlag;
+		return this;
+	}
 
-  /**
-   **/
-  public StandingOrderDetails limitAmount(Amount limitAmount) {
-    this.limitAmount = limitAmount;
-    return this;
-  }
+	/**
+	  * Get monthsOfExecution
+	  * @return monthsOfExecution
+	 **/
+	@JsonProperty("monthsOfExecution")
+	public MonthsOfExecution getMonthsOfExecution() {
+		return monthsOfExecution;
+	}
 
-  
-  @ApiModelProperty(value = "")
-  @JsonProperty("limitAmount")
+	public void setMonthsOfExecution(MonthsOfExecution monthsOfExecution) {
+		this.monthsOfExecution = monthsOfExecution;
+	}
 
-  public Amount getLimitAmount() {
-    return limitAmount;
-  }
-  public void setLimitAmount(Amount limitAmount) {
-    this.limitAmount = limitAmount;
-  }
+	public StandingOrderDetails monthsOfExecution(MonthsOfExecution monthsOfExecution) {
+		this.monthsOfExecution = monthsOfExecution;
+		return this;
+	}
 
+	/**
+	  * This is multiplying the given frequency resulting the exact frequency, e.g. Frequency&#x3D;weekly and multiplicator&#x3D;3 means every 3 weeks. Remark: This attribute is rarely supported in the market. 
+	  * @return multiplicator
+	 **/
+	@JsonProperty("multiplicator")
+	public Integer getMultiplicator() {
+		return multiplicator;
+	}
 
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
-    StandingOrderDetails standingOrderDetails = (StandingOrderDetails) o;
-    return Objects.equals(startDate, standingOrderDetails.startDate) &&
-        Objects.equals(frequency, standingOrderDetails.frequency) &&
-        Objects.equals(endDate, standingOrderDetails.endDate) &&
-        Objects.equals(executionRule, standingOrderDetails.executionRule) &&
-        Objects.equals(withinAMonthFlag, standingOrderDetails.withinAMonthFlag) &&
-        Objects.equals(monthsOfExecution, standingOrderDetails.monthsOfExecution) &&
-        Objects.equals(multiplicator, standingOrderDetails.multiplicator) &&
-        Objects.equals(dayOfExecution, standingOrderDetails.dayOfExecution) &&
-        Objects.equals(limitAmount, standingOrderDetails.limitAmount);
-  }
+	public void setMultiplicator(Integer multiplicator) {
+		this.multiplicator = multiplicator;
+	}
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(startDate, frequency, endDate, executionRule, withinAMonthFlag, monthsOfExecution, multiplicator, dayOfExecution, limitAmount);
-  }
+	public StandingOrderDetails multiplicator(Integer multiplicator) {
+		this.multiplicator = multiplicator;
+		return this;
+	}
 
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class StandingOrderDetails {\n");
-    
-    sb.append("    startDate: ").append(toIndentedString(startDate)).append("\n");
-    sb.append("    frequency: ").append(toIndentedString(frequency)).append("\n");
-    sb.append("    endDate: ").append(toIndentedString(endDate)).append("\n");
-    sb.append("    executionRule: ").append(toIndentedString(executionRule)).append("\n");
-    sb.append("    withinAMonthFlag: ").append(toIndentedString(withinAMonthFlag)).append("\n");
-    sb.append("    monthsOfExecution: ").append(toIndentedString(monthsOfExecution)).append("\n");
-    sb.append("    multiplicator: ").append(toIndentedString(multiplicator)).append("\n");
-    sb.append("    dayOfExecution: ").append(toIndentedString(dayOfExecution)).append("\n");
-    sb.append("    limitAmount: ").append(toIndentedString(limitAmount)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
+	/**
+	  * Get dayOfExecution
+	  * @return dayOfExecution
+	 **/
+	@JsonProperty("dayOfExecution")
+	@Size(max = 2)
+	public DayOfExecution getDayOfExecution() {
+		return dayOfExecution;
+	}
 
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(java.lang.Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
-  }
+	public void setDayOfExecution(DayOfExecution dayOfExecution) {
+		this.dayOfExecution = dayOfExecution;
+	}
+
+	public StandingOrderDetails dayOfExecution(DayOfExecution dayOfExecution) {
+		this.dayOfExecution = dayOfExecution;
+		return this;
+	}
+
+	/**
+	  * Get limitAmount
+	  * @return limitAmount
+	 **/
+	@JsonProperty("limitAmount")
+	public Amount getLimitAmount() {
+		return limitAmount;
+	}
+
+	public void setLimitAmount(Amount limitAmount) {
+		this.limitAmount = limitAmount;
+	}
+
+	public StandingOrderDetails limitAmount(Amount limitAmount) {
+		this.limitAmount = limitAmount;
+		return this;
+	}
+
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		sb.append("class StandingOrderDetails {\n");
+
+		sb.append("    startDate: ").append(toIndentedString(startDate)).append("\n");
+		sb.append("    frequency: ").append(toIndentedString(frequency)).append("\n");
+		sb.append("    endDate: ").append(toIndentedString(endDate)).append("\n");
+		sb.append("    executionRule: ").append(toIndentedString(executionRule)).append("\n");
+		sb.append("    withinAMonthFlag: ").append(toIndentedString(withinAMonthFlag)).append("\n");
+		sb.append("    monthsOfExecution: ").append(toIndentedString(monthsOfExecution)).append("\n");
+		sb.append("    multiplicator: ").append(toIndentedString(multiplicator)).append("\n");
+		sb.append("    dayOfExecution: ").append(toIndentedString(dayOfExecution)).append("\n");
+		sb.append("    limitAmount: ").append(toIndentedString(limitAmount)).append("\n");
+		sb.append("}");
+		return sb.toString();
+	}
+
+	/**
+	 * Convert the given object to string with each line indented by 4 spaces
+	 * (except the first line).
+	 */
+	private static String toIndentedString(java.lang.Object o) {
+		if (o == null) {
+			return "null";
+		}
+		return o.toString().replace("\n", "\n    ");
+	}
 }

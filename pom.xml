@@ -112,11 +112,6 @@
 			<artifactId>quarkus-spring-cloud-config-client</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>com.abc</groupId>
-			<artifactId>psd2-sber</artifactId>
-			<version>1.0.0</version>
-		</dependency>
-		<dependency>
     		<groupId>io.quarkus</groupId>
     		<artifactId>quarkus-narayana-jta</artifactId>
 		</dependency>

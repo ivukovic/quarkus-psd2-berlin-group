@@ -1,250 +1,242 @@
 package io.swagger.model;
 
-import io.swagger.model.AccountReference;
-import io.swagger.model.Address;
-import io.swagger.model.Amount;
-import io.swagger.model.TransactionStatus;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
+
 import org.eclipse.microprofile.openapi.annotations.media.Schema;
-import javax.validation.constraints.*;
-import javax.validation.Valid;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
- * Generic JSON response body consistion of the corresponding payment initation JSON body together with an optional transaction status field. 
+  * Generic JSON response body consistion of the corresponding payment initation JSON body together with an optional transaction status field. 
  **/
-import io.swagger.annotations.*;
-import java.util.Objects;
-import com.fasterxml.jackson.annotation.JsonProperty;
 @Schema(description = "Generic JSON response body consistion of the corresponding payment initation JSON body together with an optional transaction status field. ")
+public class PaymentInitiationWithStatusResponse implements OneOfinlineResponse200 {
 
-public class PaymentInitiationWithStatusResponse  implements OneOfinlineResponse200  {
-  private @Valid String endToEndIdentification = null;
-  private @Valid AccountReference debtorAccount = null;
-  private @Valid Amount instructedAmount = null;
-  private @Valid AccountReference creditorAccount = null;
-  private @Valid String creditorAgent = null;
-  private @Valid String creditorName = null;
-  private @Valid Address creditorAddress = null;
-  private @Valid String remittanceInformationUnstructured = null;
-  private @Valid TransactionStatus transactionStatus = null;
+	@Schema(description = "")
+	private String endToEndIdentification = null;
 
-  /**
-   **/
-  public PaymentInitiationWithStatusResponse endToEndIdentification(String endToEndIdentification) {
-    this.endToEndIdentification = endToEndIdentification;
-    return this;
-  }
+	@Schema(required = true, description = "")
+	private AccountReference debtorAccount = null;
 
-  
-  @ApiModelProperty(value = "")
-  @JsonProperty("endToEndIdentification")
- @Size(max=35)
-  public String getEndToEndIdentification() {
-    return endToEndIdentification;
-  }
-  public void setEndToEndIdentification(String endToEndIdentification) {
-    this.endToEndIdentification = endToEndIdentification;
-  }
+	@Schema(required = true, description = "")
+	private Amount instructedAmount = null;
 
-  /**
-   **/
-  public PaymentInitiationWithStatusResponse debtorAccount(AccountReference debtorAccount) {
-    this.debtorAccount = debtorAccount;
-    return this;
-  }
+	@Schema(required = true, description = "")
+	private AccountReference creditorAccount = null;
 
-  
-  @ApiModelProperty(required = true, value = "")
-  @JsonProperty("debtorAccount")
-  @NotNull
+	@Schema(description = "")
+	private String creditorAgent = null;
 
-  public AccountReference getDebtorAccount() {
-    return debtorAccount;
-  }
-  public void setDebtorAccount(AccountReference debtorAccount) {
-    this.debtorAccount = debtorAccount;
-  }
+	@Schema(required = true, description = "")
+	private String creditorName = null;
 
-  /**
-   **/
-  public PaymentInitiationWithStatusResponse instructedAmount(Amount instructedAmount) {
-    this.instructedAmount = instructedAmount;
-    return this;
-  }
+	@Schema(description = "")
+	private Address creditorAddress = null;
 
-  
-  @ApiModelProperty(required = true, value = "")
-  @JsonProperty("instructedAmount")
-  @NotNull
+	@Schema(description = "")
+	private String remittanceInformationUnstructured = null;
 
-  public Amount getInstructedAmount() {
-    return instructedAmount;
-  }
-  public void setInstructedAmount(Amount instructedAmount) {
-    this.instructedAmount = instructedAmount;
-  }
+	@Schema(description = "")
+	private TransactionStatus transactionStatus = null;
 
-  /**
-   **/
-  public PaymentInitiationWithStatusResponse creditorAccount(AccountReference creditorAccount) {
-    this.creditorAccount = creditorAccount;
-    return this;
-  }
+	/**
+	  * Get endToEndIdentification
+	  * @return endToEndIdentification
+	 **/
+	@JsonProperty("endToEndIdentification")
+	@Size(max = 35)
+	public String getEndToEndIdentification() {
+		return endToEndIdentification;
+	}
 
-  
-  @ApiModelProperty(required = true, value = "")
-  @JsonProperty("creditorAccount")
-  @NotNull
+	public void setEndToEndIdentification(String endToEndIdentification) {
+		this.endToEndIdentification = endToEndIdentification;
+	}
 
-  public AccountReference getCreditorAccount() {
-    return creditorAccount;
-  }
-  public void setCreditorAccount(AccountReference creditorAccount) {
-    this.creditorAccount = creditorAccount;
-  }
+	public PaymentInitiationWithStatusResponse endToEndIdentification(String endToEndIdentification) {
+		this.endToEndIdentification = endToEndIdentification;
+		return this;
+	}
 
-  /**
-   **/
-  public PaymentInitiationWithStatusResponse creditorAgent(String creditorAgent) {
-    this.creditorAgent = creditorAgent;
-    return this;
-  }
+	/**
+	  * Get debtorAccount
+	  * @return debtorAccount
+	 **/
+	@JsonProperty("debtorAccount")
+	@NotNull
+	public AccountReference getDebtorAccount() {
+		return debtorAccount;
+	}
 
-  
-  @ApiModelProperty(value = "")
-  @JsonProperty("creditorAgent")
- @Pattern(regexp="[A-Z]{6,6}[A-Z2-9][A-NP-Z0-9]([A-Z0-9]{3,3}){0,1}")
-  public String getCreditorAgent() {
-    return creditorAgent;
-  }
-  public void setCreditorAgent(String creditorAgent) {
-    this.creditorAgent = creditorAgent;
-  }
+	public void setDebtorAccount(AccountReference debtorAccount) {
+		this.debtorAccount = debtorAccount;
+	}
 
-  /**
-   **/
-  public PaymentInitiationWithStatusResponse creditorName(String creditorName) {
-    this.creditorName = creditorName;
-    return this;
-  }
+	public PaymentInitiationWithStatusResponse debtorAccount(AccountReference debtorAccount) {
+		this.debtorAccount = debtorAccount;
+		return this;
+	}
 
-  
-  @ApiModelProperty(required = true, value = "")
-  @JsonProperty("creditorName")
-  @NotNull
- @Size(max=70)
-  public String getCreditorName() {
-    return creditorName;
-  }
-  public void setCreditorName(String creditorName) {
-    this.creditorName = creditorName;
-  }
+	/**
+	  * Get instructedAmount
+	  * @return instructedAmount
+	 **/
+	@JsonProperty("instructedAmount")
+	@NotNull
+	public Amount getInstructedAmount() {
+		return instructedAmount;
+	}
 
-  /**
-   **/
-  public PaymentInitiationWithStatusResponse creditorAddress(Address creditorAddress) {
-    this.creditorAddress = creditorAddress;
-    return this;
-  }
+	public void setInstructedAmount(Amount instructedAmount) {
+		this.instructedAmount = instructedAmount;
+	}
 
-  
-  @ApiModelProperty(value = "")
-  @JsonProperty("creditorAddress")
+	public PaymentInitiationWithStatusResponse instructedAmount(Amount instructedAmount) {
+		this.instructedAmount = instructedAmount;
+		return this;
+	}
 
-  public Address getCreditorAddress() {
-    return creditorAddress;
-  }
-  public void setCreditorAddress(Address creditorAddress) {
-    this.creditorAddress = creditorAddress;
-  }
+	/**
+	  * Get creditorAccount
+	  * @return creditorAccount
+	 **/
+	@JsonProperty("creditorAccount")
+	@NotNull
+	public AccountReference getCreditorAccount() {
+		return creditorAccount;
+	}
 
-  /**
-   **/
-  public PaymentInitiationWithStatusResponse remittanceInformationUnstructured(String remittanceInformationUnstructured) {
-    this.remittanceInformationUnstructured = remittanceInformationUnstructured;
-    return this;
-  }
+	public void setCreditorAccount(AccountReference creditorAccount) {
+		this.creditorAccount = creditorAccount;
+	}
 
-  
-  @ApiModelProperty(value = "")
-  @JsonProperty("remittanceInformationUnstructured")
- @Size(max=140)
-  public String getRemittanceInformationUnstructured() {
-    return remittanceInformationUnstructured;
-  }
-  public void setRemittanceInformationUnstructured(String remittanceInformationUnstructured) {
-    this.remittanceInformationUnstructured = remittanceInformationUnstructured;
-  }
+	public PaymentInitiationWithStatusResponse creditorAccount(AccountReference creditorAccount) {
+		this.creditorAccount = creditorAccount;
+		return this;
+	}
 
-  /**
-   **/
-  public PaymentInitiationWithStatusResponse transactionStatus(TransactionStatus transactionStatus) {
-    this.transactionStatus = transactionStatus;
-    return this;
-  }
+	/**
+	  * Get creditorAgent
+	  * @return creditorAgent
+	 **/
+	@JsonProperty("creditorAgent")
+	@Pattern(regexp = "[A-Z]{6,6}[A-Z2-9][A-NP-Z0-9]([A-Z0-9]{3,3}){0,1}")
+	public String getCreditorAgent() {
+		return creditorAgent;
+	}
 
-  
-  @ApiModelProperty(value = "")
-  @JsonProperty("transactionStatus")
+	public void setCreditorAgent(String creditorAgent) {
+		this.creditorAgent = creditorAgent;
+	}
 
-  public TransactionStatus getTransactionStatus() {
-    return transactionStatus;
-  }
-  public void setTransactionStatus(TransactionStatus transactionStatus) {
-    this.transactionStatus = transactionStatus;
-  }
+	public PaymentInitiationWithStatusResponse creditorAgent(String creditorAgent) {
+		this.creditorAgent = creditorAgent;
+		return this;
+	}
 
+	/**
+	  * Get creditorName
+	  * @return creditorName
+	 **/
+	@JsonProperty("creditorName")
+	@NotNull
+	@Size(max = 70)
+	public String getCreditorName() {
+		return creditorName;
+	}
 
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
-    PaymentInitiationWithStatusResponse paymentInitiationWithStatusResponse = (PaymentInitiationWithStatusResponse) o;
-    return Objects.equals(endToEndIdentification, paymentInitiationWithStatusResponse.endToEndIdentification) &&
-        Objects.equals(debtorAccount, paymentInitiationWithStatusResponse.debtorAccount) &&
-        Objects.equals(instructedAmount, paymentInitiationWithStatusResponse.instructedAmount) &&
-        Objects.equals(creditorAccount, paymentInitiationWithStatusResponse.creditorAccount) &&
-        Objects.equals(creditorAgent, paymentInitiationWithStatusResponse.creditorAgent) &&
-        Objects.equals(creditorName, paymentInitiationWithStatusResponse.creditorName) &&
-        Objects.equals(creditorAddress, paymentInitiationWithStatusResponse.creditorAddress) &&
-        Objects.equals(remittanceInformationUnstructured, paymentInitiationWithStatusResponse.remittanceInformationUnstructured) &&
-        Objects.equals(transactionStatus, paymentInitiationWithStatusResponse.transactionStatus);
-  }
+	public void setCreditorName(String creditorName) {
+		this.creditorName = creditorName;
+	}
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(endToEndIdentification, debtorAccount, instructedAmount, creditorAccount, creditorAgent, creditorName, creditorAddress, remittanceInformationUnstructured, transactionStatus);
-  }
+	public PaymentInitiationWithStatusResponse creditorName(String creditorName) {
+		this.creditorName = creditorName;
+		return this;
+	}
 
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class PaymentInitiationWithStatusResponse {\n");
-    
-    sb.append("    endToEndIdentification: ").append(toIndentedString(endToEndIdentification)).append("\n");
-    sb.append("    debtorAccount: ").append(toIndentedString(debtorAccount)).append("\n");
-    sb.append("    instructedAmount: ").append(toIndentedString(instructedAmount)).append("\n");
-    sb.append("    creditorAccount: ").append(toIndentedString(creditorAccount)).append("\n");
-    sb.append("    creditorAgent: ").append(toIndentedString(creditorAgent)).append("\n");
-    sb.append("    creditorName: ").append(toIndentedString(creditorName)).append("\n");
-    sb.append("    creditorAddress: ").append(toIndentedString(creditorAddress)).append("\n");
-    sb.append("    remittanceInformationUnstructured: ").append(toIndentedString(remittanceInformationUnstructured)).append("\n");
-    sb.append("    transactionStatus: ").append(toIndentedString(transactionStatus)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
+	/**
+	  * Get creditorAddress
+	  * @return creditorAddress
+	 **/
+	@JsonProperty("creditorAddress")
+	public Address getCreditorAddress() {
+		return creditorAddress;
+	}
 
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(java.lang.Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
-  }
+	public void setCreditorAddress(Address creditorAddress) {
+		this.creditorAddress = creditorAddress;
+	}
+
+	public PaymentInitiationWithStatusResponse creditorAddress(Address creditorAddress) {
+		this.creditorAddress = creditorAddress;
+		return this;
+	}
+
+	/**
+	  * Get remittanceInformationUnstructured
+	  * @return remittanceInformationUnstructured
+	 **/
+	@JsonProperty("remittanceInformationUnstructured")
+	@Size(max = 140)
+	public String getRemittanceInformationUnstructured() {
+		return remittanceInformationUnstructured;
+	}
+
+	public void setRemittanceInformationUnstructured(String remittanceInformationUnstructured) {
+		this.remittanceInformationUnstructured = remittanceInformationUnstructured;
+	}
+
+	public PaymentInitiationWithStatusResponse remittanceInformationUnstructured(String remittanceInformationUnstructured) {
+		this.remittanceInformationUnstructured = remittanceInformationUnstructured;
+		return this;
+	}
+
+	/**
+	  * Get transactionStatus
+	  * @return transactionStatus
+	 **/
+	@JsonProperty("transactionStatus")
+	public TransactionStatus getTransactionStatus() {
+		return transactionStatus;
+	}
+
+	public void setTransactionStatus(TransactionStatus transactionStatus) {
+		this.transactionStatus = transactionStatus;
+	}
+
+	public PaymentInitiationWithStatusResponse transactionStatus(TransactionStatus transactionStatus) {
+		this.transactionStatus = transactionStatus;
+		return this;
+	}
+
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		sb.append("class PaymentInitiationWithStatusResponse {\n");
+
+		sb.append("    endToEndIdentification: ").append(toIndentedString(endToEndIdentification)).append("\n");
+		sb.append("    debtorAccount: ").append(toIndentedString(debtorAccount)).append("\n");
+		sb.append("    instructedAmount: ").append(toIndentedString(instructedAmount)).append("\n");
+		sb.append("    creditorAccount: ").append(toIndentedString(creditorAccount)).append("\n");
+		sb.append("    creditorAgent: ").append(toIndentedString(creditorAgent)).append("\n");
+		sb.append("    creditorName: ").append(toIndentedString(creditorName)).append("\n");
+		sb.append("    creditorAddress: ").append(toIndentedString(creditorAddress)).append("\n");
+		sb.append("    remittanceInformationUnstructured: ").append(toIndentedString(remittanceInformationUnstructured)).append("\n");
+		sb.append("    transactionStatus: ").append(toIndentedString(transactionStatus)).append("\n");
+		sb.append("}");
+		return sb.toString();
+	}
+
+	/**
+	 * Convert the given object to string with each line indented by 4 spaces
+	 * (except the first line).
+	 */
+	private static String toIndentedString(java.lang.Object o) {
+		if (o == null) {
+			return "null";
+		}
+		return o.toString().replace("\n", "\n    ");
+	}
 }

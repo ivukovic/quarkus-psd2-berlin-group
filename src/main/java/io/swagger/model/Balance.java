@@ -1,189 +1,185 @@
 package io.swagger.model;
 
-import io.swagger.model.Amount;
-import io.swagger.model.BalanceType;
-import org.eclipse.microprofile.openapi.annotations.media.Schema;
+import java.time.LocalDate;
 import java.util.Date;
-import org.joda.time.LocalDate;
-import javax.validation.constraints.*;
-import javax.validation.Valid;
+
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
+import org.eclipse.microprofile.openapi.annotations.media.Schema;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
- * A single balance element. 
+  * A single balance element. 
  **/
-import io.swagger.annotations.*;
-import java.util.Objects;
-import com.fasterxml.jackson.annotation.JsonProperty;
 @Schema(description = "A single balance element. ")
+public class Balance {
 
-public class Balance   {
-  private @Valid Amount balanceAmount = null;
-  private @Valid BalanceType balanceType = null;
-  private @Valid Boolean creditLimitIncluded = null;
-  private @Valid Date lastChangeDateTime = null;
-  private @Valid LocalDate referenceDate = null;
-  private @Valid String lastCommittedTransaction = null;
+	@Schema(required = true, description = "")
+	private Amount balanceAmount = null;
 
-  /**
-   **/
-  public Balance balanceAmount(Amount balanceAmount) {
-    this.balanceAmount = balanceAmount;
-    return this;
-  }
+	@Schema(required = true, description = "")
+	private BalanceType balanceType = null;
 
-  
-  @ApiModelProperty(required = true, value = "")
-  @JsonProperty("balanceAmount")
-  @NotNull
+	@Schema(example = "false", description = "A flag indicating if the credit limit of the corresponding account  is included in the calculation of the balance, where applicable. ")
+	/**
+	  * A flag indicating if the credit limit of the corresponding account  is included in the calculation of the balance, where applicable.   
+	 **/
+	private Boolean creditLimitIncluded = null;
 
-  public Amount getBalanceAmount() {
-    return balanceAmount;
-  }
-  public void setBalanceAmount(Amount balanceAmount) {
-    this.balanceAmount = balanceAmount;
-  }
+	@Schema(description = "This data element might be used to indicate e.g. with the expected or booked balance that no action is known  on the account, which is not yet booked. ")
+	/**
+	  * This data element might be used to indicate e.g. with the expected or booked balance that no action is known  on the account, which is not yet booked.   
+	 **/
+	private Date lastChangeDateTime = null;
 
-  /**
-   **/
-  public Balance balanceType(BalanceType balanceType) {
-    this.balanceType = balanceType;
-    return this;
-  }
+	@Schema(description = "Indicates the date of the balance.")
+	/**
+	  * Indicates the date of the balance.  
+	 **/
+	private LocalDate referenceDate = null;
 
-  
-  @ApiModelProperty(required = true, value = "")
-  @JsonProperty("balanceType")
-  @NotNull
+	@Schema(description = "\"entryReference\" of the last commited transaction to support the TPP in identifying whether all  PSU transactions are already known. ")
+	/**
+	  * \"entryReference\" of the last commited transaction to support the TPP in identifying whether all  PSU transactions are already known.   
+	 **/
+	private String lastCommittedTransaction = null;
 
-  public BalanceType getBalanceType() {
-    return balanceType;
-  }
-  public void setBalanceType(BalanceType balanceType) {
-    this.balanceType = balanceType;
-  }
+	/**
+	  * Get balanceAmount
+	  * @return balanceAmount
+	 **/
+	@JsonProperty("balanceAmount")
+	@NotNull
+	public Amount getBalanceAmount() {
+		return balanceAmount;
+	}
 
-  /**
-   * A flag indicating if the credit limit of the corresponding account  is included in the calculation of the balance, where applicable. 
-   **/
-  public Balance creditLimitIncluded(Boolean creditLimitIncluded) {
-    this.creditLimitIncluded = creditLimitIncluded;
-    return this;
-  }
+	public void setBalanceAmount(Amount balanceAmount) {
+		this.balanceAmount = balanceAmount;
+	}
 
-  
-  @ApiModelProperty(example = "false", value = "A flag indicating if the credit limit of the corresponding account  is included in the calculation of the balance, where applicable. ")
-  @JsonProperty("creditLimitIncluded")
+	public Balance balanceAmount(Amount balanceAmount) {
+		this.balanceAmount = balanceAmount;
+		return this;
+	}
 
-  public Boolean isCreditLimitIncluded() {
-    return creditLimitIncluded;
-  }
-  public void setCreditLimitIncluded(Boolean creditLimitIncluded) {
-    this.creditLimitIncluded = creditLimitIncluded;
-  }
+	/**
+	  * Get balanceType
+	  * @return balanceType
+	 **/
+	@JsonProperty("balanceType")
+	@NotNull
+	public BalanceType getBalanceType() {
+		return balanceType;
+	}
 
-  /**
-   * This data element might be used to indicate e.g. with the expected or booked balance that no action is known  on the account, which is not yet booked. 
-   **/
-  public Balance lastChangeDateTime(Date lastChangeDateTime) {
-    this.lastChangeDateTime = lastChangeDateTime;
-    return this;
-  }
+	public void setBalanceType(BalanceType balanceType) {
+		this.balanceType = balanceType;
+	}
 
-  
-  @ApiModelProperty(value = "This data element might be used to indicate e.g. with the expected or booked balance that no action is known  on the account, which is not yet booked. ")
-  @JsonProperty("lastChangeDateTime")
+	public Balance balanceType(BalanceType balanceType) {
+		this.balanceType = balanceType;
+		return this;
+	}
 
-  public Date getLastChangeDateTime() {
-    return lastChangeDateTime;
-  }
-  public void setLastChangeDateTime(Date lastChangeDateTime) {
-    this.lastChangeDateTime = lastChangeDateTime;
-  }
+	/**
+	  * A flag indicating if the credit limit of the corresponding account  is included in the calculation of the balance, where applicable. 
+	  * @return creditLimitIncluded
+	 **/
+	@JsonProperty("creditLimitIncluded")
+	public Boolean isCreditLimitIncluded() {
+		return creditLimitIncluded;
+	}
 
-  /**
-   * Indicates the date of the balance.
-   **/
-  public Balance referenceDate(LocalDate referenceDate) {
-    this.referenceDate = referenceDate;
-    return this;
-  }
+	public void setCreditLimitIncluded(Boolean creditLimitIncluded) {
+		this.creditLimitIncluded = creditLimitIncluded;
+	}
 
-  
-  @ApiModelProperty(value = "Indicates the date of the balance.")
-  @JsonProperty("referenceDate")
+	public Balance creditLimitIncluded(Boolean creditLimitIncluded) {
+		this.creditLimitIncluded = creditLimitIncluded;
+		return this;
+	}
 
-  public LocalDate getReferenceDate() {
-    return referenceDate;
-  }
-  public void setReferenceDate(LocalDate referenceDate) {
-    this.referenceDate = referenceDate;
-  }
+	/**
+	  * This data element might be used to indicate e.g. with the expected or booked balance that no action is known  on the account, which is not yet booked. 
+	  * @return lastChangeDateTime
+	 **/
+	@JsonProperty("lastChangeDateTime")
+	public Date getLastChangeDateTime() {
+		return lastChangeDateTime;
+	}
 
-  /**
-   * \&quot;entryReference\&quot; of the last commited transaction to support the TPP in identifying whether all  PSU transactions are already known. 
-   **/
-  public Balance lastCommittedTransaction(String lastCommittedTransaction) {
-    this.lastCommittedTransaction = lastCommittedTransaction;
-    return this;
-  }
+	public void setLastChangeDateTime(Date lastChangeDateTime) {
+		this.lastChangeDateTime = lastChangeDateTime;
+	}
 
-  
-  @ApiModelProperty(value = "\"entryReference\" of the last commited transaction to support the TPP in identifying whether all  PSU transactions are already known. ")
-  @JsonProperty("lastCommittedTransaction")
- @Size(max=35)
-  public String getLastCommittedTransaction() {
-    return lastCommittedTransaction;
-  }
-  public void setLastCommittedTransaction(String lastCommittedTransaction) {
-    this.lastCommittedTransaction = lastCommittedTransaction;
-  }
+	public Balance lastChangeDateTime(Date lastChangeDateTime) {
+		this.lastChangeDateTime = lastChangeDateTime;
+		return this;
+	}
 
+	/**
+	  * Indicates the date of the balance.
+	  * @return referenceDate
+	 **/
+	@JsonProperty("referenceDate")
+	public LocalDate getReferenceDate() {
+		return referenceDate;
+	}
 
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
-    Balance balance = (Balance) o;
-    return Objects.equals(balanceAmount, balance.balanceAmount) &&
-        Objects.equals(balanceType, balance.balanceType) &&
-        Objects.equals(creditLimitIncluded, balance.creditLimitIncluded) &&
-        Objects.equals(lastChangeDateTime, balance.lastChangeDateTime) &&
-        Objects.equals(referenceDate, balance.referenceDate) &&
-        Objects.equals(lastCommittedTransaction, balance.lastCommittedTransaction);
-  }
+	public void setReferenceDate(LocalDate referenceDate) {
+		this.referenceDate = referenceDate;
+	}
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(balanceAmount, balanceType, creditLimitIncluded, lastChangeDateTime, referenceDate, lastCommittedTransaction);
-  }
+	public Balance referenceDate(LocalDate referenceDate) {
+		this.referenceDate = referenceDate;
+		return this;
+	}
 
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class Balance {\n");
-    
-    sb.append("    balanceAmount: ").append(toIndentedString(balanceAmount)).append("\n");
-    sb.append("    balanceType: ").append(toIndentedString(balanceType)).append("\n");
-    sb.append("    creditLimitIncluded: ").append(toIndentedString(creditLimitIncluded)).append("\n");
-    sb.append("    lastChangeDateTime: ").append(toIndentedString(lastChangeDateTime)).append("\n");
-    sb.append("    referenceDate: ").append(toIndentedString(referenceDate)).append("\n");
-    sb.append("    lastCommittedTransaction: ").append(toIndentedString(lastCommittedTransaction)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
+	/**
+	  * \&quot;entryReference\&quot; of the last commited transaction to support the TPP in identifying whether all  PSU transactions are already known. 
+	  * @return lastCommittedTransaction
+	 **/
+	@JsonProperty("lastCommittedTransaction")
+	@Size(max = 35)
+	public String getLastCommittedTransaction() {
+		return lastCommittedTransaction;
+	}
 
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(java.lang.Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
-  }
+	public void setLastCommittedTransaction(String lastCommittedTransaction) {
+		this.lastCommittedTransaction = lastCommittedTransaction;
+	}
+
+	public Balance lastCommittedTransaction(String lastCommittedTransaction) {
+		this.lastCommittedTransaction = lastCommittedTransaction;
+		return this;
+	}
+
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		sb.append("class Balance {\n");
+
+		sb.append("    balanceAmount: ").append(toIndentedString(balanceAmount)).append("\n");
+		sb.append("    balanceType: ").append(toIndentedString(balanceType)).append("\n");
+		sb.append("    creditLimitIncluded: ").append(toIndentedString(creditLimitIncluded)).append("\n");
+		sb.append("    lastChangeDateTime: ").append(toIndentedString(lastChangeDateTime)).append("\n");
+		sb.append("    referenceDate: ").append(toIndentedString(referenceDate)).append("\n");
+		sb.append("    lastCommittedTransaction: ").append(toIndentedString(lastCommittedTransaction)).append("\n");
+		sb.append("}");
+		return sb.toString();
+	}
+
+	/**
+	 * Convert the given object to string with each line indented by 4 spaces
+	 * (except the first line).
+	 */
+	private static String toIndentedString(java.lang.Object o) {
+		if (o == null) {
+			return "null";
+		}
+		return o.toString().replace("\n", "\n    ");
+	}
 }

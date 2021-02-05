@@ -1,98 +1,78 @@
 package io.swagger.model;
 
-import io.swagger.model.HrefType;
-import org.eclipse.microprofile.openapi.annotations.media.Schema;
 import java.util.HashMap;
-import java.util.Map;
-import javax.validation.constraints.*;
-import javax.validation.Valid;
+
+import org.eclipse.microprofile.openapi.annotations.media.Schema;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
- * A list of hyperlinks to be recognised by the TPP.  Links of type \&quot;account\&quot; and/or \&quot;cardAccount\&quot;, depending on the nature of the consent. 
+  * A list of hyperlinks to be recognised by the TPP.  Links of type \"account\" and/or \"cardAccount\", depending on the nature of the consent. 
  **/
-import io.swagger.annotations.*;
-import java.util.Objects;
-import com.fasterxml.jackson.annotation.JsonProperty;
 @Schema(description = "A list of hyperlinks to be recognised by the TPP.  Links of type \"account\" and/or \"cardAccount\", depending on the nature of the consent. ")
+public class LinksGetConsent extends HashMap<String, HrefType> {
 
-public class LinksGetConsent extends HashMap<String, HrefType>  {
-  private @Valid HrefType account = null;
-  private @Valid HrefType cardAccount = null;
+	@Schema(description = "")
+	private HrefType account = null;
 
-  /**
-   **/
-  public LinksGetConsent account(HrefType account) {
-    this.account = account;
-    return this;
-  }
+	@Schema(description = "")
+	private HrefType cardAccount = null;
 
-  
-  @ApiModelProperty(value = "")
-  @JsonProperty("account")
+	/**
+	  * Get account
+	  * @return account
+	 **/
+	@JsonProperty("account")
+	public HrefType getAccount() {
+		return account;
+	}
 
-  public HrefType getAccount() {
-    return account;
-  }
-  public void setAccount(HrefType account) {
-    this.account = account;
-  }
+	public void setAccount(HrefType account) {
+		this.account = account;
+	}
 
-  /**
-   **/
-  public LinksGetConsent cardAccount(HrefType cardAccount) {
-    this.cardAccount = cardAccount;
-    return this;
-  }
+	public LinksGetConsent account(HrefType account) {
+		this.account = account;
+		return this;
+	}
 
-  
-  @ApiModelProperty(value = "")
-  @JsonProperty("card-account")
+	/**
+	  * Get cardAccount
+	  * @return cardAccount
+	 **/
+	@JsonProperty("card-account")
+	public HrefType getCardAccount() {
+		return cardAccount;
+	}
 
-  public HrefType getCardAccount() {
-    return cardAccount;
-  }
-  public void setCardAccount(HrefType cardAccount) {
-    this.cardAccount = cardAccount;
-  }
+	public void setCardAccount(HrefType cardAccount) {
+		this.cardAccount = cardAccount;
+	}
 
+	public LinksGetConsent cardAccount(HrefType cardAccount) {
+		this.cardAccount = cardAccount;
+		return this;
+	}
 
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
-    LinksGetConsent _linksGetConsent = (LinksGetConsent) o;
-    return Objects.equals(account, _linksGetConsent.account) &&
-        Objects.equals(cardAccount, _linksGetConsent.cardAccount);
-  }
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		sb.append("class LinksGetConsent {\n");
+		sb.append("    ").append(toIndentedString(super.toString())).append("\n");
+		sb.append("    account: ").append(toIndentedString(account)).append("\n");
+		sb.append("    cardAccount: ").append(toIndentedString(cardAccount)).append("\n");
+		sb.append("}");
+		return sb.toString();
+	}
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(account, cardAccount);
-  }
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class LinksGetConsent {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    account: ").append(toIndentedString(account)).append("\n");
-    sb.append("    cardAccount: ").append(toIndentedString(cardAccount)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(java.lang.Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
-  }
+	/**
+	 * Convert the given object to string with each line indented by 4 spaces
+	 * (except the first line).
+	 */
+	private static String toIndentedString(java.lang.Object o) {
+		if (o == null) {
+			return "null";
+		}
+		return o.toString().replace("\n", "\n    ");
+	}
 }

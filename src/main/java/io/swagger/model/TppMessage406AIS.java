@@ -1,138 +1,122 @@
 package io.swagger.model;
 
-import io.swagger.model.MessageCode406AIS;
-import io.swagger.model.TppMessageCategory;
-import javax.validation.constraints.*;
-import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
+import org.eclipse.microprofile.openapi.annotations.media.Schema;
 
-import io.swagger.annotations.*;
-import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+public class TppMessage406AIS {
 
-public class TppMessage406AIS   {
-  private @Valid TppMessageCategory category = null;
-  private @Valid MessageCode406AIS code = null;
-  private @Valid String path = null;
-  private @Valid String text = null;
+	@Schema(required = true, description = "")
+	private TppMessageCategory category = null;
 
-  /**
-   **/
-  public TppMessage406AIS category(TppMessageCategory category) {
-    this.category = category;
-    return this;
-  }
+	@Schema(required = true, description = "")
+	private MessageCode406AIS code = null;
 
-  
-  @ApiModelProperty(required = true, value = "")
-  @JsonProperty("category")
-  @NotNull
+	@Schema(description = "")
+	private String path = null;
 
-  public TppMessageCategory getCategory() {
-    return category;
-  }
-  public void setCategory(TppMessageCategory category) {
-    this.category = category;
-  }
+	@Schema(description = "")
+	private String text = null;
 
-  /**
-   **/
-  public TppMessage406AIS code(MessageCode406AIS code) {
-    this.code = code;
-    return this;
-  }
+	/**
+	  * Get category
+	  * @return category
+	 **/
+	@JsonProperty("category")
+	@NotNull
+	public TppMessageCategory getCategory() {
+		return category;
+	}
 
-  
-  @ApiModelProperty(required = true, value = "")
-  @JsonProperty("code")
-  @NotNull
+	public void setCategory(TppMessageCategory category) {
+		this.category = category;
+	}
 
-  public MessageCode406AIS getCode() {
-    return code;
-  }
-  public void setCode(MessageCode406AIS code) {
-    this.code = code;
-  }
+	public TppMessage406AIS category(TppMessageCategory category) {
+		this.category = category;
+		return this;
+	}
 
-  /**
-   **/
-  public TppMessage406AIS path(String path) {
-    this.path = path;
-    return this;
-  }
+	/**
+	  * Get code
+	  * @return code
+	 **/
+	@JsonProperty("code")
+	@NotNull
+	public MessageCode406AIS getCode() {
+		return code;
+	}
 
-  
-  @ApiModelProperty(value = "")
-  @JsonProperty("path")
+	public void setCode(MessageCode406AIS code) {
+		this.code = code;
+	}
 
-  public String getPath() {
-    return path;
-  }
-  public void setPath(String path) {
-    this.path = path;
-  }
+	public TppMessage406AIS code(MessageCode406AIS code) {
+		this.code = code;
+		return this;
+	}
 
-  /**
-   **/
-  public TppMessage406AIS text(String text) {
-    this.text = text;
-    return this;
-  }
+	/**
+	  * Get path
+	  * @return path
+	 **/
+	@JsonProperty("path")
+	public String getPath() {
+		return path;
+	}
 
-  
-  @ApiModelProperty(value = "")
-  @JsonProperty("text")
- @Size(max=500)
-  public String getText() {
-    return text;
-  }
-  public void setText(String text) {
-    this.text = text;
-  }
+	public void setPath(String path) {
+		this.path = path;
+	}
 
+	public TppMessage406AIS path(String path) {
+		this.path = path;
+		return this;
+	}
 
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
-    TppMessage406AIS tppMessage406AIS = (TppMessage406AIS) o;
-    return Objects.equals(category, tppMessage406AIS.category) &&
-        Objects.equals(code, tppMessage406AIS.code) &&
-        Objects.equals(path, tppMessage406AIS.path) &&
-        Objects.equals(text, tppMessage406AIS.text);
-  }
+	/**
+	  * Get text
+	  * @return text
+	 **/
+	@JsonProperty("text")
+	@Size(max = 500)
+	public String getText() {
+		return text;
+	}
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(category, code, path, text);
-  }
+	public void setText(String text) {
+		this.text = text;
+	}
 
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class TppMessage406AIS {\n");
-    
-    sb.append("    category: ").append(toIndentedString(category)).append("\n");
-    sb.append("    code: ").append(toIndentedString(code)).append("\n");
-    sb.append("    path: ").append(toIndentedString(path)).append("\n");
-    sb.append("    text: ").append(toIndentedString(text)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
+	public TppMessage406AIS text(String text) {
+		this.text = text;
+		return this;
+	}
 
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(java.lang.Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
-  }
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		sb.append("class TppMessage406AIS {\n");
+
+		sb.append("    category: ").append(toIndentedString(category)).append("\n");
+		sb.append("    code: ").append(toIndentedString(code)).append("\n");
+		sb.append("    path: ").append(toIndentedString(path)).append("\n");
+		sb.append("    text: ").append(toIndentedString(text)).append("\n");
+		sb.append("}");
+		return sb.toString();
+	}
+
+	/**
+	 * Convert the given object to string with each line indented by 4 spaces
+	 * (except the first line).
+	 */
+	private static String toIndentedString(java.lang.Object o) {
+		if (o == null) {
+			return "null";
+		}
+		return o.toString().replace("\n", "\n    ");
+	}
 }

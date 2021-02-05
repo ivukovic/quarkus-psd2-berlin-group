@@ -1,118 +1,103 @@
 package io.swagger.model;
 
-import io.swagger.model.TransactionStatus;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
 import org.eclipse.microprofile.openapi.annotations.media.Schema;
-import javax.validation.constraints.*;
-import javax.validation.Valid;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
- * Body of the response for a successful payment initiation status request in case of an JSON based endpoint.
+  * Body of the response for a successful payment initiation status request in case of an JSON based endpoint.
  **/
-import io.swagger.annotations.*;
-import java.util.Objects;
-import com.fasterxml.jackson.annotation.JsonProperty;
 @Schema(description = "Body of the response for a successful payment initiation status request in case of an JSON based endpoint.")
+public class PaymentInitiationStatusResponse200Json {
 
-public class PaymentInitiationStatusResponse200Json   {
-  private @Valid TransactionStatus transactionStatus = null;
-  private @Valid Boolean fundsAvailable = null;
-  private @Valid String psuMessage = null;
+	@Schema(required = true, description = "")
+	private TransactionStatus transactionStatus = null;
 
-  /**
-   **/
-  public PaymentInitiationStatusResponse200Json transactionStatus(TransactionStatus transactionStatus) {
-    this.transactionStatus = transactionStatus;
-    return this;
-  }
+	@Schema(description = "")
+	private Boolean fundsAvailable = null;
 
-  
-  @ApiModelProperty(required = true, value = "")
-  @JsonProperty("transactionStatus")
-  @NotNull
+	@Schema(description = "")
+	private String psuMessage = null;
 
-  public TransactionStatus getTransactionStatus() {
-    return transactionStatus;
-  }
-  public void setTransactionStatus(TransactionStatus transactionStatus) {
-    this.transactionStatus = transactionStatus;
-  }
+	/**
+	  * Get transactionStatus
+	  * @return transactionStatus
+	 **/
+	@JsonProperty("transactionStatus")
+	@NotNull
+	public TransactionStatus getTransactionStatus() {
+		return transactionStatus;
+	}
 
-  /**
-   **/
-  public PaymentInitiationStatusResponse200Json fundsAvailable(Boolean fundsAvailable) {
-    this.fundsAvailable = fundsAvailable;
-    return this;
-  }
+	public void setTransactionStatus(TransactionStatus transactionStatus) {
+		this.transactionStatus = transactionStatus;
+	}
 
-  
-  @ApiModelProperty(value = "")
-  @JsonProperty("fundsAvailable")
+	public PaymentInitiationStatusResponse200Json transactionStatus(TransactionStatus transactionStatus) {
+		this.transactionStatus = transactionStatus;
+		return this;
+	}
 
-  public Boolean getFundsAvailable() {
-    return fundsAvailable;
-  }
-  public void setFundsAvailable(Boolean fundsAvailable) {
-    this.fundsAvailable = fundsAvailable;
-  }
+	/**
+	  * Get fundsAvailable
+	  * @return fundsAvailable
+	 **/
+	@JsonProperty("fundsAvailable")
+	public Boolean getFundsAvailable() {
+		return fundsAvailable;
+	}
 
-  /**
-   **/
-  public PaymentInitiationStatusResponse200Json psuMessage(String psuMessage) {
-    this.psuMessage = psuMessage;
-    return this;
-  }
+	public void setFundsAvailable(Boolean fundsAvailable) {
+		this.fundsAvailable = fundsAvailable;
+	}
 
-  
-  @ApiModelProperty(value = "")
-  @JsonProperty("psuMessage")
- @Size(max=500)
-  public String getPsuMessage() {
-    return psuMessage;
-  }
-  public void setPsuMessage(String psuMessage) {
-    this.psuMessage = psuMessage;
-  }
+	public PaymentInitiationStatusResponse200Json fundsAvailable(Boolean fundsAvailable) {
+		this.fundsAvailable = fundsAvailable;
+		return this;
+	}
 
+	/**
+	  * Get psuMessage
+	  * @return psuMessage
+	 **/
+	@JsonProperty("psuMessage")
+	@Size(max = 500)
+	public String getPsuMessage() {
+		return psuMessage;
+	}
 
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
-    PaymentInitiationStatusResponse200Json paymentInitiationStatusResponse200Json = (PaymentInitiationStatusResponse200Json) o;
-    return Objects.equals(transactionStatus, paymentInitiationStatusResponse200Json.transactionStatus) &&
-        Objects.equals(fundsAvailable, paymentInitiationStatusResponse200Json.fundsAvailable) &&
-        Objects.equals(psuMessage, paymentInitiationStatusResponse200Json.psuMessage);
-  }
+	public void setPsuMessage(String psuMessage) {
+		this.psuMessage = psuMessage;
+	}
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(transactionStatus, fundsAvailable, psuMessage);
-  }
+	public PaymentInitiationStatusResponse200Json psuMessage(String psuMessage) {
+		this.psuMessage = psuMessage;
+		return this;
+	}
 
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class PaymentInitiationStatusResponse200Json {\n");
-    
-    sb.append("    transactionStatus: ").append(toIndentedString(transactionStatus)).append("\n");
-    sb.append("    fundsAvailable: ").append(toIndentedString(fundsAvailable)).append("\n");
-    sb.append("    psuMessage: ").append(toIndentedString(psuMessage)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		sb.append("class PaymentInitiationStatusResponse200Json {\n");
 
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(java.lang.Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
-  }
+		sb.append("    transactionStatus: ").append(toIndentedString(transactionStatus)).append("\n");
+		sb.append("    fundsAvailable: ").append(toIndentedString(fundsAvailable)).append("\n");
+		sb.append("    psuMessage: ").append(toIndentedString(psuMessage)).append("\n");
+		sb.append("}");
+		return sb.toString();
+	}
+
+	/**
+	 * Convert the given object to string with each line indented by 4 spaces
+	 * (except the first line).
+	 */
+	private static String toIndentedString(java.lang.Object o) {
+		if (o == null) {
+			return "null";
+		}
+		return o.toString().replace("\n", "\n    ");
+	}
 }

@@ -1,78 +1,65 @@
 package io.swagger.model;
 
-import io.swagger.model.AccountDetails;
-import org.eclipse.microprofile.openapi.annotations.media.Schema;
 import java.util.ArrayList;
 import java.util.List;
-import javax.validation.constraints.*;
-import javax.validation.Valid;
+
+import javax.validation.constraints.NotNull;
+
+import org.eclipse.microprofile.openapi.annotations.media.Schema;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
- * List of accounts with details. 
+  * List of accounts with details. 
  **/
-import io.swagger.annotations.*;
-import java.util.Objects;
-import com.fasterxml.jackson.annotation.JsonProperty;
 @Schema(description = "List of accounts with details. ")
+public class AccountList {
 
-public class AccountList   {
-  private @Valid List<AccountDetails> accounts = new ArrayList<AccountDetails>();
+	@Schema(required = true, description = "")
+	private List<AccountDetails> accounts = new ArrayList<AccountDetails>();
 
-  /**
-   **/
-  public AccountList accounts(List<AccountDetails> accounts) {
-    this.accounts = accounts;
-    return this;
-  }
+	/**
+	  * Get accounts
+	  * @return accounts
+	 **/
+	@JsonProperty("accounts")
+	@NotNull
+	public List<AccountDetails> getAccounts() {
+		return accounts;
+	}
 
-  
-  @ApiModelProperty(required = true, value = "")
-  @JsonProperty("accounts")
-  @NotNull
+	public void setAccounts(List<AccountDetails> accounts) {
+		this.accounts = accounts;
+	}
 
-  public List<AccountDetails> getAccounts() {
-    return accounts;
-  }
-  public void setAccounts(List<AccountDetails> accounts) {
-    this.accounts = accounts;
-  }
+	public AccountList accounts(List<AccountDetails> accounts) {
+		this.accounts = accounts;
+		return this;
+	}
 
+	public AccountList addAccountsItem(AccountDetails accountsItem) {
+		this.accounts.add(accountsItem);
+		return this;
+	}
 
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
-    AccountList accountList = (AccountList) o;
-    return Objects.equals(accounts, accountList.accounts);
-  }
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		sb.append("class AccountList {\n");
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(accounts);
-  }
+		sb.append("    accounts: ").append(toIndentedString(accounts)).append("\n");
+		sb.append("}");
+		return sb.toString();
+	}
 
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class AccountList {\n");
-    
-    sb.append("    accounts: ").append(toIndentedString(accounts)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(java.lang.Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
-  }
+	/**
+	 * Convert the given object to string with each line indented by 4 spaces
+	 * (except the first line).
+	 */
+	private static String toIndentedString(java.lang.Object o) {
+		if (o == null) {
+			return "null";
+		}
+		return o.toString().replace("\n", "\n    ");
+	}
 }

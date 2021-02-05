@@ -1,291 +1,279 @@
 package io.swagger.model;
 
-import io.swagger.model.Amount;
-import io.swagger.model.ChallengeData;
-import io.swagger.model.ChosenScaMethod;
-import io.swagger.model.LinksUpdatePsuAuthentication;
-import io.swagger.model.ScaMethods;
-import io.swagger.model.ScaStatus;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
 import org.eclipse.microprofile.openapi.annotations.media.Schema;
-import javax.validation.constraints.*;
-import javax.validation.Valid;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
- * Body of the JSON response for a successful update PSU authentication request.
+  * Body of the JSON response for a successful update PSU authentication request.
  **/
-import io.swagger.annotations.*;
-import java.util.Objects;
-import com.fasterxml.jackson.annotation.JsonProperty;
 @Schema(description = "Body of the JSON response for a successful update PSU authentication request.")
+public class UpdatePsuAuthenticationResponse implements OneOfinlineResponse2002 {
 
-public class UpdatePsuAuthenticationResponse  implements OneOfinlineResponse2002  {
-  private @Valid Amount transactionFees = null;
-  private @Valid Amount currencyConversionFees = null;
-  private @Valid Amount estimatedTotalAmount = null;
-  private @Valid Amount estimatedInterbankSettlementAmount = null;
-  private @Valid ChosenScaMethod chosenScaMethod = null;
-  private @Valid ChallengeData challengeData = null;
-  private @Valid ScaMethods scaMethods = null;
-  private @Valid LinksUpdatePsuAuthentication _links = null;
-  private @Valid ScaStatus scaStatus = null;
-  private @Valid String psuMessage = null;
-  private @Valid String authorisationId = null;
+	@Schema(description = "")
+	private Amount transactionFees = null;
 
-  /**
-   **/
-  public UpdatePsuAuthenticationResponse transactionFees(Amount transactionFees) {
-    this.transactionFees = transactionFees;
-    return this;
-  }
+	@Schema(description = "")
+	private Amount currencyConversionFees = null;
 
-  
-  @ApiModelProperty(value = "")
-  @JsonProperty("transactionFees")
+	@Schema(description = "")
+	private Amount estimatedTotalAmount = null;
 
-  public Amount getTransactionFees() {
-    return transactionFees;
-  }
-  public void setTransactionFees(Amount transactionFees) {
-    this.transactionFees = transactionFees;
-  }
+	@Schema(description = "")
+	private Amount estimatedInterbankSettlementAmount = null;
 
-  /**
-   **/
-  public UpdatePsuAuthenticationResponse currencyConversionFees(Amount currencyConversionFees) {
-    this.currencyConversionFees = currencyConversionFees;
-    return this;
-  }
+	@Schema(description = "")
+	private ChosenScaMethod chosenScaMethod = null;
 
-  
-  @ApiModelProperty(value = "")
-  @JsonProperty("currencyConversionFees")
+	@Schema(description = "")
+	private ChallengeData challengeData = null;
 
-  public Amount getCurrencyConversionFees() {
-    return currencyConversionFees;
-  }
-  public void setCurrencyConversionFees(Amount currencyConversionFees) {
-    this.currencyConversionFees = currencyConversionFees;
-  }
+	@Schema(description = "")
+	private ScaMethods scaMethods = null;
 
-  /**
-   **/
-  public UpdatePsuAuthenticationResponse estimatedTotalAmount(Amount estimatedTotalAmount) {
-    this.estimatedTotalAmount = estimatedTotalAmount;
-    return this;
-  }
+	@Schema(description = "")
+	private LinksUpdatePsuAuthentication _links = null;
 
-  
-  @ApiModelProperty(value = "")
-  @JsonProperty("estimatedTotalAmount")
+	@Schema(required = true, description = "")
+	private ScaStatus scaStatus = null;
 
-  public Amount getEstimatedTotalAmount() {
-    return estimatedTotalAmount;
-  }
-  public void setEstimatedTotalAmount(Amount estimatedTotalAmount) {
-    this.estimatedTotalAmount = estimatedTotalAmount;
-  }
+	@Schema(description = "")
+	private String psuMessage = null;
 
-  /**
-   **/
-  public UpdatePsuAuthenticationResponse estimatedInterbankSettlementAmount(Amount estimatedInterbankSettlementAmount) {
-    this.estimatedInterbankSettlementAmount = estimatedInterbankSettlementAmount;
-    return this;
-  }
+	@Schema(description = "")
+	private String authorisationId = null;
 
-  
-  @ApiModelProperty(value = "")
-  @JsonProperty("estimatedInterbankSettlementAmount")
+	/**
+	  * Get transactionFees
+	  * @return transactionFees
+	 **/
+	@JsonProperty("transactionFees")
+	public Amount getTransactionFees() {
+		return transactionFees;
+	}
 
-  public Amount getEstimatedInterbankSettlementAmount() {
-    return estimatedInterbankSettlementAmount;
-  }
-  public void setEstimatedInterbankSettlementAmount(Amount estimatedInterbankSettlementAmount) {
-    this.estimatedInterbankSettlementAmount = estimatedInterbankSettlementAmount;
-  }
+	public void setTransactionFees(Amount transactionFees) {
+		this.transactionFees = transactionFees;
+	}
 
-  /**
-   **/
-  public UpdatePsuAuthenticationResponse chosenScaMethod(ChosenScaMethod chosenScaMethod) {
-    this.chosenScaMethod = chosenScaMethod;
-    return this;
-  }
+	public UpdatePsuAuthenticationResponse transactionFees(Amount transactionFees) {
+		this.transactionFees = transactionFees;
+		return this;
+	}
 
-  
-  @ApiModelProperty(value = "")
-  @JsonProperty("chosenScaMethod")
+	/**
+	  * Get currencyConversionFees
+	  * @return currencyConversionFees
+	 **/
+	@JsonProperty("currencyConversionFees")
+	public Amount getCurrencyConversionFees() {
+		return currencyConversionFees;
+	}
 
-  public ChosenScaMethod getChosenScaMethod() {
-    return chosenScaMethod;
-  }
-  public void setChosenScaMethod(ChosenScaMethod chosenScaMethod) {
-    this.chosenScaMethod = chosenScaMethod;
-  }
+	public void setCurrencyConversionFees(Amount currencyConversionFees) {
+		this.currencyConversionFees = currencyConversionFees;
+	}
 
-  /**
-   **/
-  public UpdatePsuAuthenticationResponse challengeData(ChallengeData challengeData) {
-    this.challengeData = challengeData;
-    return this;
-  }
+	public UpdatePsuAuthenticationResponse currencyConversionFees(Amount currencyConversionFees) {
+		this.currencyConversionFees = currencyConversionFees;
+		return this;
+	}
 
-  
-  @ApiModelProperty(value = "")
-  @JsonProperty("challengeData")
+	/**
+	  * Get estimatedTotalAmount
+	  * @return estimatedTotalAmount
+	 **/
+	@JsonProperty("estimatedTotalAmount")
+	public Amount getEstimatedTotalAmount() {
+		return estimatedTotalAmount;
+	}
 
-  public ChallengeData getChallengeData() {
-    return challengeData;
-  }
-  public void setChallengeData(ChallengeData challengeData) {
-    this.challengeData = challengeData;
-  }
+	public void setEstimatedTotalAmount(Amount estimatedTotalAmount) {
+		this.estimatedTotalAmount = estimatedTotalAmount;
+	}
 
-  /**
-   **/
-  public UpdatePsuAuthenticationResponse scaMethods(ScaMethods scaMethods) {
-    this.scaMethods = scaMethods;
-    return this;
-  }
+	public UpdatePsuAuthenticationResponse estimatedTotalAmount(Amount estimatedTotalAmount) {
+		this.estimatedTotalAmount = estimatedTotalAmount;
+		return this;
+	}
 
-  
-  @ApiModelProperty(value = "")
-  @JsonProperty("scaMethods")
+	/**
+	  * Get estimatedInterbankSettlementAmount
+	  * @return estimatedInterbankSettlementAmount
+	 **/
+	@JsonProperty("estimatedInterbankSettlementAmount")
+	public Amount getEstimatedInterbankSettlementAmount() {
+		return estimatedInterbankSettlementAmount;
+	}
 
-  public ScaMethods getScaMethods() {
-    return scaMethods;
-  }
-  public void setScaMethods(ScaMethods scaMethods) {
-    this.scaMethods = scaMethods;
-  }
+	public void setEstimatedInterbankSettlementAmount(Amount estimatedInterbankSettlementAmount) {
+		this.estimatedInterbankSettlementAmount = estimatedInterbankSettlementAmount;
+	}
 
-  /**
-   **/
-  public UpdatePsuAuthenticationResponse _links(LinksUpdatePsuAuthentication _links) {
-    this._links = _links;
-    return this;
-  }
+	public UpdatePsuAuthenticationResponse estimatedInterbankSettlementAmount(Amount estimatedInterbankSettlementAmount) {
+		this.estimatedInterbankSettlementAmount = estimatedInterbankSettlementAmount;
+		return this;
+	}
 
-  
-  @ApiModelProperty(value = "")
-  @JsonProperty("_links")
+	/**
+	  * Get chosenScaMethod
+	  * @return chosenScaMethod
+	 **/
+	@JsonProperty("chosenScaMethod")
+	public ChosenScaMethod getChosenScaMethod() {
+		return chosenScaMethod;
+	}
 
-  public LinksUpdatePsuAuthentication getLinks() {
-    return _links;
-  }
-  public void setLinks(LinksUpdatePsuAuthentication _links) {
-    this._links = _links;
-  }
+	public void setChosenScaMethod(ChosenScaMethod chosenScaMethod) {
+		this.chosenScaMethod = chosenScaMethod;
+	}
 
-  /**
-   **/
-  public UpdatePsuAuthenticationResponse scaStatus(ScaStatus scaStatus) {
-    this.scaStatus = scaStatus;
-    return this;
-  }
+	public UpdatePsuAuthenticationResponse chosenScaMethod(ChosenScaMethod chosenScaMethod) {
+		this.chosenScaMethod = chosenScaMethod;
+		return this;
+	}
 
-  
-  @ApiModelProperty(required = true, value = "")
-  @JsonProperty("scaStatus")
-  @NotNull
+	/**
+	  * Get challengeData
+	  * @return challengeData
+	 **/
+	@JsonProperty("challengeData")
+	public ChallengeData getChallengeData() {
+		return challengeData;
+	}
 
-  public ScaStatus getScaStatus() {
-    return scaStatus;
-  }
-  public void setScaStatus(ScaStatus scaStatus) {
-    this.scaStatus = scaStatus;
-  }
+	public void setChallengeData(ChallengeData challengeData) {
+		this.challengeData = challengeData;
+	}
 
-  /**
-   **/
-  public UpdatePsuAuthenticationResponse psuMessage(String psuMessage) {
-    this.psuMessage = psuMessage;
-    return this;
-  }
+	public UpdatePsuAuthenticationResponse challengeData(ChallengeData challengeData) {
+		this.challengeData = challengeData;
+		return this;
+	}
 
-  
-  @ApiModelProperty(value = "")
-  @JsonProperty("psuMessage")
- @Size(max=500)
-  public String getPsuMessage() {
-    return psuMessage;
-  }
-  public void setPsuMessage(String psuMessage) {
-    this.psuMessage = psuMessage;
-  }
+	/**
+	  * Get scaMethods
+	  * @return scaMethods
+	 **/
+	@JsonProperty("scaMethods")
+	public ScaMethods getScaMethods() {
+		return scaMethods;
+	}
 
-  /**
-   **/
-  public UpdatePsuAuthenticationResponse authorisationId(String authorisationId) {
-    this.authorisationId = authorisationId;
-    return this;
-  }
+	public void setScaMethods(ScaMethods scaMethods) {
+		this.scaMethods = scaMethods;
+	}
 
-  
-  @ApiModelProperty(value = "")
-  @JsonProperty("authorisationId")
+	public UpdatePsuAuthenticationResponse scaMethods(ScaMethods scaMethods) {
+		this.scaMethods = scaMethods;
+		return this;
+	}
 
-  public String getAuthorisationId() {
-    return authorisationId;
-  }
-  public void setAuthorisationId(String authorisationId) {
-    this.authorisationId = authorisationId;
-  }
+	/**
+	  * Get _links
+	  * @return _links
+	 **/
+	@JsonProperty("_links")
+	public LinksUpdatePsuAuthentication getLinks() {
+		return _links;
+	}
 
+	public void setLinks(LinksUpdatePsuAuthentication _links) {
+		this._links = _links;
+	}
 
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
-    UpdatePsuAuthenticationResponse updatePsuAuthenticationResponse = (UpdatePsuAuthenticationResponse) o;
-    return Objects.equals(transactionFees, updatePsuAuthenticationResponse.transactionFees) &&
-        Objects.equals(currencyConversionFees, updatePsuAuthenticationResponse.currencyConversionFees) &&
-        Objects.equals(estimatedTotalAmount, updatePsuAuthenticationResponse.estimatedTotalAmount) &&
-        Objects.equals(estimatedInterbankSettlementAmount, updatePsuAuthenticationResponse.estimatedInterbankSettlementAmount) &&
-        Objects.equals(chosenScaMethod, updatePsuAuthenticationResponse.chosenScaMethod) &&
-        Objects.equals(challengeData, updatePsuAuthenticationResponse.challengeData) &&
-        Objects.equals(scaMethods, updatePsuAuthenticationResponse.scaMethods) &&
-        Objects.equals(_links, updatePsuAuthenticationResponse._links) &&
-        Objects.equals(scaStatus, updatePsuAuthenticationResponse.scaStatus) &&
-        Objects.equals(psuMessage, updatePsuAuthenticationResponse.psuMessage) &&
-        Objects.equals(authorisationId, updatePsuAuthenticationResponse.authorisationId);
-  }
+	public UpdatePsuAuthenticationResponse _links(LinksUpdatePsuAuthentication _links) {
+		this._links = _links;
+		return this;
+	}
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(transactionFees, currencyConversionFees, estimatedTotalAmount, estimatedInterbankSettlementAmount, chosenScaMethod, challengeData, scaMethods, _links, scaStatus, psuMessage, authorisationId);
-  }
+	/**
+	  * Get scaStatus
+	  * @return scaStatus
+	 **/
+	@JsonProperty("scaStatus")
+	@NotNull
+	public ScaStatus getScaStatus() {
+		return scaStatus;
+	}
 
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class UpdatePsuAuthenticationResponse {\n");
-    
-    sb.append("    transactionFees: ").append(toIndentedString(transactionFees)).append("\n");
-    sb.append("    currencyConversionFees: ").append(toIndentedString(currencyConversionFees)).append("\n");
-    sb.append("    estimatedTotalAmount: ").append(toIndentedString(estimatedTotalAmount)).append("\n");
-    sb.append("    estimatedInterbankSettlementAmount: ").append(toIndentedString(estimatedInterbankSettlementAmount)).append("\n");
-    sb.append("    chosenScaMethod: ").append(toIndentedString(chosenScaMethod)).append("\n");
-    sb.append("    challengeData: ").append(toIndentedString(challengeData)).append("\n");
-    sb.append("    scaMethods: ").append(toIndentedString(scaMethods)).append("\n");
-    sb.append("    _links: ").append(toIndentedString(_links)).append("\n");
-    sb.append("    scaStatus: ").append(toIndentedString(scaStatus)).append("\n");
-    sb.append("    psuMessage: ").append(toIndentedString(psuMessage)).append("\n");
-    sb.append("    authorisationId: ").append(toIndentedString(authorisationId)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
+	public void setScaStatus(ScaStatus scaStatus) {
+		this.scaStatus = scaStatus;
+	}
 
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(java.lang.Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
-  }
+	public UpdatePsuAuthenticationResponse scaStatus(ScaStatus scaStatus) {
+		this.scaStatus = scaStatus;
+		return this;
+	}
+
+	/**
+	  * Get psuMessage
+	  * @return psuMessage
+	 **/
+	@JsonProperty("psuMessage")
+	@Size(max = 500)
+	public String getPsuMessage() {
+		return psuMessage;
+	}
+
+	public void setPsuMessage(String psuMessage) {
+		this.psuMessage = psuMessage;
+	}
+
+	public UpdatePsuAuthenticationResponse psuMessage(String psuMessage) {
+		this.psuMessage = psuMessage;
+		return this;
+	}
+
+	/**
+	  * Get authorisationId
+	  * @return authorisationId
+	 **/
+	@JsonProperty("authorisationId")
+	public String getAuthorisationId() {
+		return authorisationId;
+	}
+
+	public void setAuthorisationId(String authorisationId) {
+		this.authorisationId = authorisationId;
+	}
+
+	public UpdatePsuAuthenticationResponse authorisationId(String authorisationId) {
+		this.authorisationId = authorisationId;
+		return this;
+	}
+
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		sb.append("class UpdatePsuAuthenticationResponse {\n");
+
+		sb.append("    transactionFees: ").append(toIndentedString(transactionFees)).append("\n");
+		sb.append("    currencyConversionFees: ").append(toIndentedString(currencyConversionFees)).append("\n");
+		sb.append("    estimatedTotalAmount: ").append(toIndentedString(estimatedTotalAmount)).append("\n");
+		sb.append("    estimatedInterbankSettlementAmount: ").append(toIndentedString(estimatedInterbankSettlementAmount)).append("\n");
+		sb.append("    chosenScaMethod: ").append(toIndentedString(chosenScaMethod)).append("\n");
+		sb.append("    challengeData: ").append(toIndentedString(challengeData)).append("\n");
+		sb.append("    scaMethods: ").append(toIndentedString(scaMethods)).append("\n");
+		sb.append("    _links: ").append(toIndentedString(_links)).append("\n");
+		sb.append("    scaStatus: ").append(toIndentedString(scaStatus)).append("\n");
+		sb.append("    psuMessage: ").append(toIndentedString(psuMessage)).append("\n");
+		sb.append("    authorisationId: ").append(toIndentedString(authorisationId)).append("\n");
+		sb.append("}");
+		return sb.toString();
+	}
+
+	/**
+	 * Convert the given object to string with each line indented by 4 spaces
+	 * (except the first line).
+	 */
+	private static String toIndentedString(java.lang.Object o) {
+		if (o == null) {
+			return "null";
+		}
+		return o.toString().replace("\n", "\n    ");
+	}
 }

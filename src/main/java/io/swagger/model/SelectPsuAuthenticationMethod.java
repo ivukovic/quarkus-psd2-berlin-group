@@ -1,75 +1,59 @@
 package io.swagger.model;
 
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
 import org.eclipse.microprofile.openapi.annotations.media.Schema;
-import javax.validation.constraints.*;
-import javax.validation.Valid;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
- * Content of the body of a Select PSU authentication method request 
+  * Content of the body of a Select PSU authentication method request 
  **/
-import io.swagger.annotations.*;
-import java.util.Objects;
-import com.fasterxml.jackson.annotation.JsonProperty;
 @Schema(description = "Content of the body of a Select PSU authentication method request ")
+public class SelectPsuAuthenticationMethod implements OneOfbody, OneOfbody1, OneOfbody2, OneOfbody3, OneOfbody4, OneOfbody5, OneOfbody6, OneOfbody7 {
 
-public class SelectPsuAuthenticationMethod  implements OneOfbody, OneOfbody1, OneOfbody2, OneOfbody3, OneOfbody4, OneOfbody5, OneOfbody6, OneOfbody7  {
-  private @Valid String authenticationMethodId = null;
+	@Schema(required = true, description = "")
+	private String authenticationMethodId = null;
 
-  /**
-   **/
-  public SelectPsuAuthenticationMethod authenticationMethodId(String authenticationMethodId) {
-    this.authenticationMethodId = authenticationMethodId;
-    return this;
-  }
+	/**
+	  * Get authenticationMethodId
+	  * @return authenticationMethodId
+	 **/
+	@JsonProperty("authenticationMethodId")
+	@NotNull
+	@Size(max = 35)
+	public String getAuthenticationMethodId() {
+		return authenticationMethodId;
+	}
 
-  
-  @ApiModelProperty(required = true, value = "")
-  @JsonProperty("authenticationMethodId")
-  @NotNull
- @Size(max=35)
-  public String getAuthenticationMethodId() {
-    return authenticationMethodId;
-  }
-  public void setAuthenticationMethodId(String authenticationMethodId) {
-    this.authenticationMethodId = authenticationMethodId;
-  }
+	public void setAuthenticationMethodId(String authenticationMethodId) {
+		this.authenticationMethodId = authenticationMethodId;
+	}
 
+	public SelectPsuAuthenticationMethod authenticationMethodId(String authenticationMethodId) {
+		this.authenticationMethodId = authenticationMethodId;
+		return this;
+	}
 
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
-    SelectPsuAuthenticationMethod selectPsuAuthenticationMethod = (SelectPsuAuthenticationMethod) o;
-    return Objects.equals(authenticationMethodId, selectPsuAuthenticationMethod.authenticationMethodId);
-  }
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		sb.append("class SelectPsuAuthenticationMethod {\n");
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(authenticationMethodId);
-  }
+		sb.append("    authenticationMethodId: ").append(toIndentedString(authenticationMethodId)).append("\n");
+		sb.append("}");
+		return sb.toString();
+	}
 
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class SelectPsuAuthenticationMethod {\n");
-    
-    sb.append("    authenticationMethodId: ").append(toIndentedString(authenticationMethodId)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(java.lang.Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
-  }
+	/**
+	 * Convert the given object to string with each line indented by 4 spaces
+	 * (except the first line).
+	 */
+	private static String toIndentedString(java.lang.Object o) {
+		if (o == null) {
+			return "null";
+		}
+		return o.toString().replace("\n", "\n    ");
+	}
 }

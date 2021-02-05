@@ -1,142 +1,123 @@
 package io.swagger.model;
 
-import io.swagger.model.ConsentIdList;
-import io.swagger.model.LinksSigningBasket;
-import io.swagger.model.PaymentIdList;
-import io.swagger.model.TransactionStatusSBS;
+import javax.validation.constraints.NotNull;
+
 import org.eclipse.microprofile.openapi.annotations.media.Schema;
-import javax.validation.constraints.*;
-import javax.validation.Valid;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
- * Body of the JSON response for a successful get signing basket request.    * &#x27;payments&#x27;: payment initiations which shall be authorised through this signing basket.   * &#x27;consents&#x27;: consent objects which shall be authorised through this signing basket.   * &#x27;transactionStatus&#x27;: Only the codes RCVD, ACTC, RJCT are used.   * &#x27;_links&#x27;: The ASPSP might integrate hyperlinks to indicate next (authorisation) steps to be taken. 
+  * Body of the JSON response for a successful get signing basket request.    * 'payments': payment initiations which shall be authorised through this signing basket.   * 'consents': consent objects which shall be authorised through this signing basket.   * 'transactionStatus': Only the codes RCVD, ACTC, RJCT are used.   * '_links': The ASPSP might integrate hyperlinks to indicate next (authorisation) steps to be taken. 
  **/
-import io.swagger.annotations.*;
-import java.util.Objects;
-import com.fasterxml.jackson.annotation.JsonProperty;
 @Schema(description = "Body of the JSON response for a successful get signing basket request.    * 'payments': payment initiations which shall be authorised through this signing basket.   * 'consents': consent objects which shall be authorised through this signing basket.   * 'transactionStatus': Only the codes RCVD, ACTC, RJCT are used.   * '_links': The ASPSP might integrate hyperlinks to indicate next (authorisation) steps to be taken. ")
+public class SigningBasketResponse200 {
 
-public class SigningBasketResponse200   {
-  private @Valid PaymentIdList payments = null;
-  private @Valid ConsentIdList consents = null;
-  private @Valid TransactionStatusSBS transactionStatus = null;
-  private @Valid LinksSigningBasket _links = null;
+	@Schema(description = "")
+	private PaymentIdList payments = null;
 
-  /**
-   **/
-  public SigningBasketResponse200 payments(PaymentIdList payments) {
-    this.payments = payments;
-    return this;
-  }
+	@Schema(description = "")
+	private ConsentIdList consents = null;
 
-  
-  @ApiModelProperty(value = "")
-  @JsonProperty("payments")
+	@Schema(required = true, description = "")
+	private TransactionStatusSBS transactionStatus = null;
 
-  public PaymentIdList getPayments() {
-    return payments;
-  }
-  public void setPayments(PaymentIdList payments) {
-    this.payments = payments;
-  }
+	@Schema(description = "")
+	private LinksSigningBasket _links = null;
 
-  /**
-   **/
-  public SigningBasketResponse200 consents(ConsentIdList consents) {
-    this.consents = consents;
-    return this;
-  }
+	/**
+	  * Get payments
+	  * @return payments
+	 **/
+	@JsonProperty("payments")
+	public PaymentIdList getPayments() {
+		return payments;
+	}
 
-  
-  @ApiModelProperty(value = "")
-  @JsonProperty("consents")
+	public void setPayments(PaymentIdList payments) {
+		this.payments = payments;
+	}
 
-  public ConsentIdList getConsents() {
-    return consents;
-  }
-  public void setConsents(ConsentIdList consents) {
-    this.consents = consents;
-  }
+	public SigningBasketResponse200 payments(PaymentIdList payments) {
+		this.payments = payments;
+		return this;
+	}
 
-  /**
-   **/
-  public SigningBasketResponse200 transactionStatus(TransactionStatusSBS transactionStatus) {
-    this.transactionStatus = transactionStatus;
-    return this;
-  }
+	/**
+	  * Get consents
+	  * @return consents
+	 **/
+	@JsonProperty("consents")
+	public ConsentIdList getConsents() {
+		return consents;
+	}
 
-  
-  @ApiModelProperty(required = true, value = "")
-  @JsonProperty("transactionStatus")
-  @NotNull
+	public void setConsents(ConsentIdList consents) {
+		this.consents = consents;
+	}
 
-  public TransactionStatusSBS getTransactionStatus() {
-    return transactionStatus;
-  }
-  public void setTransactionStatus(TransactionStatusSBS transactionStatus) {
-    this.transactionStatus = transactionStatus;
-  }
+	public SigningBasketResponse200 consents(ConsentIdList consents) {
+		this.consents = consents;
+		return this;
+	}
 
-  /**
-   **/
-  public SigningBasketResponse200 _links(LinksSigningBasket _links) {
-    this._links = _links;
-    return this;
-  }
+	/**
+	  * Get transactionStatus
+	  * @return transactionStatus
+	 **/
+	@JsonProperty("transactionStatus")
+	@NotNull
+	public TransactionStatusSBS getTransactionStatus() {
+		return transactionStatus;
+	}
 
-  
-  @ApiModelProperty(value = "")
-  @JsonProperty("_links")
+	public void setTransactionStatus(TransactionStatusSBS transactionStatus) {
+		this.transactionStatus = transactionStatus;
+	}
 
-  public LinksSigningBasket getLinks() {
-    return _links;
-  }
-  public void setLinks(LinksSigningBasket _links) {
-    this._links = _links;
-  }
+	public SigningBasketResponse200 transactionStatus(TransactionStatusSBS transactionStatus) {
+		this.transactionStatus = transactionStatus;
+		return this;
+	}
 
+	/**
+	  * Get _links
+	  * @return _links
+	 **/
+	@JsonProperty("_links")
+	public LinksSigningBasket getLinks() {
+		return _links;
+	}
 
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
-    SigningBasketResponse200 signingBasketResponse200 = (SigningBasketResponse200) o;
-    return Objects.equals(payments, signingBasketResponse200.payments) &&
-        Objects.equals(consents, signingBasketResponse200.consents) &&
-        Objects.equals(transactionStatus, signingBasketResponse200.transactionStatus) &&
-        Objects.equals(_links, signingBasketResponse200._links);
-  }
+	public void setLinks(LinksSigningBasket _links) {
+		this._links = _links;
+	}
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(payments, consents, transactionStatus, _links);
-  }
+	public SigningBasketResponse200 _links(LinksSigningBasket _links) {
+		this._links = _links;
+		return this;
+	}
 
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class SigningBasketResponse200 {\n");
-    
-    sb.append("    payments: ").append(toIndentedString(payments)).append("\n");
-    sb.append("    consents: ").append(toIndentedString(consents)).append("\n");
-    sb.append("    transactionStatus: ").append(toIndentedString(transactionStatus)).append("\n");
-    sb.append("    _links: ").append(toIndentedString(_links)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		sb.append("class SigningBasketResponse200 {\n");
 
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(java.lang.Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
-  }
+		sb.append("    payments: ").append(toIndentedString(payments)).append("\n");
+		sb.append("    consents: ").append(toIndentedString(consents)).append("\n");
+		sb.append("    transactionStatus: ").append(toIndentedString(transactionStatus)).append("\n");
+		sb.append("    _links: ").append(toIndentedString(_links)).append("\n");
+		sb.append("}");
+		return sb.toString();
+	}
+
+	/**
+	 * Convert the given object to string with each line indented by 4 spaces
+	 * (except the first line).
+	 */
+	private static String toIndentedString(java.lang.Object o) {
+		if (o == null) {
+			return "null";
+		}
+		return o.toString().replace("\n", "\n    ");
+	}
 }

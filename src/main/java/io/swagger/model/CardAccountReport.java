@@ -1,120 +1,102 @@
 package io.swagger.model;
 
-import io.swagger.model.CardTransactionList;
-import io.swagger.model.LinksCardAccountReport;
+import javax.validation.constraints.NotNull;
+
 import org.eclipse.microprofile.openapi.annotations.media.Schema;
-import javax.validation.constraints.*;
-import javax.validation.Valid;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
- * JSON based card account report.  This card account report contains transactions resulting from the query parameters. 
+  * JSON based card account report.  This card account report contains transactions resulting from the query parameters. 
  **/
-import io.swagger.annotations.*;
-import java.util.Objects;
-import com.fasterxml.jackson.annotation.JsonProperty;
 @Schema(description = "JSON based card account report.  This card account report contains transactions resulting from the query parameters. ")
+public class CardAccountReport {
 
-public class CardAccountReport   {
-  private @Valid CardTransactionList booked = null;
-  private @Valid CardTransactionList pending = null;
-  private @Valid LinksCardAccountReport _links = null;
+	@Schema(required = true, description = "")
+	private CardTransactionList booked = null;
 
-  /**
-   **/
-  public CardAccountReport booked(CardTransactionList booked) {
-    this.booked = booked;
-    return this;
-  }
+	@Schema(description = "")
+	private CardTransactionList pending = null;
 
-  
-  @ApiModelProperty(required = true, value = "")
-  @JsonProperty("booked")
-  @NotNull
+	@Schema(required = true, description = "")
+	private LinksCardAccountReport _links = null;
 
-  public CardTransactionList getBooked() {
-    return booked;
-  }
-  public void setBooked(CardTransactionList booked) {
-    this.booked = booked;
-  }
+	/**
+	  * Get booked
+	  * @return booked
+	 **/
+	@JsonProperty("booked")
+	@NotNull
+	public CardTransactionList getBooked() {
+		return booked;
+	}
 
-  /**
-   **/
-  public CardAccountReport pending(CardTransactionList pending) {
-    this.pending = pending;
-    return this;
-  }
+	public void setBooked(CardTransactionList booked) {
+		this.booked = booked;
+	}
 
-  
-  @ApiModelProperty(value = "")
-  @JsonProperty("pending")
+	public CardAccountReport booked(CardTransactionList booked) {
+		this.booked = booked;
+		return this;
+	}
 
-  public CardTransactionList getPending() {
-    return pending;
-  }
-  public void setPending(CardTransactionList pending) {
-    this.pending = pending;
-  }
+	/**
+	  * Get pending
+	  * @return pending
+	 **/
+	@JsonProperty("pending")
+	public CardTransactionList getPending() {
+		return pending;
+	}
 
-  /**
-   **/
-  public CardAccountReport _links(LinksCardAccountReport _links) {
-    this._links = _links;
-    return this;
-  }
+	public void setPending(CardTransactionList pending) {
+		this.pending = pending;
+	}
 
-  
-  @ApiModelProperty(required = true, value = "")
-  @JsonProperty("_links")
-  @NotNull
+	public CardAccountReport pending(CardTransactionList pending) {
+		this.pending = pending;
+		return this;
+	}
 
-  public LinksCardAccountReport getLinks() {
-    return _links;
-  }
-  public void setLinks(LinksCardAccountReport _links) {
-    this._links = _links;
-  }
+	/**
+	  * Get _links
+	  * @return _links
+	 **/
+	@JsonProperty("_links")
+	@NotNull
+	public LinksCardAccountReport getLinks() {
+		return _links;
+	}
 
+	public void setLinks(LinksCardAccountReport _links) {
+		this._links = _links;
+	}
 
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
-    CardAccountReport cardAccountReport = (CardAccountReport) o;
-    return Objects.equals(booked, cardAccountReport.booked) &&
-        Objects.equals(pending, cardAccountReport.pending) &&
-        Objects.equals(_links, cardAccountReport._links);
-  }
+	public CardAccountReport _links(LinksCardAccountReport _links) {
+		this._links = _links;
+		return this;
+	}
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(booked, pending, _links);
-  }
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		sb.append("class CardAccountReport {\n");
 
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class CardAccountReport {\n");
-    
-    sb.append("    booked: ").append(toIndentedString(booked)).append("\n");
-    sb.append("    pending: ").append(toIndentedString(pending)).append("\n");
-    sb.append("    _links: ").append(toIndentedString(_links)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
+		sb.append("    booked: ").append(toIndentedString(booked)).append("\n");
+		sb.append("    pending: ").append(toIndentedString(pending)).append("\n");
+		sb.append("    _links: ").append(toIndentedString(_links)).append("\n");
+		sb.append("}");
+		return sb.toString();
+	}
 
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(java.lang.Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
-  }
+	/**
+	 * Convert the given object to string with each line indented by 4 spaces
+	 * (except the first line).
+	 */
+	private static String toIndentedString(java.lang.Object o) {
+		if (o == null) {
+			return "null";
+		}
+		return o.toString().replace("\n", "\n    ");
+	}
 }

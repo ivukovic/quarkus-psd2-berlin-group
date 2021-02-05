@@ -1,162 +1,142 @@
 package io.swagger.model;
 
-import io.swagger.model.AccountReference;
-import io.swagger.model.BalanceList;
-import io.swagger.model.CardAccountReport;
-import io.swagger.model.LinksDownload;
 import org.eclipse.microprofile.openapi.annotations.media.Schema;
-import javax.validation.constraints.*;
-import javax.validation.Valid;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
- * Body of the JSON response for a successful read card account transaction list request. This card account report contains transactions resulting from the query parameters. 
+  * Body of the JSON response for a successful read card account transaction list request. This card account report contains transactions resulting from the query parameters. 
  **/
-import io.swagger.annotations.*;
-import java.util.Objects;
-import com.fasterxml.jackson.annotation.JsonProperty;
 @Schema(description = "Body of the JSON response for a successful read card account transaction list request. This card account report contains transactions resulting from the query parameters. ")
+public class CardAccountsTransactionsResponse200 {
 
-public class CardAccountsTransactionsResponse200   {
-  private @Valid AccountReference cardAccount = null;
-  private @Valid Boolean debitAccounting = null;
-  private @Valid CardAccountReport cardTransactions = null;
-  private @Valid BalanceList balances = null;
-  private @Valid LinksDownload _links = null;
+	@Schema(description = "")
+	private AccountReference cardAccount = null;
 
-  /**
-   **/
-  public CardAccountsTransactionsResponse200 cardAccount(AccountReference cardAccount) {
-    this.cardAccount = cardAccount;
-    return this;
-  }
+	@Schema(description = "")
+	private Boolean debitAccounting = null;
 
-  
-  @ApiModelProperty(value = "")
-  @JsonProperty("cardAccount")
+	@Schema(description = "")
+	private CardAccountReport cardTransactions = null;
 
-  public AccountReference getCardAccount() {
-    return cardAccount;
-  }
-  public void setCardAccount(AccountReference cardAccount) {
-    this.cardAccount = cardAccount;
-  }
+	@Schema(description = "")
+	private BalanceList balances = null;
 
-  /**
-   **/
-  public CardAccountsTransactionsResponse200 debitAccounting(Boolean debitAccounting) {
-    this.debitAccounting = debitAccounting;
-    return this;
-  }
+	@Schema(description = "")
+	private LinksDownload _links = null;
 
-  
-  @ApiModelProperty(value = "")
-  @JsonProperty("debitAccounting")
+	/**
+	  * Get cardAccount
+	  * @return cardAccount
+	 **/
+	@JsonProperty("cardAccount")
+	public AccountReference getCardAccount() {
+		return cardAccount;
+	}
 
-  public Boolean getDebitAccounting() {
-    return debitAccounting;
-  }
-  public void setDebitAccounting(Boolean debitAccounting) {
-    this.debitAccounting = debitAccounting;
-  }
+	public void setCardAccount(AccountReference cardAccount) {
+		this.cardAccount = cardAccount;
+	}
 
-  /**
-   **/
-  public CardAccountsTransactionsResponse200 cardTransactions(CardAccountReport cardTransactions) {
-    this.cardTransactions = cardTransactions;
-    return this;
-  }
+	public CardAccountsTransactionsResponse200 cardAccount(AccountReference cardAccount) {
+		this.cardAccount = cardAccount;
+		return this;
+	}
 
-  
-  @ApiModelProperty(value = "")
-  @JsonProperty("cardTransactions")
+	/**
+	  * Get debitAccounting
+	  * @return debitAccounting
+	 **/
+	@JsonProperty("debitAccounting")
+	public Boolean getDebitAccounting() {
+		return debitAccounting;
+	}
 
-  public CardAccountReport getCardTransactions() {
-    return cardTransactions;
-  }
-  public void setCardTransactions(CardAccountReport cardTransactions) {
-    this.cardTransactions = cardTransactions;
-  }
+	public void setDebitAccounting(Boolean debitAccounting) {
+		this.debitAccounting = debitAccounting;
+	}
 
-  /**
-   **/
-  public CardAccountsTransactionsResponse200 balances(BalanceList balances) {
-    this.balances = balances;
-    return this;
-  }
+	public CardAccountsTransactionsResponse200 debitAccounting(Boolean debitAccounting) {
+		this.debitAccounting = debitAccounting;
+		return this;
+	}
 
-  
-  @ApiModelProperty(value = "")
-  @JsonProperty("balances")
+	/**
+	  * Get cardTransactions
+	  * @return cardTransactions
+	 **/
+	@JsonProperty("cardTransactions")
+	public CardAccountReport getCardTransactions() {
+		return cardTransactions;
+	}
 
-  public BalanceList getBalances() {
-    return balances;
-  }
-  public void setBalances(BalanceList balances) {
-    this.balances = balances;
-  }
+	public void setCardTransactions(CardAccountReport cardTransactions) {
+		this.cardTransactions = cardTransactions;
+	}
 
-  /**
-   **/
-  public CardAccountsTransactionsResponse200 _links(LinksDownload _links) {
-    this._links = _links;
-    return this;
-  }
+	public CardAccountsTransactionsResponse200 cardTransactions(CardAccountReport cardTransactions) {
+		this.cardTransactions = cardTransactions;
+		return this;
+	}
 
-  
-  @ApiModelProperty(value = "")
-  @JsonProperty("_links")
+	/**
+	  * Get balances
+	  * @return balances
+	 **/
+	@JsonProperty("balances")
+	public BalanceList getBalances() {
+		return balances;
+	}
 
-  public LinksDownload getLinks() {
-    return _links;
-  }
-  public void setLinks(LinksDownload _links) {
-    this._links = _links;
-  }
+	public void setBalances(BalanceList balances) {
+		this.balances = balances;
+	}
 
+	public CardAccountsTransactionsResponse200 balances(BalanceList balances) {
+		this.balances = balances;
+		return this;
+	}
 
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
-    CardAccountsTransactionsResponse200 cardAccountsTransactionsResponse200 = (CardAccountsTransactionsResponse200) o;
-    return Objects.equals(cardAccount, cardAccountsTransactionsResponse200.cardAccount) &&
-        Objects.equals(debitAccounting, cardAccountsTransactionsResponse200.debitAccounting) &&
-        Objects.equals(cardTransactions, cardAccountsTransactionsResponse200.cardTransactions) &&
-        Objects.equals(balances, cardAccountsTransactionsResponse200.balances) &&
-        Objects.equals(_links, cardAccountsTransactionsResponse200._links);
-  }
+	/**
+	  * Get _links
+	  * @return _links
+	 **/
+	@JsonProperty("_links")
+	public LinksDownload getLinks() {
+		return _links;
+	}
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(cardAccount, debitAccounting, cardTransactions, balances, _links);
-  }
+	public void setLinks(LinksDownload _links) {
+		this._links = _links;
+	}
 
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class CardAccountsTransactionsResponse200 {\n");
-    
-    sb.append("    cardAccount: ").append(toIndentedString(cardAccount)).append("\n");
-    sb.append("    debitAccounting: ").append(toIndentedString(debitAccounting)).append("\n");
-    sb.append("    cardTransactions: ").append(toIndentedString(cardTransactions)).append("\n");
-    sb.append("    balances: ").append(toIndentedString(balances)).append("\n");
-    sb.append("    _links: ").append(toIndentedString(_links)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
+	public CardAccountsTransactionsResponse200 _links(LinksDownload _links) {
+		this._links = _links;
+		return this;
+	}
 
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(java.lang.Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
-  }
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		sb.append("class CardAccountsTransactionsResponse200 {\n");
+
+		sb.append("    cardAccount: ").append(toIndentedString(cardAccount)).append("\n");
+		sb.append("    debitAccounting: ").append(toIndentedString(debitAccounting)).append("\n");
+		sb.append("    cardTransactions: ").append(toIndentedString(cardTransactions)).append("\n");
+		sb.append("    balances: ").append(toIndentedString(balances)).append("\n");
+		sb.append("    _links: ").append(toIndentedString(_links)).append("\n");
+		sb.append("}");
+		return sb.toString();
+	}
+
+	/**
+	 * Convert the given object to string with each line indented by 4 spaces
+	 * (except the first line).
+	 */
+	private static String toIndentedString(java.lang.Object o) {
+		if (o == null) {
+			return "null";
+		}
+		return o.toString().replace("\n", "\n    ");
+	}
 }

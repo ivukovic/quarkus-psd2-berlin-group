@@ -1,73 +1,53 @@
 package io.swagger.model;
 
-import io.swagger.model.TransactionDetailsBody;
-import javax.validation.constraints.*;
-import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
 
+import org.eclipse.microprofile.openapi.annotations.media.Schema;
 
-import io.swagger.annotations.*;
-import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+public class InlineResponse2006 {
 
-public class InlineResponse2006   {
-  private @Valid TransactionDetailsBody transactionsDetails = null;
+	@Schema(required = true, description = "")
+	private TransactionDetailsBody transactionsDetails = null;
 
-  /**
-   **/
-  public InlineResponse2006 transactionsDetails(TransactionDetailsBody transactionsDetails) {
-    this.transactionsDetails = transactionsDetails;
-    return this;
-  }
+	/**
+	  * Get transactionsDetails
+	  * @return transactionsDetails
+	 **/
+	@JsonProperty("transactionsDetails")
+	@NotNull
+	public TransactionDetailsBody getTransactionsDetails() {
+		return transactionsDetails;
+	}
 
-  
-  @ApiModelProperty(required = true, value = "")
-  @JsonProperty("transactionsDetails")
-  @NotNull
+	public void setTransactionsDetails(TransactionDetailsBody transactionsDetails) {
+		this.transactionsDetails = transactionsDetails;
+	}
 
-  public TransactionDetailsBody getTransactionsDetails() {
-    return transactionsDetails;
-  }
-  public void setTransactionsDetails(TransactionDetailsBody transactionsDetails) {
-    this.transactionsDetails = transactionsDetails;
-  }
+	public InlineResponse2006 transactionsDetails(TransactionDetailsBody transactionsDetails) {
+		this.transactionsDetails = transactionsDetails;
+		return this;
+	}
 
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		sb.append("class InlineResponse2006 {\n");
 
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
-    InlineResponse2006 inlineResponse2006 = (InlineResponse2006) o;
-    return Objects.equals(transactionsDetails, inlineResponse2006.transactionsDetails);
-  }
+		sb.append("    transactionsDetails: ").append(toIndentedString(transactionsDetails)).append("\n");
+		sb.append("}");
+		return sb.toString();
+	}
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(transactionsDetails);
-  }
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class InlineResponse2006 {\n");
-    
-    sb.append("    transactionsDetails: ").append(toIndentedString(transactionsDetails)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(java.lang.Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
-  }
+	/**
+	 * Convert the given object to string with each line indented by 4 spaces
+	 * (except the first line).
+	 */
+	private static String toIndentedString(java.lang.Object o) {
+		if (o == null) {
+			return "null";
+		}
+		return o.toString().replace("\n", "\n    ");
+	}
 }

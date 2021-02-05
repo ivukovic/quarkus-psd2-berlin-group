@@ -1,118 +1,104 @@
 package io.swagger.model;
 
-import io.swagger.model.MessageCode401SBS;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
 import org.eclipse.microprofile.openapi.annotations.media.Schema;
-import javax.validation.constraints.*;
-import javax.validation.Valid;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
- * This is a data element to support the declaration of additional errors in the context of [RFC7807].
+  * This is a data element to support the declaration of additional errors in the context of [RFC7807].
  **/
-import io.swagger.annotations.*;
-import java.util.Objects;
-import com.fasterxml.jackson.annotation.JsonProperty;
 @Schema(description = "This is a data element to support the declaration of additional errors in the context of [RFC7807].")
+public class Error401SBSAdditionalErrors {
 
-public class Error401SBSAdditionalErrors   {
-  private @Valid String title = null;
-  private @Valid String detail = null;
-  private @Valid MessageCode401SBS code = null;
+	@Schema(description = "")
+	private String title = null;
 
-  /**
-   **/
-  public Error401SBSAdditionalErrors title(String title) {
-    this.title = title;
-    return this;
-  }
+	@Schema(description = "")
+	private String detail = null;
 
-  
-  @ApiModelProperty(value = "")
-  @JsonProperty("title")
- @Size(max=70)
-  public String getTitle() {
-    return title;
-  }
-  public void setTitle(String title) {
-    this.title = title;
-  }
+	@Schema(required = true, description = "")
+	private MessageCode401SBS code = null;
 
-  /**
-   **/
-  public Error401SBSAdditionalErrors detail(String detail) {
-    this.detail = detail;
-    return this;
-  }
+	/**
+	  * Get title
+	  * @return title
+	 **/
+	@JsonProperty("title")
+	@Size(max = 70)
+	public String getTitle() {
+		return title;
+	}
 
-  
-  @ApiModelProperty(value = "")
-  @JsonProperty("detail")
- @Size(max=500)
-  public String getDetail() {
-    return detail;
-  }
-  public void setDetail(String detail) {
-    this.detail = detail;
-  }
+	public void setTitle(String title) {
+		this.title = title;
+	}
 
-  /**
-   **/
-  public Error401SBSAdditionalErrors code(MessageCode401SBS code) {
-    this.code = code;
-    return this;
-  }
+	public Error401SBSAdditionalErrors title(String title) {
+		this.title = title;
+		return this;
+	}
 
-  
-  @ApiModelProperty(required = true, value = "")
-  @JsonProperty("code")
-  @NotNull
+	/**
+	  * Get detail
+	  * @return detail
+	 **/
+	@JsonProperty("detail")
+	@Size(max = 500)
+	public String getDetail() {
+		return detail;
+	}
 
-  public MessageCode401SBS getCode() {
-    return code;
-  }
-  public void setCode(MessageCode401SBS code) {
-    this.code = code;
-  }
+	public void setDetail(String detail) {
+		this.detail = detail;
+	}
 
+	public Error401SBSAdditionalErrors detail(String detail) {
+		this.detail = detail;
+		return this;
+	}
 
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
-    Error401SBSAdditionalErrors error401SBSAdditionalErrors = (Error401SBSAdditionalErrors) o;
-    return Objects.equals(title, error401SBSAdditionalErrors.title) &&
-        Objects.equals(detail, error401SBSAdditionalErrors.detail) &&
-        Objects.equals(code, error401SBSAdditionalErrors.code);
-  }
+	/**
+	  * Get code
+	  * @return code
+	 **/
+	@JsonProperty("code")
+	@NotNull
+	public MessageCode401SBS getCode() {
+		return code;
+	}
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(title, detail, code);
-  }
+	public void setCode(MessageCode401SBS code) {
+		this.code = code;
+	}
 
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class Error401SBSAdditionalErrors {\n");
-    
-    sb.append("    title: ").append(toIndentedString(title)).append("\n");
-    sb.append("    detail: ").append(toIndentedString(detail)).append("\n");
-    sb.append("    code: ").append(toIndentedString(code)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
+	public Error401SBSAdditionalErrors code(MessageCode401SBS code) {
+		this.code = code;
+		return this;
+	}
 
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(java.lang.Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
-  }
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		sb.append("class Error401SBSAdditionalErrors {\n");
+
+		sb.append("    title: ").append(toIndentedString(title)).append("\n");
+		sb.append("    detail: ").append(toIndentedString(detail)).append("\n");
+		sb.append("    code: ").append(toIndentedString(code)).append("\n");
+		sb.append("}");
+		return sb.toString();
+	}
+
+	/**
+	 * Convert the given object to string with each line indented by 4 spaces
+	 * (except the first line).
+	 */
+	private static String toIndentedString(java.lang.Object o) {
+		if (o == null) {
+			return "null";
+		}
+		return o.toString().replace("\n", "\n    ");
+	}
 }

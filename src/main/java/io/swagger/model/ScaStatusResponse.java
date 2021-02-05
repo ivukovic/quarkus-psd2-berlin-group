@@ -1,118 +1,103 @@
 package io.swagger.model;
 
-import io.swagger.model.ScaStatus;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
 import org.eclipse.microprofile.openapi.annotations.media.Schema;
-import javax.validation.constraints.*;
-import javax.validation.Valid;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
- * Body of the JSON response with SCA Status.
+  * Body of the JSON response with SCA Status.
  **/
-import io.swagger.annotations.*;
-import java.util.Objects;
-import com.fasterxml.jackson.annotation.JsonProperty;
 @Schema(description = "Body of the JSON response with SCA Status.")
+public class ScaStatusResponse implements OneOfinlineResponse2002 {
 
-public class ScaStatusResponse  implements OneOfinlineResponse2002  {
-  private @Valid ScaStatus scaStatus = null;
-  private @Valid String psuMessage = null;
-  private @Valid Boolean trustedBeneficiaryFlag = null;
+	@Schema(required = true, description = "")
+	private ScaStatus scaStatus = null;
 
-  /**
-   **/
-  public ScaStatusResponse scaStatus(ScaStatus scaStatus) {
-    this.scaStatus = scaStatus;
-    return this;
-  }
+	@Schema(description = "")
+	private String psuMessage = null;
 
-  
-  @ApiModelProperty(required = true, value = "")
-  @JsonProperty("scaStatus")
-  @NotNull
+	@Schema(description = "")
+	private Boolean trustedBeneficiaryFlag = null;
 
-  public ScaStatus getScaStatus() {
-    return scaStatus;
-  }
-  public void setScaStatus(ScaStatus scaStatus) {
-    this.scaStatus = scaStatus;
-  }
+	/**
+	  * Get scaStatus
+	  * @return scaStatus
+	 **/
+	@JsonProperty("scaStatus")
+	@NotNull
+	public ScaStatus getScaStatus() {
+		return scaStatus;
+	}
 
-  /**
-   **/
-  public ScaStatusResponse psuMessage(String psuMessage) {
-    this.psuMessage = psuMessage;
-    return this;
-  }
+	public void setScaStatus(ScaStatus scaStatus) {
+		this.scaStatus = scaStatus;
+	}
 
-  
-  @ApiModelProperty(value = "")
-  @JsonProperty("psuMessage")
- @Size(max=500)
-  public String getPsuMessage() {
-    return psuMessage;
-  }
-  public void setPsuMessage(String psuMessage) {
-    this.psuMessage = psuMessage;
-  }
+	public ScaStatusResponse scaStatus(ScaStatus scaStatus) {
+		this.scaStatus = scaStatus;
+		return this;
+	}
 
-  /**
-   **/
-  public ScaStatusResponse trustedBeneficiaryFlag(Boolean trustedBeneficiaryFlag) {
-    this.trustedBeneficiaryFlag = trustedBeneficiaryFlag;
-    return this;
-  }
+	/**
+	  * Get psuMessage
+	  * @return psuMessage
+	 **/
+	@JsonProperty("psuMessage")
+	@Size(max = 500)
+	public String getPsuMessage() {
+		return psuMessage;
+	}
 
-  
-  @ApiModelProperty(value = "")
-  @JsonProperty("trustedBeneficiaryFlag")
+	public void setPsuMessage(String psuMessage) {
+		this.psuMessage = psuMessage;
+	}
 
-  public Boolean getTrustedBeneficiaryFlag() {
-    return trustedBeneficiaryFlag;
-  }
-  public void setTrustedBeneficiaryFlag(Boolean trustedBeneficiaryFlag) {
-    this.trustedBeneficiaryFlag = trustedBeneficiaryFlag;
-  }
+	public ScaStatusResponse psuMessage(String psuMessage) {
+		this.psuMessage = psuMessage;
+		return this;
+	}
 
+	/**
+	  * Get trustedBeneficiaryFlag
+	  * @return trustedBeneficiaryFlag
+	 **/
+	@JsonProperty("trustedBeneficiaryFlag")
+	public Boolean getTrustedBeneficiaryFlag() {
+		return trustedBeneficiaryFlag;
+	}
 
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
-    ScaStatusResponse scaStatusResponse = (ScaStatusResponse) o;
-    return Objects.equals(scaStatus, scaStatusResponse.scaStatus) &&
-        Objects.equals(psuMessage, scaStatusResponse.psuMessage) &&
-        Objects.equals(trustedBeneficiaryFlag, scaStatusResponse.trustedBeneficiaryFlag);
-  }
+	public void setTrustedBeneficiaryFlag(Boolean trustedBeneficiaryFlag) {
+		this.trustedBeneficiaryFlag = trustedBeneficiaryFlag;
+	}
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(scaStatus, psuMessage, trustedBeneficiaryFlag);
-  }
+	public ScaStatusResponse trustedBeneficiaryFlag(Boolean trustedBeneficiaryFlag) {
+		this.trustedBeneficiaryFlag = trustedBeneficiaryFlag;
+		return this;
+	}
 
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class ScaStatusResponse {\n");
-    
-    sb.append("    scaStatus: ").append(toIndentedString(scaStatus)).append("\n");
-    sb.append("    psuMessage: ").append(toIndentedString(psuMessage)).append("\n");
-    sb.append("    trustedBeneficiaryFlag: ").append(toIndentedString(trustedBeneficiaryFlag)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		sb.append("class ScaStatusResponse {\n");
 
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(java.lang.Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
-  }
+		sb.append("    scaStatus: ").append(toIndentedString(scaStatus)).append("\n");
+		sb.append("    psuMessage: ").append(toIndentedString(psuMessage)).append("\n");
+		sb.append("    trustedBeneficiaryFlag: ").append(toIndentedString(trustedBeneficiaryFlag)).append("\n");
+		sb.append("}");
+		return sb.toString();
+	}
+
+	/**
+	 * Convert the given object to string with each line indented by 4 spaces
+	 * (except the first line).
+	 */
+	private static String toIndentedString(java.lang.Object o) {
+		if (o == null) {
+			return "null";
+		}
+		return o.toString().replace("\n", "\n    ");
+	}
 }

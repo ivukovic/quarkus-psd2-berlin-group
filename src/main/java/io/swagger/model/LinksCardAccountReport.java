@@ -1,179 +1,162 @@
 package io.swagger.model;
 
-import io.swagger.model.HrefType;
 import java.util.HashMap;
-import java.util.Map;
-import javax.validation.constraints.*;
-import javax.validation.Valid;
 
+import org.eclipse.microprofile.openapi.annotations.media.Schema;
 
-import io.swagger.annotations.*;
-import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+public class LinksCardAccountReport extends HashMap<String, HrefType> {
 
-public class LinksCardAccountReport extends HashMap<String, HrefType>  {
-  private @Valid HrefType cardAccount = null;
-  private @Valid HrefType card = null;
-  private @Valid HrefType first = null;
-  private @Valid HrefType next = null;
-  private @Valid HrefType previous = null;
-  private @Valid HrefType last = null;
+	@Schema(description = "")
+	private HrefType cardAccount = null;
 
-  /**
-   **/
-  public LinksCardAccountReport cardAccount(HrefType cardAccount) {
-    this.cardAccount = cardAccount;
-    return this;
-  }
+	@Schema(description = "")
+	private HrefType card = null;
 
-  
-  @ApiModelProperty(value = "")
-  @JsonProperty("cardAccount")
+	@Schema(description = "")
+	private HrefType first = null;
 
-  public HrefType getCardAccount() {
-    return cardAccount;
-  }
-  public void setCardAccount(HrefType cardAccount) {
-    this.cardAccount = cardAccount;
-  }
+	@Schema(description = "")
+	private HrefType next = null;
 
-  /**
-   **/
-  public LinksCardAccountReport card(HrefType card) {
-    this.card = card;
-    return this;
-  }
+	@Schema(description = "")
+	private HrefType previous = null;
 
-  
-  @ApiModelProperty(value = "")
-  @JsonProperty("card")
+	@Schema(description = "")
+	private HrefType last = null;
 
-  public HrefType getCard() {
-    return card;
-  }
-  public void setCard(HrefType card) {
-    this.card = card;
-  }
+	/**
+	  * Get cardAccount
+	  * @return cardAccount
+	 **/
+	@JsonProperty("cardAccount")
+	public HrefType getCardAccount() {
+		return cardAccount;
+	}
 
-  /**
-   **/
-  public LinksCardAccountReport first(HrefType first) {
-    this.first = first;
-    return this;
-  }
+	public void setCardAccount(HrefType cardAccount) {
+		this.cardAccount = cardAccount;
+	}
 
-  
-  @ApiModelProperty(value = "")
-  @JsonProperty("first")
+	public LinksCardAccountReport cardAccount(HrefType cardAccount) {
+		this.cardAccount = cardAccount;
+		return this;
+	}
 
-  public HrefType getFirst() {
-    return first;
-  }
-  public void setFirst(HrefType first) {
-    this.first = first;
-  }
+	/**
+	  * Get card
+	  * @return card
+	 **/
+	@JsonProperty("card")
+	public HrefType getCard() {
+		return card;
+	}
 
-  /**
-   **/
-  public LinksCardAccountReport next(HrefType next) {
-    this.next = next;
-    return this;
-  }
+	public void setCard(HrefType card) {
+		this.card = card;
+	}
 
-  
-  @ApiModelProperty(value = "")
-  @JsonProperty("next")
+	public LinksCardAccountReport card(HrefType card) {
+		this.card = card;
+		return this;
+	}
 
-  public HrefType getNext() {
-    return next;
-  }
-  public void setNext(HrefType next) {
-    this.next = next;
-  }
+	/**
+	  * Get first
+	  * @return first
+	 **/
+	@JsonProperty("first")
+	public HrefType getFirst() {
+		return first;
+	}
 
-  /**
-   **/
-  public LinksCardAccountReport previous(HrefType previous) {
-    this.previous = previous;
-    return this;
-  }
+	public void setFirst(HrefType first) {
+		this.first = first;
+	}
 
-  
-  @ApiModelProperty(value = "")
-  @JsonProperty("previous")
+	public LinksCardAccountReport first(HrefType first) {
+		this.first = first;
+		return this;
+	}
 
-  public HrefType getPrevious() {
-    return previous;
-  }
-  public void setPrevious(HrefType previous) {
-    this.previous = previous;
-  }
+	/**
+	  * Get next
+	  * @return next
+	 **/
+	@JsonProperty("next")
+	public HrefType getNext() {
+		return next;
+	}
 
-  /**
-   **/
-  public LinksCardAccountReport last(HrefType last) {
-    this.last = last;
-    return this;
-  }
+	public void setNext(HrefType next) {
+		this.next = next;
+	}
 
-  
-  @ApiModelProperty(value = "")
-  @JsonProperty("last")
+	public LinksCardAccountReport next(HrefType next) {
+		this.next = next;
+		return this;
+	}
 
-  public HrefType getLast() {
-    return last;
-  }
-  public void setLast(HrefType last) {
-    this.last = last;
-  }
+	/**
+	  * Get previous
+	  * @return previous
+	 **/
+	@JsonProperty("previous")
+	public HrefType getPrevious() {
+		return previous;
+	}
 
+	public void setPrevious(HrefType previous) {
+		this.previous = previous;
+	}
 
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
-    LinksCardAccountReport _linksCardAccountReport = (LinksCardAccountReport) o;
-    return Objects.equals(cardAccount, _linksCardAccountReport.cardAccount) &&
-        Objects.equals(card, _linksCardAccountReport.card) &&
-        Objects.equals(first, _linksCardAccountReport.first) &&
-        Objects.equals(next, _linksCardAccountReport.next) &&
-        Objects.equals(previous, _linksCardAccountReport.previous) &&
-        Objects.equals(last, _linksCardAccountReport.last);
-  }
+	public LinksCardAccountReport previous(HrefType previous) {
+		this.previous = previous;
+		return this;
+	}
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(cardAccount, card, first, next, previous, last);
-  }
+	/**
+	  * Get last
+	  * @return last
+	 **/
+	@JsonProperty("last")
+	public HrefType getLast() {
+		return last;
+	}
 
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class LinksCardAccountReport {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    cardAccount: ").append(toIndentedString(cardAccount)).append("\n");
-    sb.append("    card: ").append(toIndentedString(card)).append("\n");
-    sb.append("    first: ").append(toIndentedString(first)).append("\n");
-    sb.append("    next: ").append(toIndentedString(next)).append("\n");
-    sb.append("    previous: ").append(toIndentedString(previous)).append("\n");
-    sb.append("    last: ").append(toIndentedString(last)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
+	public void setLast(HrefType last) {
+		this.last = last;
+	}
 
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(java.lang.Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
-  }
+	public LinksCardAccountReport last(HrefType last) {
+		this.last = last;
+		return this;
+	}
+
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		sb.append("class LinksCardAccountReport {\n");
+		sb.append("    ").append(toIndentedString(super.toString())).append("\n");
+		sb.append("    cardAccount: ").append(toIndentedString(cardAccount)).append("\n");
+		sb.append("    card: ").append(toIndentedString(card)).append("\n");
+		sb.append("    first: ").append(toIndentedString(first)).append("\n");
+		sb.append("    next: ").append(toIndentedString(next)).append("\n");
+		sb.append("    previous: ").append(toIndentedString(previous)).append("\n");
+		sb.append("    last: ").append(toIndentedString(last)).append("\n");
+		sb.append("}");
+		return sb.toString();
+	}
+
+	/**
+	 * Convert the given object to string with each line indented by 4 spaces
+	 * (except the first line).
+	 */
+	private static String toIndentedString(java.lang.Object o) {
+		if (o == null) {
+			return "null";
+		}
+		return o.toString().replace("\n", "\n    ");
+	}
 }
