@@ -9,6 +9,8 @@ import org.eclipse.microprofile.openapi.annotations.media.Schema;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import io.swagger.model.msg.TppMessage2XX;
+
 /**
   * Body of the JSON response for a successful create signing basket request.
  **/

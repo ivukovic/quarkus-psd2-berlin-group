@@ -11,7 +11,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
   * Content of the body of a Select PSU authentication method request 
  **/
 @Schema(description = "Content of the body of a Select PSU authentication method request ")
-public class SelectPsuAuthenticationMethod implements OneOfbody, OneOfbody1, OneOfbody2, OneOfbody3, OneOfbody4, OneOfbody5, OneOfbody6, OneOfbody7 {
+public class SelectPsuAuthenticationMethod implements OneOfbody {
 
 	@Schema(required = true, description = "")
 	private String authenticationMethodId = null;

@@ -2,16 +2,6 @@ package io.swagger.api;
 
 import io.swagger.model.Authorisations;
 import io.swagger.model.Body;
-import io.swagger.model.Body1;
-import io.swagger.model.Body2;
-import io.swagger.model.Body3;
-import io.swagger.model.Error400NGPIS;
-import io.swagger.model.Error401NGPIS;
-import io.swagger.model.Error403NGPIS;
-import io.swagger.model.Error404NGPIS;
-import io.swagger.model.Error405NGPIS;
-import io.swagger.model.Error405NGPISCANC;
-import io.swagger.model.Error409NGPIS;
 import io.swagger.model.InlineResponse200;
 import io.swagger.model.InlineResponse2002;
 import io.swagger.model.PaymentInitationRequestResponse201;
@@ -20,6 +10,14 @@ import io.swagger.model.PaymentInitiationStatusResponse200Json;
 import io.swagger.model.PeriodicPaymentInitiationXmlPart2StandingorderTypeJson;
 import io.swagger.model.ScaStatusResponse;
 import io.swagger.model.StartScaprocessResponse;
+import io.swagger.model.error.Error400NGPIS;
+import io.swagger.model.error.Error401NGPIS;
+import io.swagger.model.error.Error403NGPIS;
+import io.swagger.model.error.Error404NGPIS;
+import io.swagger.model.error.Error405NGPIS;
+import io.swagger.model.error.Error405NGPISCANC;
+import io.swagger.model.error.Error409NGPIS;
+
 import java.util.UUID;
 import org.eclipse.microprofile.openapi.annotations.Operation;
 //import org.eclipse.microprofile.openapi.annotations.media.ArraySchema;
@@ -774,7 +772,7 @@ public interface PaymentInitiationServicePisApi {
 	public StartScaprocessResponse startPaymentInitiationCancellationAuthorisation(
 			@HeaderParam("X-Request-ID") UUID xRequestID, @PathParam("payment-service") String paymentService,
 			@PathParam("payment-product") String paymentProduct, @PathParam("paymentId") String paymentId,
-			@Valid Body2 body, @HeaderParam("Digest") String digest, @HeaderParam("Signature") String signature,
+			@Valid Body body, @HeaderParam("Digest") String digest, @HeaderParam("Signature") String signature,
 			@HeaderParam("TPP-Signature-Certificate") byte[] tpPSignatureCertificate,
 			@HeaderParam("PSU-ID") String PSU_ID, @HeaderParam("PSU-ID-Type") String psUIDType,
 			@HeaderParam("PSU-Corporate-ID") String psUCorporateID,
@@ -846,7 +844,7 @@ public interface PaymentInitiationServicePisApi {
 	public InlineResponse2002 updatePaymentCancellationPsuData(@HeaderParam("X-Request-ID") UUID xRequestID,
 			@PathParam("payment-service") String paymentService, @PathParam("payment-product") String paymentProduct,
 			@PathParam("paymentId") String paymentId, @PathParam("authorisationId") String authorisationId,
-			@Valid Body3 body, @HeaderParam("Digest") String digest, @HeaderParam("Signature") String signature,
+			@Valid Body body, @HeaderParam("Digest") String digest, @HeaderParam("Signature") String signature,
 			@HeaderParam("TPP-Signature-Certificate") byte[] tpPSignatureCertificate,
 			@HeaderParam("PSU-ID") String PSU_ID, @HeaderParam("PSU-ID-Type") String psUIDType,
 			@HeaderParam("PSU-Corporate-ID") String psUCorporateID,
@@ -911,7 +909,7 @@ public interface PaymentInitiationServicePisApi {
 	public InlineResponse2002 updatePaymentPsuData(@HeaderParam("X-Request-ID") UUID xRequestID,
 			@PathParam("payment-service") String paymentService, @PathParam("payment-product") String paymentProduct,
 			@PathParam("paymentId") String paymentId, @PathParam("authorisationId") String authorisationId,
-			@Valid Body1 body, @HeaderParam("Digest") String digest, @HeaderParam("Signature") String signature,
+			@Valid Body body, @HeaderParam("Digest") String digest, @HeaderParam("Signature") String signature,
 			@HeaderParam("TPP-Signature-Certificate") byte[] tpPSignatureCertificate,
 			@HeaderParam("PSU-ID") String PSU_ID, @HeaderParam("PSU-ID-Type") String psUIDType,
 			@HeaderParam("PSU-Corporate-ID") String psUCorporateID,

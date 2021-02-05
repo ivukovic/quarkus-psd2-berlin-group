@@ -23,14 +23,7 @@ import org.eclipse.microprofile.openapi.annotations.tags.Tag;
 import org.eclipse.microprofile.openapi.annotations.tags.Tags;
 
 import io.swagger.model.Authorisations;
-import io.swagger.model.Body6;
-import io.swagger.model.Body7;
-import io.swagger.model.Error400NGSBS;
-import io.swagger.model.Error401NGSBS;
-import io.swagger.model.Error403NGSBS;
-import io.swagger.model.Error404NGSBS;
-import io.swagger.model.Error405NGSBS;
-import io.swagger.model.Error409NGSBS;
+import io.swagger.model.Body;
 import io.swagger.model.InlineResponse2002;
 import io.swagger.model.ScaStatusResponse;
 import io.swagger.model.SigningBasket;
@@ -38,6 +31,12 @@ import io.swagger.model.SigningBasketResponse200;
 import io.swagger.model.SigningBasketResponse201;
 import io.swagger.model.SigningBasketStatusResponse200;
 import io.swagger.model.StartScaprocessResponse;
+import io.swagger.model.error.Error400NGSBS;
+import io.swagger.model.error.Error401NGSBS;
+import io.swagger.model.error.Error403NGSBS;
+import io.swagger.model.error.Error404NGSBS;
+import io.swagger.model.error.Error405NGSBS;
+import io.swagger.model.error.Error409NGSBS;
 
 /**
  * NextGenPSD2 XS2A Framework
@@ -389,7 +388,7 @@ public interface SigningBasketsSbsApi {
 			@APIResponse(responseCode = "500", description = "Internal Server Error"),
 			@APIResponse(responseCode = "503", description = "Service Unavailable") })
 	public StartScaprocessResponse startSigningBasketAuthorisation(@HeaderParam("X-Request-ID") UUID xRequestID,
-			@PathParam("basketId") String basketId, @Valid Body6 body, @HeaderParam("Digest") String digest,
+			@PathParam("basketId") String basketId, @Valid Body body, @HeaderParam("Digest") String digest,
 			@HeaderParam("Signature") String signature,
 			@HeaderParam("TPP-Signature-Certificate") byte[] tpPSignatureCertificate,
 			@HeaderParam("PSU-ID") String PSU_ID, @HeaderParam("PSU-ID-Type") String psUIDType,
@@ -460,7 +459,7 @@ public interface SigningBasketsSbsApi {
 			@APIResponse(responseCode = "503", description = "Service Unavailable") })
 	public InlineResponse2002 updateSigningBasketPsuData(@HeaderParam("X-Request-ID") UUID xRequestID,
 			@PathParam("basketId") String basketId, @PathParam("authorisationId") String authorisationId,
-			@Valid Body7 body, @HeaderParam("Digest") String digest, @HeaderParam("Signature") String signature,
+			@Valid Body body, @HeaderParam("Digest") String digest, @HeaderParam("Signature") String signature,
 			@HeaderParam("TPP-Signature-Certificate") byte[] tpPSignatureCertificate,
 			@HeaderParam("PSU-ID") String PSU_ID, @HeaderParam("PSU-ID-Type") String psUIDType,
 			@HeaderParam("PSU-Corporate-ID") String psUCorporateID,

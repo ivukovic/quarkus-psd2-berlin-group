@@ -10,7 +10,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
   * Content of the body of a Update PSU authentication request  Password subfield is used. 
  **/
 @Schema(description = "Content of the body of a Update PSU authentication request  Password subfield is used. ")
-public class UpdatePsuAuthentication implements OneOfbody, OneOfbody1, OneOfbody2, OneOfbody3, OneOfbody4, OneOfbody5, OneOfbody6, OneOfbody7 {
+public class UpdatePsuAuthentication implements OneOfbody{
 
 	@Schema(required = true, description = "")
 	private PsuData psuData = null;

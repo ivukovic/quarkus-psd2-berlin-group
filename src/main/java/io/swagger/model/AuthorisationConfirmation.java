@@ -10,7 +10,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
   * Content of the body of an authorisation confirmation request 
  **/
 @Schema(description = "Content of the body of an authorisation confirmation request ")
-public class AuthorisationConfirmation implements OneOfbody1, OneOfbody3, OneOfbody5, OneOfbody7 {
+public class AuthorisationConfirmation implements OneOfbody {
 
 	@Schema(required = true, description = "Confirmation Code as retrieved by the TPP from the redirect based SCA process.")
 	/**

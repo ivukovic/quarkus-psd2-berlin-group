@@ -10,7 +10,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
   * Content of the body of a transaction authorisation request 
  **/
 @Schema(description = "Content of the body of a transaction authorisation request ")
-public class TransactionAuthorisation implements OneOfbody, OneOfbody1, OneOfbody2, OneOfbody3, OneOfbody4, OneOfbody5, OneOfbody6, OneOfbody7 {
+public class TransactionAuthorisation implements OneOfbody{
 
 	@Schema(required = true, description = "")
 	private String scaAuthenticationData = null;

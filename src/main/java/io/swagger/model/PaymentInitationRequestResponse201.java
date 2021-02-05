@@ -9,6 +9,8 @@ import org.eclipse.microprofile.openapi.annotations.media.Schema;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import io.swagger.model.msg.TppMessage2XX;
+
 /**
   * Body of the response for a successful payment initiation request.
  **/

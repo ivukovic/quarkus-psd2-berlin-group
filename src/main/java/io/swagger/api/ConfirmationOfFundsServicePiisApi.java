@@ -19,13 +19,13 @@ import org.eclipse.microprofile.openapi.annotations.tags.Tag;
 import org.eclipse.microprofile.openapi.annotations.tags.Tags;
 
 import io.swagger.model.ConfirmationOfFunds;
-import io.swagger.model.Error400NGAIS;
-import io.swagger.model.Error401NGPIIS;
-import io.swagger.model.Error403NGPIIS;
-import io.swagger.model.Error404NGPIIS;
-import io.swagger.model.Error405NGPIIS;
-import io.swagger.model.Error409NGPIIS;
 import io.swagger.model.InlineResponse2008;
+import io.swagger.model.error.Error400NGAIS;
+import io.swagger.model.error.Error401NGPIIS;
+import io.swagger.model.error.Error403NGPIIS;
+import io.swagger.model.error.Error404NGPIIS;
+import io.swagger.model.error.Error405NGPIIS;
+import io.swagger.model.error.Error409NGPIIS;
 
 /**
  * NextGenPSD2 XS2A Framework

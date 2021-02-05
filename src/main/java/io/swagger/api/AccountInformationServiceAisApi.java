@@ -27,22 +27,13 @@ import org.eclipse.microprofile.openapi.annotations.tags.Tags;
 
 import io.swagger.model.AccountList;
 import io.swagger.model.Authorisations;
-import io.swagger.model.Body4;
-import io.swagger.model.Body5;
+import io.swagger.model.Body;
 import io.swagger.model.CardAccountList;
 import io.swagger.model.CardAccountsTransactionsResponse200;
 import io.swagger.model.ConsentInformationResponse200Json;
 import io.swagger.model.ConsentStatusResponse200;
 import io.swagger.model.Consents;
 import io.swagger.model.ConsentsResponse201;
-import io.swagger.model.Error400NGAIS;
-import io.swagger.model.Error401NGAIS;
-import io.swagger.model.Error403NGAIS;
-import io.swagger.model.Error404NGAIS;
-import io.swagger.model.Error405NGAIS;
-import io.swagger.model.Error406NGAIS;
-import io.swagger.model.Error409NGAIS;
-import io.swagger.model.Error429NGAIS;
 import io.swagger.model.InlineResponse2002;
 import io.swagger.model.InlineResponse2003;
 import io.swagger.model.InlineResponse2006;
@@ -52,6 +43,14 @@ import io.swagger.model.ReadCardAccountBalanceResponse200;
 import io.swagger.model.ScaStatusResponse;
 import io.swagger.model.StartScaprocessResponse;
 import io.swagger.model.TransactionsResponse200Json;
+import io.swagger.model.error.Error400NGAIS;
+import io.swagger.model.error.Error401NGAIS;
+import io.swagger.model.error.Error403NGAIS;
+import io.swagger.model.error.Error404NGAIS;
+import io.swagger.model.error.Error405NGAIS;
+import io.swagger.model.error.Error406NGAIS;
+import io.swagger.model.error.Error409NGAIS;
+import io.swagger.model.error.Error429NGAIS;
 
 /**
  * NextGenPSD2 XS2A Framework
@@ -798,7 +797,7 @@ public interface AccountInformationServiceAisApi {
 			@APIResponse(responseCode = "500", description = "Internal Server Error"),
 			@APIResponse(responseCode = "503", description = "Service Unavailable") })
 	public StartScaprocessResponse startConsentAuthorisation(@HeaderParam("X-Request-ID") UUID xRequestID,
-			@PathParam("consentId") String consentId, @Valid Body4 body, @HeaderParam("Digest") String digest,
+			@PathParam("consentId") String consentId, @Valid Body body, @HeaderParam("Digest") String digest,
 			@HeaderParam("Signature") String signature,
 			@HeaderParam("TPP-Signature-Certificate") byte[] tpPSignatureCertificate,
 			@HeaderParam("PSU-ID") String PSU_ID, @HeaderParam("PSU-ID-Type") String psUIDType,
@@ -871,7 +870,7 @@ public interface AccountInformationServiceAisApi {
 			@APIResponse(responseCode = "503", description = "Service Unavailable") })
 	public InlineResponse2002 updateConsentsPsuData(@HeaderParam("X-Request-ID") UUID xRequestID,
 			@PathParam("consentId") String consentId, @PathParam("authorisationId") String authorisationId,
-			@Valid Body5 body, @HeaderParam("Digest") String digest, @HeaderParam("Signature") String signature,
+			@Valid Body body, @HeaderParam("Digest") String digest, @HeaderParam("Signature") String signature,
 			@HeaderParam("TPP-Signature-Certificate") byte[] tpPSignatureCertificate,
 			@HeaderParam("PSU-ID") String PSU_ID, @HeaderParam("PSU-ID-Type") String psUIDType,
 			@HeaderParam("PSU-Corporate-ID") String psUCorporateID,
