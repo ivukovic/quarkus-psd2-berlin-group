@@ -1,4 +1,4 @@
-package hr.igvu.psd2.berlin.api;
+package hr.igvu.psd2.berlin.api.rersources;
 
 import java.time.LocalDate;
 import java.util.UUID;
